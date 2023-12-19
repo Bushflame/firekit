@@ -1,6 +1,6 @@
 <script>
 	import { page } from '$app/stores';
-	import authStore from '$lib/stores/auth.store';
+	//import authStore from '$lib/stores/auth.store';
 	import { logout } from '$lib/firebase/auth.client';
 	import messagesStore from '$lib/stores/messages.store';
 	import { goto } from '$app/navigation';
