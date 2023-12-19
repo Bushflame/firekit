@@ -4,16 +4,19 @@ import { redirect } from '@sveltejs/kit';
 /** @type {import('@sveltejs/kit').Handle} */
 
 export async function handle({ event, resolve }) {
-	const protectRoutes = ['/add', '/edit', '/profile', '/dashboard'];
+	const protectRoutes = ['/create', '/edit', '/profile', '/dashboard'];
 
-	const guestRoutes = ['/','/login', '/signup', '/forgot-password','/results'];
+	const guestRoutes = ['/login', '/signup', '/forgot-password', '/results'];
 
 	try {
+		// @ts-ignore
 		event.locals.user = await getFirebaseUser(event.cookies.get('jwt'));
 	} catch (error) {
+		// @ts-ignore
 		event.locals.user = null;
 	}
 
+	// @ts-ignore
 	const user = event.locals?.user;
 	const url = event.url;
 

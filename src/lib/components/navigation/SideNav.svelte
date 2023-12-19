@@ -29,7 +29,11 @@
 					<a href="/" class:active={$page.url.pathname === '/'}>Home</a>
 				</li>
 				<li>
-					<a class:active={$page.url.pathname === '/dashboard'} href="/dashboard"  data-sveltekit-preload-data='off'>Dshboard</a>
+					<a
+						class:active={$page.url.pathname === '/dashboard'}
+						href="/dashboard"
+						data-sveltekit-preload-data="off">Dshboard</a
+					>
 				</li>
 				<li>
 					<a href="/about" class:active={$page.url.pathname === '/about'}>About</a>

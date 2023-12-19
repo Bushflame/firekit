@@ -6,9 +6,14 @@
 	import '$lib/firebase/firebase.client';
 	import { onMount } from 'svelte';
 	import { sendJWTToken } from '$lib/firebase/auth.client';
+	import authStore from '$lib/stores/auth.store.js'
+	import { onDestroy } from 'svelte';
 	/**
 	 * @type {string | number | NodeJS.Timeout | undefined}
 	 */
+	 export let data;
+	let isLoggedIn = data.isLoggedIn;
+	$: isLoggedIn = $authStore.isActive ? $authStore.isLoggedIn : data.isLoggedIn;
 	let timerId;
 	async function sendServerToken() {
 		try {
@@ -22,9 +27,12 @@
 	onMount(async () => {
 		try {
 			await sendServerToken();
-			timerId = setInterval(async () => {
-				await sendServerToken();
-			}, 1000 * 10 * 60);
+			timerId = setInterval(
+				async () => {
+					await sendServerToken();
+				},
+				1000 * 10 * 60
+			);
 		} catch (e) {
 			console.log(e);
 			messagesStore.showError();
@@ -42,7 +50,7 @@
 <!-- <h2>Pathname: {$page.url.pathname}</h2> -->
 <main>
 	<div class="main-frame">
-		<Nav />
+		<Nav {isLoggedIn}/>
 
 		{#if $messagesStore.show}
 			<div class="row mt-3">

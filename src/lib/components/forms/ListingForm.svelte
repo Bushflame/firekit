@@ -5,6 +5,7 @@
 	 */
 	export let form;
 	let submitting = false;
+
 	$: if (form && form.success === false) {
 		submitting = false;
 	}
@@ -22,13 +23,13 @@
 <div class="authframe">
 	<form on:submit={submitForm} use:enhance enctype="multipart/form-data" method="POST">
 		<div class="mb-3">
-			<label for="title" class="form-label">Listing Title</label>
+			<label for="title_1a" class="form-label">Listing Title</label>
 			<input
 				type="text"
-				name="title"
-				id="title"
+				name="title_1a"
+				id="title_1a"
 				class="form-control"
-				value={form?.title || ''}
+				value={form?.title_1a || ''}
 				class:is-invalid={form?.error_title}
 				placeholder="Title"
 			/>
@@ -38,13 +39,13 @@
 		</div>
 
 		<div class="mb-3">
-			<label class="form-label" for="description">Description</label>
+			<label class="form-label" for="description_1a">Description</label>
 			<textarea
 				class="form-control"
 				placeholder="Listing Description here"
-				id="description"
-				name="description"
-				value={form?.description || ''}
+				id="description_1a"
+				name="description_1a"
+				value={form?.description_1a || ''}
 				class:is-invalid={form?.error_description}
 				style="height: 100px"
 			/>
@@ -56,7 +57,7 @@
 			<label for="img_1a" class="form-label"
 				>Image 1
 				<input
-					class="form-control form-control-lg"
+					class="form-control"
 					id="img_1a"
 					accept="image/*"
 					name="img_1a"

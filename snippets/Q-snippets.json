@@ -1,0 +1,113 @@
+{
+	"svelte script and style tags": {
+		"prefix": "qq",
+		"body": [
+			"<script>",
+			"$0",
+			"</script>",
+			"",
+			"<template lang=\"pug\">",
+			"",
+			"</template>",
+			"",
+			"<style lang=\"stylus\">",
+			"",
+			"</style>"
+		],
+		"description": "svelte script and style tags"
+	},
+
+	"async try catch": {
+		"prefix": "qw",
+		"body": ["async function $0 (){", " try{", "", "}catch (error){", "            ", " }", "}"],
+		"description": "async try catch"
+	},
+	"const async try catch": {
+		"prefix": "qe",
+		"body": ["const $0 = async () => {", "  try {", "  } catch (error) {}", "};"],
+		"description": "const async try catch"
+	},
+
+	"if": {
+		"prefix": "qr",
+		"body": ["if($0){", "    ", "}"],
+		"description": "if"
+	},
+	"if else": {
+		"prefix": "qt",
+		"body": ["if ($0) {", "    ", "} else {", "    ", "}"],
+		"description": "if else"
+	},
+	"if else if": {
+		"prefix": "qy",
+		"body": ["if($0){", "", "}else if(){", "", "}else{", "", "}"],
+		"description": "if else if"
+	},
+
+	"import": {
+		"prefix": "qu",
+		"body": ["", "import {$0} from '$'"],
+		"description": "import"
+	},
+	"console.log": {
+		"prefix": "qi",
+		"body": ["console.log('$0',)"],
+		"description": "console.log"
+	},
+	"load": {
+		"prefix": "qo",
+		"body": [
+			"/** @type {import('./$types').PageLoad} */",
+			"export async function load() {",
+			"    ",
+			"}"
+		],
+		"description": "load"
+	},
+	"sveltekit if": {
+		"prefix": "q1",
+		"body": ["{#if $0}", "", "{/if}"],
+		"description": "svelte if"
+	},
+	"sveltekit if else": {
+		"prefix": "q2",
+		"body": ["{#if $0}", "", "{:else}", "", "{/if}"],
+		"description": "sveltekit if else"
+	},
+	"sveltekit if else if else": {
+		"prefix": "q3",
+		"body": ["{#if $0}", "", "{:else if}", "", "{:else}", "", "{/if}"],
+		"description": "sveltekit if else if else"
+	},
+
+	"sveltekit each": {
+		"prefix": "q4",
+		"body": ["{#each $0 as y}", "", "{/each}"],
+		"description": "sveltekit each"
+	},
+	"load function": {
+		"prefix": "qu",
+		"body": [
+			"/** @type {import('./$types').PageLoad} */",
+			"export async function load() {",
+			" ",
+			"}"
+		],
+		"description": "load function (from kit)"
+	},
+	"try catch": {
+		"prefix": "qp",
+		"body": ["try{", " ", " }catch (error){", "                ", "}"],
+		"description": "try catch"
+	},
+	"svelte head": {
+		"prefix": "q5",
+		"body": ["<svelte:head>", "<title>$0</title>", "</svelte:head>"],
+		"description": "svelte head"
+	},
+	"on mount": {
+		"prefix": "q5",
+		"body": ["import {onMount} from 'svelte'", "onMount(()=>{", "$0", "})"],
+		"description": "on mount"
+	}
+}
