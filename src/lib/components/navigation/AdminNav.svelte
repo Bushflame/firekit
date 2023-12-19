@@ -8,7 +8,7 @@
 	/**
 	 * @type {any}
 	 */
-	 export let isLoggedIn;
+	 //export let isLoggedIn;
 	async function onLogout() {
 		try {
 			await logout();
@@ -18,64 +18,45 @@
 			messagesStore.showError();
 		}
 	}
+	//$page.url.pathname
 </script>
-{#if $page.url.pathname != '/dashboard' }
 <NavWrap>
 	<li>
 		<a href="/">
 			<h3 class="brand">SvelteFire</h3>
 		</a>
 	</li>
-	{#if isLoggedIn}
-	<li>
-		<a href="/" class:active={$page.url.pathname == '/'}>Home</a>
-	</li>
-		<li>
+        <li>
+			<a href="/" class:active={$page.url.pathname === '/'}>admin nav Home</a>
+		</li>
+        <li>
 			<a
 				href="/dashboard"
 				class:active={$page.url.pathname == '/dashboard'}>Dashboard</a
 			>
 		</li>
-		<!-- <li>
+		<li>
 			<a
 				href="/create"
 				class:active={$page.url.pathname == '/create'}>Create</a
 			>
-		</li> -->
-		<li>
-			<a href="/about" class:active={$page.url.pathname === '/about'}>About</a>
 		</li>
-		<li>
-			<a href="/contact" class:active={$page.url.pathname === '/contact'}>Contact</a>
+        <li>
+			<a
+				href="/edit"
+				class:active={$page.url.pathname == '/edit'}>Edit</a
+			>
 		</li>
+
 		<li>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<!-- svelte-ignore a11y-no-static-element-interactions -->
 			<span on:click={onLogout} class="nav-link logout-btn">Logout</span>
 		</li>
 
-	{:else}
-		<li>
-			<a href="/" class:active={$page.url.pathname == '/'}>Home</a>
-		</li>
-		<li>
-			<a href="/about" class:active={$page.url.pathname === '/about'}>About</a>
-		</li>
-		<li>
-			<a href="/login" class:active={$page.url.pathname === '/login'}>Login</a>
-		</li>
-		<li>
-			<a href="/signup" class:active={$page.url.pathname === '/signup'}>Sign Up</a>
-		</li>
-		<li>
-			<a href="/contact" class:active={$page.url.pathname === '/contact'}>Contact</a>
-		</li>
-	{/if}
 </NavWrap>
-{/if}
 
 <style lang="stylus">
-// active link
 .active 
 	color var(--primary)
 
