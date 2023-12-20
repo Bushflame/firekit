@@ -1,5 +1,6 @@
 <script>
 	import { page } from '$app/stores';
+	import {userKey} from '$lib/stores/store'
 	//import authStore from '$lib/stores/auth.store';
 	import { logout } from '$lib/firebase/auth.client';
 	import messagesStore from '$lib/stores/messages.store';
@@ -18,21 +19,24 @@
 			messagesStore.showError();
 		}
 	}
-	//$page.url.pathname
+// uid needs to be dynamic
+// used for my page & edit
+	let uid = 'ljSNvobkTzgxk8xmuda5'
+	console.log('params ',$page.url.pathname)
 </script>
 <NavWrap>
 	<li>
 		<a href="/">
-			<h3 class="brand">SvelteFire</h3>
+			<h3 class="brand">Firekit Admin</h3>
 		</a>
 	</li>
         <li>
-			<a href="/" class:active={$page.url.pathname === '/'}>admin nav Home</a>
+			<a href="/" class:active={$page.url.pathname === '/'}> Home</a>
 		</li>
         <li>
 			<a
 				href="/dashboard"
-				class:active={$page.url.pathname == '/dashboard'}>Dashboard</a
+				class:active={$page.url.pathname === '/dashboard'}>Dashboard</a
 			>
 		</li>
 		<li>
@@ -43,8 +47,14 @@
 		</li>
         <li>
 			<a
-				href="/edit"
+				href={`/edit/${$userKey}`}
 				class:active={$page.url.pathname == '/edit'}>Edit</a
+			>
+		</li>
+		<li>
+			<a
+				href={`/my-page/${$userKey}`}
+				class:active={$page.url.pathname == '/my-page'}>My Page</a
 			>
 		</li>
 

@@ -1,6 +1,6 @@
 <script>
 	import { goto } from '$app/navigation';
-    import listing from '$lib/components/listings/Listing.svelte';
+    import Listing from '$lib/components/listings/Listing.svelte';
 	import messagesStore from '$lib/stores/messages.store';
 	export let data;
 	async function back() {

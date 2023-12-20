@@ -1,6 +1,8 @@
 import { db } from '$lib/firebase/firebase.server';
 import admin from 'firebase-admin';
 import { saveFileToBucket } from './firestorage.server';
+// testing set doc
+import { doc, setDoc } from "firebase/firestore"; 
 /**
  * @param {{ title: any; description: any; img_1a: any; }} listing
  * @param {any} userId
@@ -25,7 +27,10 @@ export async function addListing(listing, userId) {
 	return listingRef.id;
 }
 
+
 //----------------------------EDIT-----------------------------------------
+//only gets doc when id is pasted into browser
+// need to get doc id before this request
 export async function editListing(id, form, userId) {
 	const listingRef = await db.collection('listings').doc(id);
 
@@ -97,12 +102,13 @@ export async function getListings() {
 
 //-------------------   dashboard data---------------------
 export async function getAdminListing() {
+
 	/**
-	 * @type {firestore.DocumentData[]}
+	 * @type {{ uid: string; userid: any; }[]}
 	 */
-	let all = [];
+	let userKeys = [];
 	const listingsRef = db.collection('listings');
-	const snapshot = await listingsRef.where('title', '==', 'Ardvark').get();
+	const snapshot = await listingsRef.get();
 
 	//get user(to match dashboard user) and doc ids (to create url to edit page + my listing)
 	snapshot.forEach((doc) => {
@@ -114,9 +120,9 @@ export async function getAdminListing() {
 		};
 		console.log('doc.data', doc.data);
 		temp.push(doc.data());
-		all.push(getUid);
+		userKeys.push(getUid);
 	});
 	return {
-		all
+		userKeys
 	};
 }

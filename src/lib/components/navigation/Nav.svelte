@@ -23,7 +23,7 @@
 <NavWrap>
 	<li>
 		<a href="/">
-			<h3 class="brand">SvelteFire</h3>
+			<h3 class="brand">Firekit</h3>
 		</a>
 	</li>
 	{#if isLoggedIn}

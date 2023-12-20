@@ -2,6 +2,9 @@ import { editListing, getListing } from '$lib/firebase/database.server';
 import { error, fail, redirect } from '@sveltejs/kit';
 import validateListing from '$lib/validators/listing.validator.js';
 
+
+
+//let params.id = '0AB513KasEnORd1SFpPD'
 // @ts-ignore
 export async function load({ params, locals }) {
 	const listing = await getListing(params.id);
@@ -17,10 +20,13 @@ export async function load({ params, locals }) {
 
 	return { listing };
 }
-
+//0AB513KasEnORd1SFpPD dave@boxed email password
+// /ljSNvobkTzgxk8xmuda5
 export const actions = {
 	// @ts-ignore
 	default: async ({ request, locals, params }) => {
+		//firstly get doc id then pass to this call???
+		//begin by hard coding the doc id - to test
 		const listing = await getListing(params.id);
 
 		// @ts-ignore
