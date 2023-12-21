@@ -3,7 +3,8 @@
 	/**
 	 * @type {any}
 	 */
-	export let products = [];
+	export let slides = [];
+
 	/**
 	 * @type {number}
 	 */
@@ -21,7 +22,7 @@
 			}}>prev</button
 		>
 	{/if}
-	{#if counter < products.length - 1}
+	{#if counter < slides.length - 1}
 		<button
 			class="next counter-btn"
 			on:click={() => {
@@ -30,16 +31,17 @@
 		>
 	{/if}
 
-	<p class="show-count">Showing {counter + 1} of {products.length} results</p>
+	<p class="show-count">Showing {counter + 1} of {slides.length} results</p>
 	<article class="card">
-		{#each products as product, index}
+		{#each slides as slide, index}
 			{#if index == counter}
 				<div class="card-liner" transition:fly={{ x: -300, duration: 500 }}>
-					<img src={product[0]} alt="" />
+					<img src={slide.img_1a} alt="" />
 					<div class="card-body">
-						<h1>{product[1]}</h1>
-						<p>{product[2]}</p>
-						<a href={`/listing/${product[3]}`}>View</a>
+						<h1>{slide.title_1a} </h1>
+						<p>{slide.description_1a}</p>
+                        <!-- needs to be the doc id -->
+						<a href={`/listing/${slide.id}`} data-sveltekit-preload-data="off">View</a>
 					</div>
 				</div>
 			{/if}

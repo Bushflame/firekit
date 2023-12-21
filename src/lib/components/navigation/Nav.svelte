@@ -30,18 +30,16 @@
 	<li>
 		<a href="/" class:active={$page.url.pathname == '/'}>Home</a>
 	</li>
+	<li>
+		<a href="/search" class:active={$page.url.pathname === '/search'}>Search</a>
+	</li>
 		<li>
 			<a
 				href="/dashboard"
 				class:active={$page.url.pathname == '/dashboard'}>Dashboard</a
 			>
 		</li>
-		<!-- <li>
-			<a
-				href="/create"
-				class:active={$page.url.pathname == '/create'}>Create</a
-			>
-		</li> -->
+
 		<li>
 			<a href="/about" class:active={$page.url.pathname === '/about'}>About</a>
 		</li>
@@ -57,6 +55,9 @@
 	{:else}
 		<li>
 			<a href="/" class:active={$page.url.pathname == '/'}>Home</a>
+		</li>
+		<li>
+			<a href="/search" class:active={$page.url.pathname === '/search'}>Search</a>
 		</li>
 		<li>
 			<a href="/about" class:active={$page.url.pathname === '/about'}>About</a>

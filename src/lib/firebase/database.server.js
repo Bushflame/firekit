@@ -56,7 +56,8 @@ export async function getListing(id) {
 	}
 }
 
-//  -------------GET ALL LISTINGS----(only for getting titles. Used in search------------------------------------------
+//  -------------GET ALL LISTINGS----(only for getting titles & doc.id's. Used in search------------------------------------------
+//*******************change to getListingTitles - here + ???**************** */
 export async function getListings() {
 	/**
 	 * @type {firestore.DocumentData[]}
@@ -72,31 +73,68 @@ export async function getListings() {
 		};
 		temp.push(doc.data(), getUid);
 		all.push(temp);
+		console.log('from db.server', all)
 	});
 	return {
 		all
 	};
 }
 //------------------- get by titles--------------------------------
-// export async function getByTitle() {
-// let title_q	= 'Ardvark'
-// let res = []
-// res.push(title_q)
-// const colRef = db.collection('listings');
-// const snapshot = await colRef.where('title_1a', '==', title_q).get();
-// if (snapshot.empty) {
-//   console.log('No matching documents.');
-//   return;
-// }  
-// console.log('in fb func',)
-// snapshot.forEach(doc => {
-//   console.log('doc data',  doc.id, '=>', doc.data());
-//   res.push(doc.data())
-// });
-// return {
-// 	// @ts-ignore
-// 	res
-// }
+// gets the titles for initiating the search
+export async function getListingTitles() {
+	/**
+	 * @type {{ uid: string; userid: any; }[]}
+	 */
+	let listingTitles = [];
+	const listingsRef = db.collection('listings');
+	const snapshot = await listingsRef.get();
+	let temp = [];
+	snapshot.forEach((doc) => {
+
+		let getData = {
+			title: doc.data().title_1a
+		};
+		temp.push(getData.title)
+		//console.log('db.server get data temp',temp);
+		//temp.push(doc.data());
+		listingTitles.push(getData.title);
+		console.log('db.server get data',listingTitles);
+	});
+	return {
+		listingTitles
+	};
+}
+
+
+
+
+
+
+
+
+//---------------------get frst pages------------------------------
+// export async function getListingTitles() {
+
+// 	/**
+// 	 * @type {{ uid: string; userid: any; }[]}
+// 	 */
+// 	let listingTitles = [];
+// 	const listingsRef = db.collection('listings');
+// 	const snapshot = await listingsRef.get();
+
+// 	snapshot.forEach((doc) => {
+// 		//let temp = [];
+// 		let getData = {
+// 			uid: doc.id,
+// 			title: doc.data().title_1a
+// 		};
+// 		console.log('db.server get data',getData);
+// 		//temp.push(doc.data());
+// 		listingTitles.push(getData);
+// 	});
+// 	return {
+// 		listingTitles
+// 	};
 // }
 
 
@@ -112,13 +150,12 @@ export async function getAdminListing() {
 
 	//get user(to match dashboard user) and doc ids (to create url to edit page + my listing)
 	snapshot.forEach((doc) => {
-		console.log('snap count', doc);
 		let temp = [];
 		let getUid = {
 			uid: doc.id,
 			userid: doc.data().user_id
 		};
-		console.log('doc.data', doc.data);
+		//console.log('doc.data', doc.data);
 		temp.push(doc.data());
 		userKeys.push(getUid);
 	});

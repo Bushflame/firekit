@@ -48,13 +48,13 @@
         <li>
 			<a
 				href={`/edit/${$userKey}`}
-				class:active={$page.url.pathname == '/edit'}>Edit</a
+				class:active={$page.url.pathname == `/edit/${$userKey}`}>Edit</a
 			>
 		</li>
 		<li>
 			<a
 				href={`/my-page/${$userKey}`}
-				class:active={$page.url.pathname == '/my-page'}>My Page</a
+				class:active={$page.url.pathname == `/my-page/${$userKey}`}>My Page</a
 			>
 		</li>
 
