@@ -11,13 +11,15 @@
 	</button>
 {/if}
 {#if open}
-	<div class="navwrap" transition:fly={{ x: -300, duration: 300 }}>
+	<!-- svelte-ignore a11y-no-static-element-interactions -->
+	<div class="navwrap" transition:fly={{ x: -300, duration: 300 }} 
+	>
 		<button on:click={() => (open = false)} class="burger flex flex-col space-around">
 			<span />
 			<span />
 			<span />
 		</button>
-		<nav>
+		<nav data-sveltekit-reload>
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 			<ul

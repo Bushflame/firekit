@@ -1,4 +1,6 @@
 <script>
+	import {goto} from '$app/navigation'
+	import {getByTitles} from '$lib/stores/store'
 	export let data;
 	let listing = data.listing;
 </script>
@@ -13,6 +15,8 @@
 	<div class="page-item">
 		<p>{listing.description_1a}</p>
 	</div>
+	<a href={`/search`} data-sveltekit-reload>Back</a>
+
 </div>
 <svelte:head>
 	<title>FireKit - {listing.title_1a}</title>
