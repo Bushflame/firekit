@@ -6,12 +6,12 @@
 	import '$lib/firebase/firebase.client';
 	import { onMount } from 'svelte';
 	import { sendJWTToken } from '$lib/firebase/auth.client';
-	import authStore from '$lib/stores/auth.store.js'
+	import authStore from '$lib/stores/auth.store.js';
 	import { onDestroy } from 'svelte';
 	/**
 	 * @type {string | number | NodeJS.Timeout | undefined}
 	 */
-	 export let data;
+	export let data;
 	let isLoggedIn = data.isLoggedIn;
 	$: isLoggedIn = $authStore.isActive ? $authStore.isLoggedIn : data.isLoggedIn;
 	let timerId;
@@ -50,7 +50,7 @@
 <!-- <h2>Pathname: {$page.url.pathname}</h2> -->
 <main>
 	<div class="main-frame">
-		<Nav {isLoggedIn}/>
+		<Nav {isLoggedIn} />
 
 		{#if $messagesStore.show}
 			<div class="row mt-3">

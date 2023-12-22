@@ -2,7 +2,7 @@ import { db } from '$lib/firebase/firebase.server';
 import admin from 'firebase-admin';
 import { saveFileToBucket } from './firestorage.server';
 // testing set doc
-import { doc, setDoc } from "firebase/firestore"; 
+import { doc, setDoc } from 'firebase/firestore';
 /**
  * @param {{ title: any; description: any; img_1a: any; }} listing
  * @param {any} userId
@@ -27,7 +27,6 @@ export async function addListing(listing, userId) {
 	return listingRef.id;
 }
 
-
 //----------------------------EDIT-----------------------------------------
 //only gets doc when id is pasted into browser
 // need to get doc id before this request
@@ -46,18 +45,17 @@ export async function editListing(id, form, userId) {
 /**
  * @param {string} id
  */
-// ---------------------GET ONE BY  ID--------------unused ???----------------
+// ---------------------GET ONE BY  ID------------------------------
 
 export async function getListing(id) {
 	const listingRef = await db.collection('listings').doc(id).get();
-
+console.log('inget one by id ',)
 	if (listingRef.exists) {
 		return { id: listingRef.id, ...listingRef.data() };
 	}
 }
 
-//  -------------GET ALL LISTINGS----(only for getting titles & doc.id's. Used in search------------------------------------------
-//*******************change to getListingTitles - here + ???**************** */
+//  -------------GET ALL LISTINGS----------------------------------------------
 export async function getListings() {
 	/**
 	 * @type {firestore.DocumentData[]}
@@ -73,7 +71,7 @@ export async function getListings() {
 		};
 		temp.push(doc.data(), getUid);
 		all.push(temp);
-		console.log('from db.server', all)
+		console.log('from db.server', all);
 	});
 	return {
 		all
@@ -88,29 +86,16 @@ export async function getListingTitles() {
 	let listingTitles = [];
 	const listingsRef = db.collection('listings');
 	const snapshot = await listingsRef.get();
-	let temp = [];
 	snapshot.forEach((doc) => {
-
 		let getData = {
 			title: doc.data().title_1a
 		};
-		temp.push(getData.title)
-		//console.log('db.server get data temp',temp);
-		//temp.push(doc.data());
 		listingTitles.push(getData.title);
-		console.log('db.server get data',listingTitles);
 	});
 	return {
 		listingTitles
 	};
 }
-
-
-
-
-
-
-
 
 //---------------------get frst pages------------------------------
 // export async function getListingTitles() {
@@ -137,10 +122,9 @@ export async function getListingTitles() {
 // 	};
 // }
 
-
 //-------------------   dashboard data---------------------
+// get user id and user's doc.id creds
 export async function getAdminListing() {
-
 	/**
 	 * @type {{ uid: string; userid: any; }[]}
 	 */

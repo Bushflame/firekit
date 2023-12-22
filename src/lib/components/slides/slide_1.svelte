@@ -38,9 +38,9 @@
 				<div class="card-liner" transition:fly={{ x: -300, duration: 500 }}>
 					<img src={slide.img_1a} alt="" />
 					<div class="card-body">
-						<h1>{slide.title_1a} </h1>
+						<h1>{slide.title_1a}</h1>
 						<p>{slide.description_1a}</p>
-                        <!-- needs to be the doc id -->
+						<!-- needs to be the doc id -->
 						<a href={`/listing/${slide.id}`} data-sveltekit-preload-data="off">View</a>
 					</div>
 				</div>

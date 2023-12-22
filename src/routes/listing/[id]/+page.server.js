@@ -1,6 +1,6 @@
 import { getListing } from '$lib/firebase/database.server';
 import { error } from '@sveltejs/kit';
-let uid = 'ljSNvobkTzgxk8xmuda5'
+let uid = 'ljSNvobkTzgxk8xmuda5';
 export async function load({ params }) {
 	const listing = await getListing(params.id);
 

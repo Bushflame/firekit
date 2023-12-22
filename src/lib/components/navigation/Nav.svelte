@@ -8,7 +8,7 @@
 	/**
 	 * @type {any}
 	 */
-	 export let isLoggedIn;
+	export let isLoggedIn;
 	async function onLogout() {
 		try {
 			await logout();
@@ -19,60 +19,61 @@
 		}
 	}
 </script>
-{#if $page.url.pathname != '/dashboard' }
-<NavWrap>
-	<li>
-		<a href="/">
-			<h3 class="brand">Firekit</h3>
-		</a>
-	</li>
-	{#if isLoggedIn}
-	<li>
-		<a href="/" class:active={$page.url.pathname == '/'}>Home</a>
-	</li>
-	<li>
-		<a href="/search" class:active={$page.url.pathname === '/search'}  data-sveltekit-preload-data="off">Search</a>
-	</li>
-		<li>
-			<a
-				href="/dashboard"
-				class:active={$page.url.pathname == '/dashboard'}>Dashboard</a
-			>
-		</li>
 
+{#if $page.url.pathname != '/dashboard'}
+	<NavWrap>
 		<li>
-			<a href="/about" class:active={$page.url.pathname === '/about'}>About</a>
+			<a href="/">
+				<h3 class="brand">Firekit</h3>
+			</a>
 		</li>
-		<li>
-			<a href="/contact" class:active={$page.url.pathname === '/contact'}>Contact</a>
-		</li>
-		<li>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<!-- svelte-ignore a11y-no-static-element-interactions -->
-			<span on:click={onLogout} class="nav-link logout-btn">Logout</span>
-		</li>
+		{#if isLoggedIn}
+			<li>
+				<a href="/" class:active={$page.url.pathname == '/'}>Home</a>
+			</li>
+			<li>
+				<a
+					href="/search"
+					class:active={$page.url.pathname === '/search'}
+					data-sveltekit-preload-data="off">Search</a
+				>
+			</li>
+			<li>
+				<a href="/dashboard" class:active={$page.url.pathname == '/dashboard'}>Dashboard</a>
+			</li>
 
-	{:else}
-		<li>
-			<a href="/" class:active={$page.url.pathname == '/'}>Home</a>
-		</li>
-		<li>
-			<a href="/search" class:active={$page.url.pathname === '/search'}>Search</a>
-		</li>
-		<li>
-			<a href="/about" class:active={$page.url.pathname === '/about'}>About</a>
-		</li>
-		<li>
-			<a href="/login" class:active={$page.url.pathname === '/login'}>Login</a>
-		</li>
-		<li>
-			<a href="/signup" class:active={$page.url.pathname === '/signup'}>Sign Up</a>
-		</li>
-		<li>
-			<a href="/contact" class:active={$page.url.pathname === '/contact'}>Contact</a>
-		</li>
-	{/if}
-</NavWrap>
+			<li>
+				<a href="/about" class:active={$page.url.pathname === '/about'}>About</a>
+			</li>
+			<li>
+				<a href="/contact" class:active={$page.url.pathname === '/contact'}>Contact</a>
+			</li>
+			<li>
+				<!-- svelte-ignore a11y-click-events-have-key-events -->
+				<!-- svelte-ignore a11y-no-static-element-interactions -->
+				<span on:click={onLogout} class="nav-link logout-btn">Logout</span>
+			</li>
+		{:else}
+			<li>
+				<a href="/" class:active={$page.url.pathname == '/'}>Home</a>
+			</li>
+			<li>
+				<a href="/search" class:active={$page.url.pathname === '/search'}>Search</a>
+			</li>
+			<li>
+				<a href="/about" class:active={$page.url.pathname === '/about'}>About</a>
+			</li>
+			<li>
+				<a href="/login" class:active={$page.url.pathname === '/login'}>Login</a>
+			</li>
+			<li>
+				<a href="/signup" class:active={$page.url.pathname === '/signup'}>Sign Up</a>
+			</li>
+			<li>
+				<a href="/contact" class:active={$page.url.pathname === '/contact'}>Contact</a>
+			</li>
+		{/if}
+	</NavWrap>
 {/if}
 
 <style lang="stylus">

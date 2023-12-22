@@ -3,7 +3,13 @@ import yup from 'yup';
 export default async function validate(formData, edit = false) {
 	const schema = yup.object({
 		title_1a: yup.string().required('Listing title is required.').min(4).max(40),
-		description_1a: yup.string().required().min(5).max(4500),
+		description_1a: yup.string().min(5).max(4500),
+		list_1: yup.boolean(),
+		li_1a: yup.string(),
+		li_1b: yup.string(),
+		li_1c: yup.string(),
+		li_1d: yup.string(),
+
 		img_1a: yup
 			.mixed()
 			.nullable()

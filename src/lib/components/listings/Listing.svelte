@@ -2,7 +2,7 @@
 	/**
 	 * @type {{ img_1a: any; title: any; title_1a: any; description_1a: any; }}
 	 */
-	 export let listing;
+	export let listing;
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->

@@ -1,8 +1,15 @@
 <script>
-	import ListingForm from '$lib/components/forms/ListingForm.svelte';
+	import ListingForm_1 from '$comps/forms/ListingForm_1.svelte';
+	import ListingForm_2 from '$comps/forms/ListingForm_2.svelte';
+	import {formNum} from '$lib/stores/store.js'
 	export let data;
 	export let form;
 </script>
 
-<ListingForm form={{ ...data.listing, ...form }} />
-<!-- <h1>{data.listing.title_1a}</h1> -->
+<!-- {#if $formNum === 'form-1'} -->
+<ListingForm_1 form={{ ...data.listing, ...form }} />
+
+<!-- {#if $formNum === 'form-2'} -->
+
+<!-- <ListingForm_2 {form}  /> -->
+<!-- {/if} -->

@@ -12,8 +12,7 @@
 {/if}
 {#if open}
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
-	<div class="navwrap" transition:fly={{ x: -300, duration: 300 }} 
-	>
+	<div class="navwrap" transition:fly={{ x: -300, duration: 300 }}>
 		<button on:click={() => (open = false)} class="burger flex flex-col space-around">
 			<span />
 			<span />

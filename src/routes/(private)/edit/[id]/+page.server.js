@@ -2,8 +2,6 @@ import { editListing, getListing } from '$lib/firebase/database.server';
 import { error, fail, redirect } from '@sveltejs/kit';
 import validateListing from '$lib/validators/listing.validator.js';
 
-
-
 //let params.id = '0AB513KasEnORd1SFpPD'
 // @ts-ignore
 export async function load({ params, locals }) {
@@ -17,7 +15,7 @@ export async function load({ params, locals }) {
 	if (listing.user_id !== locals.user.id) {
 		throw error(403, { message: 'Access Denied!' });
 	}
-
+	//console.log('listing in edit page.server', listing)
 	return { listing };
 }
 //0AB513KasEnORd1SFpPD dave@boxed email password

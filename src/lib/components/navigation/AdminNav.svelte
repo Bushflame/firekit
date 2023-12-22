@@ -1,6 +1,6 @@
 <script>
 	import { page } from '$app/stores';
-	import {userKey} from '$lib/stores/store'
+	import { hasListing, userKey } from '$lib/stores/store';
 	//import authStore from '$lib/stores/auth.store';
 	import { logout } from '$lib/firebase/auth.client';
 	import messagesStore from '$lib/stores/messages.store';
@@ -9,7 +9,7 @@
 	/**
 	 * @type {any}
 	 */
-	 //export let isLoggedIn;
+	//export let isLoggedIn;
 	async function onLogout() {
 		try {
 			await logout();
@@ -19,51 +19,39 @@
 			messagesStore.showError();
 		}
 	}
-// uid needs to be dynamic
-// used for my page & edit
-	let uid = 'ljSNvobkTzgxk8xmuda5'
-	console.log('params ',$page.url.pathname)
 </script>
+
 <NavWrap>
 	<li>
 		<a href="/">
 			<h3 class="brand">Firekit Admin</h3>
 		</a>
 	</li>
-        <li>
-			<a href="/" class:active={$page.url.pathname === '/'}> Home</a>
-		</li>
-        <li>
-			<a
-				href="/dashboard"
-				class:active={$page.url.pathname === '/dashboard'}>Dashboard</a
-			>
-		</li>
+	<li>
+		<a href="/" class:active={$page.url.pathname === '/'}> Home</a>
+	</li>
+	<li>
+		<a href="/dashboard" class:active={$page.url.pathname === '/dashboard'}>Dashboard</a>
+	</li>
+	<!-- {#if $hasListing} -->
 		<li>
-			<a
-				href="/create"
-				class:active={$page.url.pathname == '/create'}>Create</a
-			>
+			<a href="/create" class:active={$page.url.pathname == '/create'}>Create</a>
 		</li>
-        <li>
-			<a
-				href={`/edit/${$userKey}`}
-				class:active={$page.url.pathname == `/edit/${$userKey}`}>Edit</a
-			>
-		</li>
-		<li>
-			<a
-				href={`/my-page/${$userKey}`}
-				class:active={$page.url.pathname == `/my-page/${$userKey}`}>My Page</a
-			>
-		</li>
+	<!-- {/if} -->
+	<li>
+		<a href={`/edit/${$userKey}`} class:active={$page.url.pathname == `/edit/${$userKey}`}>Edit</a>
+	</li>
+	<li>
+		<a href={`/my-page/${$userKey}`} class:active={$page.url.pathname == `/my-page/${$userKey}`}
+			>My Page</a
+		>
+	</li>
 
-		<li>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<!-- svelte-ignore a11y-no-static-element-interactions -->
-			<span on:click={onLogout} class="nav-link logout-btn">Logout</span>
-		</li>
-
+	<li>
+		<!-- svelte-ignore a11y-click-events-have-key-events -->
+		<!-- svelte-ignore a11y-no-static-element-interactions -->
+		<span on:click={onLogout} class="nav-link logout-btn">Logout</span>
+	</li>
 </NavWrap>
 
 <style lang="stylus">
