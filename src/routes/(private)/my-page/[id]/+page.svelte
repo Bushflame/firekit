@@ -1,21 +1,35 @@
 <script>
 	export let data;
-	let listing = data.listing;
+	let l = data.listing;
+	import Card from '$comps/cards/Card.svelte';
 </script>
 
 <div class="page-wrap">
-	<div class="page-item">
-		<img class="img_1a" src={listing.img_1a} alt={listing.title_1a} />
+	<!-- <div class="page-item">
+		<img class="img_1a" src={l.img_1a} alt={l.title_1a} />
 	</div>
 	<div class="page-item">
-		<h1>{listing.title_1a}</h1>
+		<Card tit={l.title_1a}/>
+
+
 	</div>
 	<div class="page-item">
-		<p>{listing.description_1a}</p>
-	</div>
+		<p>{l.intro_1a}</p>
+	</div> -->
+
+	<Card
+		img={l.img_1a}
+		tit={l.title_1a}
+		intro={l.intro_1a}
+		li_a={l.li_1a}
+		li_b={l.li_1b}
+		li_c={l.li_1c}
+		li_d={l.li_1d}
+	/>
 </div>
+
 <svelte:head>
-	<title>FireKit - {listing.title_1a}</title>
+	<title>FireKit - {l.title_1a}</title>
 </svelte:head>
 
 <style lang="stylus">

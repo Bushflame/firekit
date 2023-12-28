@@ -63,6 +63,7 @@
 	height fit-content
 	max-width 25rem
 	padding 1rem
+	position relative
 	width 100%
 form 
 	display flex

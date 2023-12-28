@@ -35,11 +35,12 @@ export const actions = {
 		const formData = await request.formData();
 		const data = await validateListing(formData, true);
 		if (!data.success) {
+			console.log('in edit listing on actions page.server if !data success', data);
 			return fail(422, data);
 		}
 
 		await editListing(params.id, data.listing, locals.user.id);
-
+		console.log('in edit listing on page.server actions edit -redirect');
 		throw redirect(303, `/listing/${params.id}`);
 	}
 };

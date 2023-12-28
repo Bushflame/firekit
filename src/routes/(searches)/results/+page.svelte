@@ -1,12 +1,10 @@
 <script>
-	import Slide_1 from '$comps/slides/slide_1.svelte';
+	import Slide_1 from '$comps/slides/ResultsSlide.svelte';
 	export let data;
 	//console.log('data',data.results)
 	let slides = data.results;
 	//console.log('slides',slides)
 </script>
-
-<h1>results</h1>
 <Slide_1 {slides} />
 
 <!-- <h2>{results}</h2>

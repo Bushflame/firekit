@@ -9,20 +9,54 @@ import { doc, setDoc } from 'firebase/firestore';
  */
 //-------------------------------CREATE-------------------------------------------
 export async function addListing(listing, userId) {
-	// save to the firestore database without picture information
 	const listingCollection = db.collection('listings');
 	const listingRef = await listingCollection.add({
-		title_1a: listing.title_1a,
-		description_1a: listing.description_1a,
+		//titles-----------------------
+		title_1a: listing.title_1a || '',
+		title_2a: listing.title_2a || '',
+		title_3a: listing.title_3a || '',
+		title_4a: listing.title_4a || '',
+		//intros------------------------
+		intro_1a: listing.intro_1a || '',
+		intro_2a: listing.intro_1a || '',
+		intro_3a: listing.intro_3a || '',
+		intro_4a: listing.intro_4a || '',
+		//lists--------------------------
+		list_1a: listing.li_1a || '',
+		list_1b: listing.li_1b || '',
+		list_1c: listing.li_1c || '',
+		list_1d: listing.li_1d || '',
+
+		list_2a: listing.li_2a || '',
+		list_2b: listing.li_2b || '',
+		list_2c: listing.li_2c || '',
+		list_2d: listing.li_2d || '',
+
+		list_3a: listing.li_3a || '',
+		list_3b: listing.li_3b || '',
+		list_3c: listing.li_3c || '',
+		list_3d: listing.li_3d || '',
+
+		list_4a: listing.li_4a || '',
+		list_4b: listing.li_4b || '',
+		list_4c: listing.li_4c || '',
+		list_4d: listing.li_4d || '',
+
 		user_id: userId,
 		created_at: admin.firestore.Timestamp.now().seconds
 		//likes: 0
 	});
 	// save the pictures
 	const img_1aUrl = await saveFileToBucket(listing.img_1a, `${userId}/${listingRef.id}/img_1a`);
+	const img_2aUrl = await saveFileToBucket(listing.img_2a, `${userId}/${listingRef.id}/img_2a`);
+	const img_3aUrl = await saveFileToBucket(listing.img_3a, `${userId}/${listingRef.id}/img_3a`);
+	const img_4aUrl = await saveFileToBucket(listing.img_4a, `${userId}/${listingRef.id}/img_4a`);
 	// update the doc in firestore database with the picture urls
 	await listingRef.update({
-		img_1a: img_1aUrl
+		img_1a: img_1aUrl,
+		img_2a: img_2aUrl,
+		img_3a: img_3aUrl,
+		img_4a: img_4aUrl
 	});
 	return listingRef.id;
 }
@@ -32,14 +66,34 @@ export async function addListing(listing, userId) {
 // need to get doc id before this request
 export async function editListing(id, form, userId) {
 	const listingRef = await db.collection('listings').doc(id);
-
 	let img_1a = form.img_1a || null;
+	let img_2a = form.img_2a || null;
+	let img_3a = form.img_3a || null;
+	let img_4a = form.img_4a || null;
 	delete form.img_1a;
+	delete form.img_2a;
+	delete form.img_3a;
+	delete form.img_4a;
 	await listingRef.update(form);
 	if (img_1a) {
 		const img_1aUrl = await saveFileToBucket(img_1a, `${userId}/${listingRef.id}/img_1a`);
 
 		listingRef.update({ img_1a: img_1aUrl });
+	}
+	if (img_2a) {
+		const img_2aUrl = await saveFileToBucket(img_2a, `${userId}/${listingRef.id}/img_2a`);
+
+		listingRef.update({ img_2a: img_2aUrl });
+	}
+	if (img_3a) {
+		const img_3aUrl = await saveFileToBucket(img_3a, `${userId}/${listingRef.id}/img_3a`);
+
+		listingRef.update({ img_3a: img_3aUrl });
+	}
+	if (img_4a) {
+		const img_4aUrl = await saveFileToBucket(img_4a, `${userId}/${listingRef.id}/img_4a`);
+
+		listingRef.update({ img_4a: img_4aUrl });
 	}
 }
 /**
@@ -49,7 +103,6 @@ export async function editListing(id, form, userId) {
 
 export async function getListing(id) {
 	const listingRef = await db.collection('listings').doc(id).get();
-console.log('inget one by id ',)
 	if (listingRef.exists) {
 		return { id: listingRef.id, ...listingRef.data() };
 	}

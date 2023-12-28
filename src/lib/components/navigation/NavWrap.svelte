@@ -13,7 +13,12 @@
 {#if open}
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div class="navwrap" transition:fly={{ x: -300, duration: 300 }}>
-		<button on:click={() => (open = false)} class="burger flex flex-col space-around">
+		<img src="/imgs/site/puppy.png" alt="puppy" class='bg-img'>
+		<header>			
+			<a href="/">
+			<span class="brand">Firekit</span>
+		</a></header>
+		<button on:click={() => (open = false)} class="burger">
 			<span />
 			<span />
 			<span />
@@ -31,49 +36,77 @@
 				<slot />
 			</ul>
 		</nav>
+		<footer></footer>
 	</div>
 {/if}
 
 <style lang="stylus">
-.navwrap
-	background  var(--primary-d-2)
-	border-radius 1rem
+
+header, footer
+	background var(--beta)
+	display flex
+	align-items center
+	height 3.2rem
+	padding-left .6rem
 	position absolute
-	height calc(var(--globalHeight)- 2px) 
-	max-width var(--globalWidth)
+	left 0
+	width var(--globalWidth)
+header 
+	top 0
+footer
+	bottom 0
+.brand 
+	color var(--delta)
+	font-size 1.4rem
+	font-weight bold
+.bg-img 
+		position absolute
+		left 50%
+		top 50%
+		opacity .2
+		transform translate(-50%, -50%)
+		z-index 0
+
+//----------------------------------------
+.navwrap
+	background var(--alpha)
+	display flex
+	flex-direction column
+	gap .6rem
+	justify-content start
+	height var(--globalHeight)
+	overflow hidden
+	padding 4rem 1rem 6rem
+	position relative
+	width var(--globalWidth)
+	position absolute
+	left 0
+	top 0
 	overflow hidden
 	padding-top 4rem
-	width   calc(var(--globalWidth)- 2px) 
-	z-index 2
+	z-index 4
 nav 
 	margin-left 1rem
 	width   calc(var(--globalWidth)- 2rem) 
 ul 
-	display flex 
+	align-items left
 	flex-direction column 
 	gap 1rem
 	height 100%
 	list-style none
 	width 100%
 .burger 
-	background transparent
-	border 1px solid var(--light-1)
-	border-radius 6px
+	background   var(--delta) //rgba(255,255,255,.1)
+	border none //1px solid var(--beta)
+	border-radius 50% // 0  0 0 50%// 6px
 	display flex
 	flex-direction column
 	justify-content space-around
-	height 3rem 
-	padding 3px
+	height 2.2rem 
+	//paddin2 3px
 	position absolute
-	top .8rem
-	right .8rem 
-	width 3rem
+	top .5rem //.8rem
+	right .5rem // .8rem 
+	width 2.2rem
 	z-index 2
-span 
-	background var(--grey-5)
-	border-radius 3px
-	display block
-	height 4px 
-	padding 3px
-	width 100%
 </style>

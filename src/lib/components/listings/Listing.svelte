@@ -10,10 +10,12 @@
 	<div class="col col-12 col-sm-6 col-md-4">
 		<img src={listing.img_1a} alt={listing.title_1a} />
 	</div>
-	<div class="col col-12 col-sm-6 col-md-8">
+	<div>
 		<h2>{listing.title_1a}</h2>
+	</div>
+	<div>
 		<p>
-			{listing.description_1a}
+			{listing.desc_1a}
 		</p>
 	</div>
 </div>

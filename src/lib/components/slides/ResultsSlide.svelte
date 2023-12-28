@@ -39,10 +39,34 @@
 					<img src={slide.img_1a} alt="" />
 					<div class="card-body">
 						<h1>{slide.title_1a}</h1>
-						<p>{slide.description_1a}</p>
+                        <div class="card-inner">
+						<p>{slide.intro_1a}</p>
+                        <ul>
+                            {#if slide.li_1a}
+                            <li>
+                                {slide.li_1a}
+                            </li>
+                            {/if}
+                            {#if slide.li_1b}
+                            <li>
+                                {slide.li_1b}
+                            </li>
+                            {/if}
+                            {#if slide.li_1c}
+                            <li>
+                                {slide.li_1c}
+                            </li>
+                            {/if}
+                            {#if slide.li_1d}
+                            <li>
+                                {slide.li_1d}
+                            </li>
+                            {/if}
+                        </ul>
 						<!-- needs to be the doc id -->
 						<a href={`/listing/${slide.id}`} data-sveltekit-preload-data="off">View</a>
 					</div>
+                </div>
 				</div>
 			{/if}
 		{/each}
@@ -56,7 +80,7 @@ article.card
     color #fff
     display flex 
     flex-direction column
-    gap 1rem
+    gap .6rem
     margin 0rem auto 0
     max-width var(--globalWidth) //  calc(var(--globalWidth) - 2rem)
     position relative
@@ -69,29 +93,62 @@ article.card
 .card-body 
     display grid
     grid-template-columns 1fr
-    gap 1rem
-    padding 1rem
+    gap .6rem
+    padding .5rem 1rem
+p 
+	color var(--gamma)
+ul 
+	display flex
+	gap .4rem
+	flex-direction column
+	list-style none
+	margin-top 1rem
+li 
+	border-bottom 1px solid var(--delta)
+	color var(--gamma)
+	padding  .2rem  0 .1rem 2rem
+	position relative
+li::before 
+	content ''
+	background var(--delta)
+	border-radius 50% 
+	height 1rem 
+	position absolute
+	left 0 
+	top 50%
+	transform translate(0,-50%)
+	width 1rem
 p.show-count 
-    background rgba(0,0,0,.5)
+    //background rgba(0,0,0,.5)
     border-radius 1rem
-    color #fff
+    color var(--alpha)
     margin-left 50% 
     padding .3rem 1rem
     transform translate(-50%,0)
     position absolute
-    top 2rem
+    top 1rem
     text-align center
     width fit-content //18rem
     z-index 2
 img 
-    height 300px
+    height 260px
     object-fit cover
-    width calc(var(--globalWidth) - 2px)
+    //width calc(var(--globalWidth) - 2px)
+a 
+    //background red
+    color var(--alpha)
+    position absolute 
+    bottom 4rem 
+    left 50% 
+    transform translate(-50%,0)
+    z-index 10
 button.counter-btn 
-    background rgba(0,0,0,.4)
+    background var(--delta) //rgba(0,0,0,.4)
+    border 0
     border-radius 50%
     color #fff
     height 2.8rem
+    outline 0
     padding .4rem
     position absolute 
     top 30% 

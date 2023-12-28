@@ -1,9 +1,9 @@
 <script>
 	import { enhance } from '$app/forms';
-
+	import { formNum } from '$lib/stores/store.js';
 	import FormFrame from '$comps/forms/ListingFormFrame.svelte';
 	/**
-	 * @type {{ success: boolean; title: any; error_title: any; intro: any; error_intro: any; error_img_2a: any; img_2a: any; }}
+	 * @type {{ success: boolean; title: any; error_title: any; intro: any; error_intro: any; error_img_3a: any; img_3a: any; }}
 	 */
 	export let form;
 	let submitting = false;
@@ -12,9 +12,9 @@
 		submitting = false;
 	}
 	/**
-	 * @param {any} e
+	 * @param {any}
 	 */
-	function submitForm(e) {
+	function submitForm() {
 		submitting = true;
 	}
 	/**
@@ -23,35 +23,37 @@
 </script>
 
 <FormFrame {submitForm} {submitting}>
+	<!-- <form on:submit={submitForm} use:enhance enctype="multipart/form-data" method="POST"> -->
 	<!-- <div class="authframe">
+
 	<form on:submit={submitForm} use:enhance enctype="multipart/form-data" method="POST"> -->
 
 	<!-- -------------------------image----------------------------- -->
 	<div class="mb-3">
-		<label for="img_2a" class="form-label"
-			>Image 2
+		<label for="img_3a" class="form-label"
+			>Image 3
 			<input
 				class="form-control"
-				id="img_2a"
+				id="img_3a"
 				accept="image/*"
-				name="img_2a"
-				class:is-invalid={form?.error_img_2a}
+				name="img_3a"
+				class:is-invalid={form?.error_img_3a}
 				type="file"
 			/>
-			{#if form?.error_img_2a}
-				<div class="invalid-feedback">{form?.img_2a}</div>
+			{#if form?.error_img_3a}
+				<div class="invalid-feedback">{form?.img_3a}</div>
 			{/if}
 		</label>
 	</div>
 	<!-- -----------------------------title------------------------------- -->
 	<div class="mb-3">
-		<label for="title_2a" class="form-label">Listing Title</label>
+		<label for="title_3a" class="form-label">Listing Title</label>
 		<input
 			type="text"
-			name="title_2a"
-			id="title_2a"
+			name="title_3a"
+			id="title_3a"
 			class="form-control"
-			value={form?.title_2a || ''}
+			value={form?.title_3a || ''}
 			class:is-invalid={form?.error_title}
 			placeholder="Title"
 		/>
@@ -62,13 +64,13 @@
 	</div>
 
 	<div class="mb-3">
-		<label class="form-label" for="intro_2a">intro</label>
+		<label class="form-label" for="intro_3a">intro</label>
 		<textarea
 			class="form-control"
 			placeholder="Listing intro here"
-			id="intro_2a"
-			name="intro_2a"
-			value={form?.intro_2a || ''}
+			id="intro_3a"
+			name="intro_3a"
+			value={form?.intro_3a || ''}
 			class:is-invalid={form?.error_intro}
 			style="height: 60px"
 		/>
@@ -83,10 +85,10 @@
 		<li>
 			<input
 				type="text"
-				name="li_2a"
-				id="li_2a"
+				name="li_3a"
+				id="li_3a"
 				class="form-control"
-				value={form?.li_2a || ''}
+				value={form?.li_3a || ''}
 				placeholder="List item"
 			/>
 		</li>
@@ -94,44 +96,36 @@
 			<!--  -->
 			<input
 				type="text"
-				name="li_2b"
-				id="li_2b"
+				name="li_3b"
+				id="li_3b"
 				class="form-control"
-				value={form?.li_2b || ''}
+				value={form?.li_3b || ''}
 				placeholder="List item"
 			/>
 		</li>
 		<li>
 			<input
 				type="text"
-				name="li_2c"
-				id="li_2c"
+				name="li_3c"
+				id="li_3c"
 				class="form-control"
-				value={form?.li_2c || ''}
+				value={form?.li_3c || ''}
 				placeholder="List item"
 			/>
 		</li>
 		<li>
 			<input
 				type="text"
-				name="li_2d"
-				id="li_2d"
+				name="li_3d"
+				id="li_3d"
 				class="form-control"
-				value={form?.li_2d || ''}
+				value={form?.li_3d || ''}
 				placeholder="List item"
 			/>
 		</li>
 	</ul>
-	<!-- ------------------------------------------------------------ -->
-	<!-- <button disabled={submitting} type="submit" class="btn btn-submit w-100">
-			{#if submitting}
-				Submitting...
-			{:else}
-				Submit
-			{/if}
-		</button>
-	</form>
-</div> -->
+
+	<!-- </form> -->
 </FormFrame>
 
 <style lang="stylus">

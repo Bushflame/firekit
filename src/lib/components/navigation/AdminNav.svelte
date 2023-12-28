@@ -34,9 +34,9 @@
 		<a href="/dashboard" class:active={$page.url.pathname === '/dashboard'}>Dashboard</a>
 	</li>
 	<!-- {#if $hasListing} -->
-		<li>
-			<a href="/create" class:active={$page.url.pathname == '/create'}>Create</a>
-		</li>
+	<li>
+		<a href="/create" class:active={$page.url.pathname == '/create'}>Create</a>
+	</li>
 	<!-- {/if} -->
 	<li>
 		<a href={`/edit/${$userKey}`} class:active={$page.url.pathname == `/edit/${$userKey}`}>Edit</a>
@@ -56,21 +56,34 @@
 
 <style lang="stylus">
 .active 
-	color var(--primary)
+	color var(--beta)
 
 li 
-	border-bottom  1px solid var(--light-1)
-	padding .4rem //1rem
+	//border-bottom  1px solid red //d var(--light-1)
+	//padding .4rem //1rem
+	text-align left
 	white-space: nowrap
-	width 100%
+	width 20rem
+a 
+	border-bottom 1px solid var(--beta)
+	color  var(--gamma)
+	display flex
+	align-items center
+	height 2rem
+	position relative
+	width 20rem
 
 h3 
 	background transparent
+	
 	text-align center
 .logout-btn
 	background transparent
-	border 0px solid transparent
-	color var(--primary-l-4)
+	border-bottom 1px solid var(--beta)
+	color  var(--gamma)
+	display flex
+	align-items center
 	font-size 1rem
+	height 2rem
 	outline none
 </style>

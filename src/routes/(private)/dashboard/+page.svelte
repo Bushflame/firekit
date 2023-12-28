@@ -4,7 +4,7 @@
 	//import { copy } from 'svelte-copy';
 
 	export let data;
-	 $userKey = data.thisId;
+	$userKey = data.thisId;
 	// console.log('has listing', data.thisId.length);
 
 	// if (data.thisId.length < 10) {

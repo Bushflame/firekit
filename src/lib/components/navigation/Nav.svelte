@@ -1,6 +1,6 @@
 <script>
 	import { page } from '$app/stores';
-	//import authStore from '$lib/stores/auth.store';
+	import GlobalFrame from '$comps/GlobalFrame.svelte'
 	import { logout } from '$lib/firebase/auth.client';
 	import messagesStore from '$lib/stores/messages.store';
 	import { goto } from '$app/navigation';
@@ -22,11 +22,6 @@
 
 {#if $page.url.pathname != '/dashboard'}
 	<NavWrap>
-		<li>
-			<a href="/">
-				<h3 class="brand">Firekit</h3>
-			</a>
-		</li>
 		{#if isLoggedIn}
 			<li>
 				<a href="/" class:active={$page.url.pathname == '/'}>Home</a>
@@ -79,21 +74,35 @@
 <style lang="stylus">
 // active link
 .active 
-	color var(--primary)
+	color var(--beta)
 
 li 
-	border-bottom  1px solid var(--light-1)
-	padding .4rem //1rem
+	//border-bottom  1px solid red //d var(--light-1)
+	//padding .4rem //1rem
+	text-align left
 	white-space: nowrap
-	width 100%
+	width 20rem
+a 
+	border-bottom 1px solid var(--beta)
+	color  var(--gamma)
+	display flex
+	align-items center
+	height 2rem
+	position relative
+	width 20rem
 
 h3 
 	background transparent
+	
 	text-align center
 .logout-btn
 	background transparent
-	border 0px solid transparent
-	color var(--primary-l-4)
+	border-bottom 1px solid var(--beta)
+	color  var(--gamma)
+	display flex
+	align-items center
 	font-size 1rem
+	height 2rem
+	position relative
 	outline none
 </style>

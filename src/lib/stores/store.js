@@ -7,4 +7,5 @@ export let getByTitles = writable('Ardvark');
 export const userKey = writable();
 //test for existing listing
 export const hasListing = writable(true);
-export const formNum = writable('slide-1')
+export const formNum = writable('form-1');
+export const formsData = writable();

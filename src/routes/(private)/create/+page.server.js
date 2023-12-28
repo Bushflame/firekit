@@ -1,4 +1,4 @@
-import validateListing from '$lib/validators/listing.validator';
+import validateListing from '$lib/validators/listing.validator.js';
 import { addListing } from '$lib/firebase/database.server';
 import { fail, redirect } from '@sveltejs/kit';
 

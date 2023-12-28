@@ -31,3 +31,4 @@ if (getApps().length === 0) {
 }
 console.log('firebase was initialized');
 export const db = getFirestore();
+//db.settings({ignoreUndefinedProperties: true});

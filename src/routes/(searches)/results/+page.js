@@ -25,7 +25,7 @@ export async function load() {
 		results.push(objects);
 	});
 
-	//console.log('data', data)
+	console.log('data', results)
 	//console.log('concats',concats)
 	return {
 		results
