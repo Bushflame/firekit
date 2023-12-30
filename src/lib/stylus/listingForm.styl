@@ -1,4 +1,4 @@
-  
+
 p 
     color var(--gamma)
 
@@ -24,3 +24,94 @@ li
 	width 100%
 button 
     cursor pointer
+.show-img, .show-title, .show-intro, .show-list
+	height 0
+	opacity 0
+	overflow hidden
+	transition all .5s
+.showing-img-1, .showing-img-2, .showing-img-3, .showing-img-4
+.showing-title-1, .showing-title-2, .showing-title-3, .showing-title-4
+.showing-intro-1, .showing-intro-2, .showing-intro-3, .showing-intro-4
+.showing-list-1, .showing-list-2, .showing-list-3, .showing-list-4
+	height auto //12rem
+	opacity 1
+	transition all .5s
+.toggle-box 
+	padding-bottom 1rem
+	button 
+		background var(--delta)  // transparent 
+		border none //1px solid var(--delta)
+		color var(--alpha)
+		display block
+		margin 1rem auto .2rem
+		padding .2rem 1rem
+.paginator 
+	background rgba(255,255,255,.1)
+	//border 1px solid #fff
+	display flex 
+	align-items center 
+	justify-content space-between
+	gap 1rem
+	padding .6rem
+	position absolute 
+	bottom 0
+	left 50%
+	transform translate(-50%)
+	width fit-content
+	z-index 4
+	button 
+		background transparent
+		border 1px solid rgba(255,255,255,.4)
+		color #fff
+		height 2rem 
+		width 2rem
+.slide-grid 
+	border 1px solid #000
+	background pink
+	display grid
+	justify-content center
+	grid-template-columns 1fr
+	grid-template-rows 1
+
+	//margin auto
+	position relative
+.slide 
+	position absolute
+	//top 4rem
+	opacity 0
+	padding 0 1rem
+	transition all .5s
+	width 100%
+	z-index - 1
+
+.show-1 
+	z-index 1
+	opacity 1
+	transition all .5s
+.show-2 
+	opacity 1
+	z-index 1
+.show-3 
+	opacity 1	
+	z-index 1
+.show-4 
+	opacity 1
+	z-index 1
+.paginator
+	.showing-1
+		background var(--delta)
+	.showing-2
+		background var(--delta)	
+	.showing-3
+		background var(--delta)
+	.showing-4
+		background var(--delta)	
+.btn-submit 
+	background var(--delta)
+	border none
+	color #fff
+	font-size 1.2rem
+	margin 0 1rem
+	outline none
+	padding .4rem 0
+	width calc(var(--globalWidth) - 2rem)
