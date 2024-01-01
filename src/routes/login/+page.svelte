@@ -32,7 +32,7 @@
 
 <section class="authframe">
 	<AuthForm on:submit={onLogin} btnName="Sign in with email and password">
-		<LoginWithGoogle btnName="Sign in with Google" />
+		<!-- <LoginWithGoogle btnName="Sign in with Google" /> -->
 	</AuthForm>
 </section>
 

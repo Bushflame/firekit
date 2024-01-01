@@ -1,8 +1,7 @@
 <script>
 	import Nav from '$comps/navigation/AdminNav.svelte';
 	import '$lib/firebase/firebase.client';
-	export let data;
-	console.log('data is logged in', data);
+	//export let data;
 </script>
 
 <Nav />

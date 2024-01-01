@@ -1,22 +1,11 @@
-<script>
-    import { onMount } from 'svelte';
-    import 'firebase/storage'; // not needed???
-    import { doc, setDoc } from 'firebase/firestore';
-    import { db } from '$lib/firebase/firebase.client.js';
-    import { docId } from '$lib/stores/store';
-    //need user.id - can use stores - temp user.id
-    /**
-	 * @type {string}
-	 */
+import { doc, setDoc } from 'firebase/firestore';
+import { db } from '$lib/firebase/firebase.client.js';
+/**
+ * @param {string} userId
+ */
+export async function create(userId) {
 
-//ONLY WORKING WHEN HARD CODED - PUT THIS IN DASHBOARD = ONMOUNT ??? ---------------------------------------
-    let userkey = $docId //'tTIUiJeoSnT8I792AjdBftW1OxA3'
-// create doc with id to match user upon register
-// 
-// leave all fields as empty strings
-console.log('$user Uid from build',$docId)
-const build = ()=> {
-    const docRef =  doc(db,'listings', userkey)
+    const docRef =  doc(db,'listings', userId)
     setDoc(
         docRef,
         {
@@ -25,7 +14,7 @@ const build = ()=> {
             img_3a: '',
             img_4a: '',
 
-            title_1a: 'new build title',
+            title_1a: 'new build title 2',
             title_2a: '',
             title_3a: '',
             title_4a: '',
@@ -63,16 +52,8 @@ const build = ()=> {
             li_4e: '',
             li_4f: '',
 
-            user_id: userkey
+            user_id: userId
         }, 
         {merge: true}
     )
 }
-onMount(() => {
-		build();
-	});
-</script>
-
-<style lang="stylus">
-
-</style>
