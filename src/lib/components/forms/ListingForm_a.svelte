@@ -1,5 +1,9 @@
 <script>
+import {editing} from '$lib/stores/store.js'
 
+
+import DropdownBtns from '$comps/edit-dropdown/DropdownBtns.svelte'
+import Dropdown from '$comps/edit-dropdown/Dropdown.svelte'
 	/**
 	 * @type {{ success: boolean; title: any; error_title: any; intro: any; error_intro: any; error_img_1a: any; img_1a: any; }}
 	 */
@@ -20,25 +24,21 @@
 	 */
 	//$formNum = 'form-1'
 	let show_slide_1 = true;
-	// let show_slide_2 = false;
-	// let show_slide_3 = false;
-	// let show_slide_4 = false;
-	// let slide_2_isActive = false
-	// let slide_3_isActive = false
-	// let slide_4_isActive = false
 
 	export let img_1a,title_1a
 	export let intro_1a
 	export let li_1a,li_1b,li_1c, li_1d
 </script>
 
-
+<DropdownBtns/>
 	<section class="slide-grid">
 		<!-- SLIDE 	1----------------------------------------------------------------------- -->
+		
 		<div class="slide" class:show-1={show_slide_1}>
-			<h3>form a</h3>
+			
 			<!-- -------------------------image----------------------------- -->
-			<div class="mb-3">
+			{#if $editing ==='edit-img'}
+			<div class="dropdown">
 				<label for="img_1a" class="form-label"
 					>
 					<input
@@ -54,26 +54,30 @@
 					{/if}
 				</label>
 			</div>
+			{/if}
 			<!-- -----------------------------title------------------------------- -->
-			<div class="mb-3">
-				<label for="title_1a" class="form-label">Listing Title</label>
-				<input
-					type="text"
-					name="title_1a"
-					id='title_1a'
-					class="form-control"
-					value={form?.title_1a || ''}
-					class:is-invalid={form?.error_title}
-					placeholder="Title"
-				/>
-				<!-- ----------------------intro------------------------------ -->
-				{#if form?.error_title}
-					<div class="invalid-feedback">{form?.error_title}</div>
-				{/if}
-			</div>
-
-			<div class="mb-3">
-				<label class="form-label" for="intro_1a">intro</label>
+			{#if $editing ==='edit-title'}
+				<div class="dropdown">
+					<label for="title_1a" class="form-label">Listing Title</label>
+					<input
+						type="text"
+						name="title_1a"
+						id='title_1a'
+						class="form-control"
+						value={form?.title_1a || ''}
+						class:is-invalid={form?.error_title}
+						placeholder="Title"
+					/>
+					
+					{#if form?.error_title}
+						<div class="invalid-feedback">{form?.error_title}</div>
+					{/if}
+				</div>
+			{/if}
+<!-- ----------------------intro------------------------------ -->
+			{#if $editing ==='edit-para'}
+			<div class="dropdown">
+				<label class="form-label" for="intro_1a">Paragraph</label>
 				<textarea
 					class="form-control"
 					placeholder="Listing intro here"
@@ -87,8 +91,11 @@
 					<div class="invalid-feedback">{form?.error_intro}</div>
 				{/if}
 			</div>
+			{/if}
 
 			<!-- ---------------------list items--------------------------- -->
+			{#if $editing ==='edit-list'}
+				<div class="dropdown">
 			<ul>
 				<p>List items</p>
 				<li>
@@ -134,6 +141,7 @@
 				</li>
 			</ul>
 		</div>
+		{/if}
 	</section>
 
 <style lang="stylus">

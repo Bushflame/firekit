@@ -34,7 +34,6 @@ section
     flex 1
 
 header, footer
-    background linear-gradient(var(--gamma),  var(--gamma));
     background var(--beta)
     display flex
     align-items center

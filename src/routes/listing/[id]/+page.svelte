@@ -51,6 +51,17 @@
 	li_d={l.li_3d}
 />
 {/if}
+{#if show_slide_4}
+<Card
+	img={l.img_4a}
+	tit={l.title_4a}
+	intro={l.intro_4a}
+	li_a={l.li_4a}
+	li_b={l.li_4b}
+	li_c={l.li_4c}
+	li_d={l.li_4d}
+/>
+{/if}
 
 <ul class="paginator">
 	{#if l.title_2a}

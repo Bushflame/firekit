@@ -1,53 +1,4 @@
-
-p 
-    color var(--gamma)
-
-label 
-	color var(--gamma)
-	margin-bottom 1rem
-
-input, textarea 
-	background rgba(255,255,255,.2)
-	border none
-	color var(--gamma)
-	margin-top .4rem
-	outline none
-	padding .6rem
-	width 100%
-ul 
-	//border 1px solid blue
-	list-style none
-	margin auto
-	width 100%
-li 
-	//border 1px solid red
-	width 100%
-button 
-    cursor pointer
-.show-img, .show-title, .show-intro, .show-list
-	height 0
-	opacity 0
-	overflow hidden
-	transition all .5s
-.showing-img-1, .showing-img-2, .showing-img-3, .showing-img-4
-.showing-title-1, .showing-title-2, .showing-title-3, .showing-title-4
-.showing-intro-1, .showing-intro-2, .showing-intro-3, .showing-intro-4
-.showing-list-1, .showing-list-2, .showing-list-3, .showing-list-4
-	height auto //12rem
-	opacity 1
-	transition all .5s
-.toggle-box 
-	padding-bottom 1rem
-	button 
-		background var(--delta)  // transparent 
-		border none //1px solid var(--delta)
-		color var(--alpha)
-		display block
-		margin 1rem auto .2rem
-		padding .2rem 1rem
 .paginator 
-	background rgba(255,255,255,.1)
-	//border 1px solid #fff
 	display flex 
 	align-items center 
 	justify-content space-between
@@ -72,8 +23,6 @@ button
 	justify-content center
 	grid-template-columns 1fr
 	grid-template-rows 1
-
-	//margin auto
 	position relative
 .slide 
 	position absolute
@@ -114,4 +63,7 @@ button
 	margin 0 1rem
 	outline none
 	padding .4rem 0
+	position absolute
+	bottom 4rem
 	width calc(var(--globalWidth) - 2rem)
+

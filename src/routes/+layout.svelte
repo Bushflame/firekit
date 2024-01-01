@@ -1,14 +1,11 @@
 <script>
-	import { page } from '$app/stores';
 	import Nav from '$comps/navigation/Nav.svelte';
-	import SideNav from '$comps/navigation/SideNav.svelte';
 	import GlobalFrame from '$comps/GlobalFrame.svelte'
 	import messagesStore from '$lib/stores/messages.store';
 	import '$lib/firebase/firebase.client';
 	import { onMount } from 'svelte';
 	import { sendJWTToken } from '$lib/firebase/auth.client';
 	import authStore from '$lib/stores/auth.store.js';
-	import { onDestroy } from 'svelte';
 	/**
 	 * @type {string | number | NodeJS.Timeout | undefined}
 	 */
@@ -147,13 +144,13 @@ main
 	justify-content center
 	min-height 100vh
 .main-frame
-	background var(--alpha)
-	background-image url('/imgs/site/puppy.png') rgba(255,255,255,.02)
+	//background var(--alpha)
+	//background-image url('/imgs/site/puppy.png') rgba(255,255,255,.02)
 	//border 1px solid var(--alpha)
 	//border-radius 1rem
 	height var(--globalHeight)
 	max-width var(--globalWidth)
-	overflow hidden
+	//overflow hidden
 	position relative
 	width 100%
 	font-size 1.6rem

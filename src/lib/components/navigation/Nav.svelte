@@ -34,7 +34,7 @@
 				>
 			</li>
 			<li>
-				<a href="/dashboard" class:active={$page.url.pathname == '/dashboard'}>Dashboard</a>
+				<a href="/dashboard" class:active={$page.url.pathname == '/dashboard'} data-sveltekit-preload-data="off">Dashboard</a>
 			</li>
 
 			<li>
@@ -90,11 +90,6 @@ a
 	height 2rem
 	position relative
 	width 20rem
-
-h3 
-	background transparent
-	
-	text-align center
 .logout-btn
 	background transparent
 	border-bottom 1px solid var(--beta)

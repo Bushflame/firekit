@@ -58,14 +58,14 @@ export let li_4a,li_4b,li_4c, li_4d
 			<div class="slide" class:show-4={show_slide_4} >
 			<ListingForm_d {img_4a}  {title_4a} {intro_4a} {li_4a} {li_4b} {li_4c} {li_4d} {form}/>
 		</div>
-			<button disabled={submitting} type="submit" class="btn btn-submit w-100">
+			<!-- <button disabled={submitting} type="submit" class="btn btn-submit w-100">
 				{#if submitting}
 					Submitting...
 				{:else}
 					Submit
 				{/if}
 			</button>
-		</form>
+		</form> -->
 		<!-- paginator -->
 
 	</div>
@@ -128,8 +128,6 @@ export let li_4a,li_4b,li_4c, li_4d
 		>
 	</div>
 <style lang="stylus">
-.slide 
-	background pink
 @require '../../stylus/listingForm.styl'  
 .btn-submit
 	position absolute

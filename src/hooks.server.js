@@ -4,7 +4,7 @@ import { redirect } from '@sveltejs/kit';
 /** @type {import('@sveltejs/kit').Handle} */
 
 export async function handle({ event, resolve }) {
-	const protectRoutes = ['/create', '/edit', '/profile', '/dashboard'];
+	const protectRoutes = ['/create', '/edit', '/profile', '/dashboard', '/build'];
 
 	const guestRoutes = ['/login', '/signup', '/forgot-password', '/results'];
 
