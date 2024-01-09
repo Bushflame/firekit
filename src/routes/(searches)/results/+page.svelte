@@ -5,6 +5,7 @@
 	let slides = data.results;
 	//console.log('slides',slides)
 </script>
+
 <Slide_1 {slides} />
 
 <!-- <h2>{results}</h2>

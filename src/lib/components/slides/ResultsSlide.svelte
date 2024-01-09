@@ -39,34 +39,44 @@
 					<img src={slide.img_1a} alt="" />
 					<div class="card-body">
 						<h1>{slide.title_1a}</h1>
-                        <div class="card-inner">
-						<p>{slide.intro_1a}</p>
-                        <ul>
-                            {#if slide.li_1a}
-                            <li>
-                                {slide.li_1a}
-                            </li>
-                            {/if}
-                            {#if slide.li_1b}
-                            <li>
-                                {slide.li_1b}
-                            </li>
-                            {/if}
-                            {#if slide.li_1c}
-                            <li>
-                                {slide.li_1c}
-                            </li>
-                            {/if}
-                            {#if slide.li_1d}
-                            <li>
-                                {slide.li_1d}
-                            </li>
-                            {/if}
-                        </ul>
-						<!-- needs to be the doc id -->
-						<a href={`/listing/${slide.id}`} data-sveltekit-preload-data="off">View</a>
+						<div class="card-inner">
+							<p>{slide.para_1a}</p>
+							<ul>
+								{#if slide.li_1a}
+									<li>
+										{slide.li_1a}
+									</li>
+								{/if}
+								{#if slide.li_1b}
+									<li>
+										{slide.li_1b}
+									</li>
+								{/if}
+								{#if slide.li_1c}
+									<li>
+										{slide.li_1c}
+									</li>
+								{/if}
+								{#if slide.li_1d}
+									<li>
+										{slide.li_1d}
+									</li>
+								{/if}
+								{#if slide.li_1e}
+									<li>
+										{slide.li_1e}
+									</li>
+								{/if}
+								{#if slide.li_1f}
+									<li>
+										{slide.li_1f}
+									</li>
+								{/if}
+							</ul>
+							<!-- needs to be the doc id -->
+							<a href={`/listing/${slide.id}`} data-sveltekit-preload-data="off">View</a>
+						</div>
 					</div>
-                </div>
 				</div>
 			{/if}
 		{/each}

@@ -1,6 +1,6 @@
 <script>
 	import Nav from '$comps/navigation/Nav.svelte';
-	import GlobalFrame from '$comps/GlobalFrame.svelte'
+	import GlobalFrame from '$comps/GlobalFrame.svelte';
 	import messagesStore from '$lib/stores/messages.store';
 	import '$lib/firebase/firebase.client';
 	import { onMount } from 'svelte';
@@ -49,7 +49,7 @@
 <main>
 	<GlobalFrame brand={'Firekit'}>
 		<Nav {isLoggedIn} />
-	
+
 		{#if $messagesStore.show}
 			<div class="messages">
 				<div class="messages-liner">
@@ -76,7 +76,7 @@
 			<div class="swatch gamma"></div>
 			<div class="swatch delta"></div>
 		</div> -->
-</GlobalFrame>
+	</GlobalFrame>
 </main>
 
 <style lang="stylus" global>

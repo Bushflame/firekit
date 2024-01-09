@@ -28,7 +28,7 @@
 			const user = await registerWithEmailandPassword(email, password);
 			// init create process to create listing using user.uid
 			// on submit - goto create then dashboard
-			create(user.uid)
+			create(user.uid);
 			// @ts-ignore
 			afterLogin($page.url, user.uid);
 		} catch (e) {

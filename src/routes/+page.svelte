@@ -1,17 +1,16 @@
 <script>
 	import GlobalList from '$comps/lists/GlobalList.svelte';
-
 </script>
+
 <h1>WELCOME TO FIREKIT</h1>
 <p class="sub-title">Absorbeth into thee naught from ye bull</p>
-	<div class="grid">
+<div class="grid">
 	<div class="visitor-info info-box">
-		<GlobalList listTitle={'Visitor Info'} linkTxt={'Begin Your Search'} linkTo={'/search'}/>
+		<GlobalList listTitle={'Visitor Info'} linkTxt={'Begin Your Search'} linkTo={'/search'} />
 	</div>
 	<div class="lister-info info-box">
-		<GlobalList listTitle={'Publisher Info'} linkTxt={'Full Details'}/>
+		<GlobalList listTitle={'Publisher Info'} linkTxt={'Full Details'} />
 	</div>
-
 </div>
 
 <style lang="stylus">

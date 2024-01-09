@@ -7,7 +7,7 @@
 </script>
 
 <ul class="card">
-	<SearchLink heading={'Flitler By Breed'} linkTo={'/results'} {titles}/>
+	<SearchLink heading={'Flitler By Breed'} linkTo={'/results'} {titles} />
 	<!-- {#each titles as title}
 		<li>
 			<a

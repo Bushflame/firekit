@@ -1,26 +1,25 @@
 <script>
-
-export let linkTo = ''
-export let linkTxt = 'Link to text'
+	export let linkTo = '';
+	export let linkTxt = 'Link to text';
 
 	/**
 	 * @type {any[]}
 	 */
-export let items = ['item 1', 'item 2', 'item 3', 'item 4']
-export let listTitle = 'List title'
+	export let items = ['item 1', 'item 2', 'item 3', 'item 4'];
+	export let listTitle = 'List title';
 </script>
 
 <ul>
-    <h3 >{listTitle}</h3>
-    {#each items as item}
-    <li>
-        <div class="icon">
-            <!-- <img src="/imgs/site/pug.png" alt="Pug's head"> -->
-        </div>
-        <span>{item}</span>
-    </li>
-    {/each}
-    <a href={linkTo}>{linkTxt}<span>&#8250;</span></a>
+	<h3>{listTitle}</h3>
+	{#each items as item}
+		<li>
+			<div class="icon">
+				<!-- <img src="/imgs/site/pug.png" alt="Pug's head"> -->
+			</div>
+			<span>{item}</span>
+		</li>
+	{/each}
+	<a href={linkTo}>{linkTxt}<span>&#8250;</span></a>
 </ul>
 
 <style lang="stylus">

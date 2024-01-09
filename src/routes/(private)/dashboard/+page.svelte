@@ -1,5 +1,5 @@
 <script>
-	import { userKey} from '$lib/stores/store';
+	import { userKey } from '$lib/stores/store';
 	//import { copy } from 'svelte-copy';
 
 	export let data;
@@ -10,5 +10,7 @@
 </script>
 
 <h1>Dashboard</h1>
-<style lang='stylus'>
+
+<style lang="stylus">
+
 </style>

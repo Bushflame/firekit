@@ -1,24 +1,27 @@
 <script>
-import { getByTitles } from '$lib/stores/store.js';
-export let linkTo ='/results'
-export let titles
-export let heading = 'heading'
+	import { getByTitles } from '$lib/stores/store.js';
+	export let linkTo = '/results';
+	export let titles;
+	export let heading = 'heading';
 </script>
+
 <div class="wrap">
-    <h3>{heading}</h3>
-<ul class='card'>
-    {#each titles as title}
-    <li>
-        <a href={linkTo}
-        data-sveltekit-preload-data="off"
-        on:click={()=>{
-            $getByTitles = title;
-        }}
-        >{title}<span>&#8250;</span></a>
-    </li>
-    {/each}
-</ul>
+	<h3>{heading}</h3>
+	<ul class="card">
+		{#each titles as title}
+			<li>
+				<a
+					href={linkTo}
+					data-sveltekit-preload-data="off"
+					on:click={() => {
+						$getByTitles = title;
+					}}>{title}<span>&#8250;</span></a
+				>
+			</li>
+		{/each}
+	</ul>
 </div>
+
 <!-- <SearchLink heading={'The Heading'} linkTo={'/results'} {titles}/> -->
 
 <style lang="stylus">

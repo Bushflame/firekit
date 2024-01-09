@@ -25,7 +25,6 @@ async function saveFileToDisk(file) {
 	const arrayBuffer = await file.arrayBuffer();
 	const buffer = Buffer.from(arrayBuffer);
 	const filePath = path.join(tmpdir(), uuidv4());
-
 	fs.writeFileSync(filePath, buffer, 'base64');
 
 	return filePath;

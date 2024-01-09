@@ -16,31 +16,39 @@ export async function addListing(listing, userId) {
 		title_2a: listing.title_2a || '',
 		title_3a: listing.title_3a || '',
 		title_4a: listing.title_4a || '',
-		//intros------------------------
-		intro_1a: listing.intro_1a || '',
-		intro_2a: listing.intro_1a || '',
-		intro_3a: listing.intro_3a || '',
-		intro_4a: listing.intro_4a || '',
+		//paras------------------------
+		para_1a: listing.para_1a || '',
+		para_2a: listing.para_1a || '',
+		para_3a: listing.para_3a || '',
+		para_4a: listing.para_4a || '',
 		//lists--------------------------
 		list_1a: listing.li_1a || '',
 		list_1b: listing.li_1b || '',
 		list_1c: listing.li_1c || '',
 		list_1d: listing.li_1d || '',
+		list_1e: listing.li_1e || '',
+		list_1f: listing.li_1f || '',
 
 		list_2a: listing.li_2a || '',
 		list_2b: listing.li_2b || '',
 		list_2c: listing.li_2c || '',
 		list_2d: listing.li_2d || '',
+		list_2e: listing.li_2e || '',
+		list_2f: listing.li_2f || '',
 
 		list_3a: listing.li_3a || '',
 		list_3b: listing.li_3b || '',
 		list_3c: listing.li_3c || '',
 		list_3d: listing.li_3d || '',
+		list_3e: listing.li_3e || '',
+		list_3f: listing.li_3f || '',
 
 		list_4a: listing.li_4a || '',
 		list_4b: listing.li_4b || '',
 		list_4c: listing.li_4c || '',
 		list_4d: listing.li_4d || '',
+		list_4e: listing.li_4e || '',
+		list_4f: listing.li_4f || '',
 
 		user_id: userId,
 		created_at: admin.firestore.Timestamp.now().seconds
@@ -76,22 +84,22 @@ export async function editListing(id, form, userId) {
 	delete form.img_4a;
 	await listingRef.update(form);
 	if (img_1a) {
-		const img_1aUrl = await saveFileToBucket(img_1a, `${userId}/${listingRef.id}/img_1a`);
+		const img_1aUrl = await saveFileToBucket(img_1a, `${userId}/img_1a`);
 
 		listingRef.update({ img_1a: img_1aUrl });
 	}
 	if (img_2a) {
-		const img_2aUrl = await saveFileToBucket(img_2a, `${userId}/${listingRef.id}/img_2a`);
+		const img_2aUrl = await saveFileToBucket(img_2a, `${userId}/img_2a`);
 
 		listingRef.update({ img_2a: img_2aUrl });
 	}
 	if (img_3a) {
-		const img_3aUrl = await saveFileToBucket(img_3a, `${userId}/${listingRef.id}/img_3a`);
+		const img_3aUrl = await saveFileToBucket(img_3a, `${userId}/img_3a`);
 
 		listingRef.update({ img_3a: img_3aUrl });
 	}
 	if (img_4a) {
-		const img_4aUrl = await saveFileToBucket(img_4a, `${userId}/${listingRef.id}/img_4a`);
+		const img_4aUrl = await saveFileToBucket(img_4a, `${userId}/img_4a`);
 
 		listingRef.update({ img_4a: img_4aUrl });
 	}

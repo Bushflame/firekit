@@ -12,12 +12,14 @@
 	z-index 4
 	button 
 		background transparent
-		border 1px solid rgba(255,255,255,.4)
+		border 1px solid var(--alpha) // rgba(255,255,255,.4)
+		border-radius 50%
 		color #fff
 		height 2rem 
+		outline none
+		transition all .5s
 		width 2rem
 .slide-grid 
-	border 1px solid #000
 	background pink
 	display grid
 	justify-content center
@@ -49,21 +51,28 @@
 .paginator
 	.showing-1
 		background var(--delta)
+		border none
 	.showing-2
 		background var(--delta)	
+		border none
 	.showing-3
 		background var(--delta)
+		border none
 	.showing-4
 		background var(--delta)	
+		border none
 .btn-submit 
 	background var(--delta)
 	border none
+	border-radius 1.5rem
 	color #fff
 	font-size 1.2rem
-	margin 0 1rem
+	margin 0 auto
 	outline none
-	padding .4rem 0
+	padding .5rem 0
 	position absolute
+	left 50%
 	bottom 4rem
-	width calc(var(--globalWidth) - 2rem)
+	transform translate(-50%)
+	width 12rem //calc(var(--globalWidth) - 2rem)
 

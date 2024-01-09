@@ -2,7 +2,7 @@
 	import { goto } from '$app/navigation';
 	import { getByTitles } from '$lib/stores/store';
 	import Card from '$comps/cards/Card.svelte';
-	import Slide_1 from '$comps/slides/ResultsSlide.svelte'
+	import Slide_1 from '$comps/slides/ResultsSlide.svelte';
 	export let data;
 	let l = data.listing;
 
@@ -10,131 +10,138 @@
 	let show_slide_2 = false;
 	let show_slide_3 = false;
 	let show_slide_4 = false;
-	let slide_1_isActive = true
-	let slide_2_isActive = false
-	let slide_3_isActive = false
-	let slide_4_isActive = false
-
-	
+	let slide_1_isActive = true;
+	let slide_2_isActive = false;
+	let slide_3_isActive = false;
+	let slide_4_isActive = false;
 </script>
+
 {#if show_slide_1}
-<Card
-	img={l.img_1a}
-	tit={l.title_1a}
-	intro={l.intro_1a}
-	li_a={l.li_1a}
-	li_b={l.li_1b}
-	li_c={l.li_1c}
-	li_d={l.li_1d}
-/>
+	<Card
+		img={l.img_1a}
+		tit={l.title_1a}
+		para={l.para_1a}
+		li_a={l.li_1a}
+		li_b={l.li_1b}
+		li_c={l.li_1c}
+		li_d={l.li_1d}
+		li_e={l.li_1e}
+		li_f={l.li_1f}
+	/>
 {/if}
 
 {#if show_slide_2}
-<Card
-	img={l.img_2a}
-	tit={l.title_2a}
-	intro={l.intro_2a}
-	li_a={l.li_2a}
-	li_b={l.li_2b}
-	li_c={l.li_2c}
-	li_d={l.li_2d}
-/>
+	<Card
+		img={l.img_2a}
+		tit={l.title_2a}
+		para={l.para_2a}
+		li_a={l.li_2a}
+		li_b={l.li_2b}
+		li_c={l.li_2c}
+		li_d={l.li_2d}
+		li_e={l.li_2e}
+		li_f={l.li_2f}
+	/>
 {/if}
 {#if show_slide_3}
-<Card
-	img={l.img_3a}
-	tit={l.title_3a}
-	intro={l.intro_3a}
-	li_a={l.li_3a}
-	li_b={l.li_3b}
-	li_c={l.li_3c}
-	li_d={l.li_3d}
-/>
+	<Card
+		img={l.img_3a}
+		tit={l.title_3a}
+		para={l.para_3a}
+		li_a={l.li_3a}
+		li_b={l.li_3b}
+		li_c={l.li_3c}
+		li_d={l.li_3d}
+		li_e={l.li_3e}
+		li_f={l.li_3f}
+	/>
 {/if}
 {#if show_slide_4}
-<Card
-	img={l.img_4a}
-	tit={l.title_4a}
-	intro={l.intro_4a}
-	li_a={l.li_4a}
-	li_b={l.li_4b}
-	li_c={l.li_4c}
-	li_d={l.li_4d}
-/>
+	<Card
+		img={l.img_4a}
+		tit={l.title_4a}
+		para={l.para_4a}
+		li_a={l.li_4a}
+		li_b={l.li_4b}
+		li_c={l.li_4c}
+		li_d={l.li_4d}
+		li_e={l.li_4e}
+		li_f={l.li_4f}
+	/>
 {/if}
 
 <ul class="paginator">
 	{#if l.title_2a}
-	<button
-		class:showing-1={slide_1_isActive}
-		on:click={() => {
-			show_slide_1 = true;
-			show_slide_2 = false;
-			show_slide_3 = false;
-			show_slide_4 = false;
-			slide_1_isActive =true
-			slide_2_isActive =false
-			slide_3_isActive =false
-			slide_4_isActive =false
-		}}>1</button
-	>
+		<button
+			class:showing-1={slide_1_isActive}
+			on:click={() => {
+				show_slide_1 = true;
+				show_slide_2 = false;
+				show_slide_3 = false;
+				show_slide_4 = false;
+				slide_1_isActive = true;
+				slide_2_isActive = false;
+				slide_3_isActive = false;
+				slide_4_isActive = false;
+			}}>1</button
+		>
 	{/if}
 	{#if l.title_2a}
-	<button
-	class:showing-2={slide_2_isActive}
-		on:click={() => {
-			show_slide_1 = false;
-			show_slide_2 = true;
-			show_slide_3 = false;
-			show_slide_4 = false;
-			slide_1_isActive =false
-			slide_2_isActive =true
-			slide_3_isActive =false
-			slide_4_isActive =false
-		}}>2</button
-	>
+		<button
+			class:showing-2={slide_2_isActive}
+			on:click={() => {
+				show_slide_1 = false;
+				show_slide_2 = true;
+				show_slide_3 = false;
+				show_slide_4 = false;
+				slide_1_isActive = false;
+				slide_2_isActive = true;
+				slide_3_isActive = false;
+				slide_4_isActive = false;
+			}}>2</button
+		>
 	{/if}
 	{#if l.title_3a}
-	<button
-		class:showing-3={slide_3_isActive}
-		on:click={() => {
-			show_slide_1 = false;
-			show_slide_2 = false;
-			show_slide_3 = true;
-			show_slide_4 = false;
-			show_slide_4 = false;
-			slide_1_isActive =false
-			slide_2_isActive =false
-			slide_3_isActive =true
-			slide_4_isActive =false
-		}}>3</button
-	>
+		<button
+			class:showing-3={slide_3_isActive}
+			on:click={() => {
+				show_slide_1 = false;
+				show_slide_2 = false;
+				show_slide_3 = true;
+				show_slide_4 = false;
+				show_slide_4 = false;
+				slide_1_isActive = false;
+				slide_2_isActive = false;
+				slide_3_isActive = true;
+				slide_4_isActive = false;
+			}}>3</button
+		>
 	{/if}
 	{#if l.title_4a}
-	<button
-		class:showing-4={slide_4_isActive}
-		on:click={() => {
-			show_slide_1 = false;
-			show_slide_2 = false;
-			show_slide_3 = false;
-			show_slide_4 = true;
-			slide_1_isActive =false
-			slide_2_isActive =false
-			slide_3_isActive =false
-			slide_4_isActive =true
-		}}>4</button
-	>
+		<button
+			class:showing-4={slide_4_isActive}
+			on:click={() => {
+				show_slide_1 = false;
+				show_slide_2 = false;
+				show_slide_3 = false;
+				show_slide_4 = true;
+				slide_1_isActive = false;
+				slide_2_isActive = false;
+				slide_3_isActive = false;
+				slide_4_isActive = true;
+			}}>4</button
+		>
 	{/if}
-	</ul>
+</ul>
 
 <!-- <div class="page-wrap">
 	<img class="img_1a" src={l.img_1a} alt={l.title_1a} />
 	<div class="page-item">
 		<h1>{l.title_1a}</h1>
 	</div>
-	{#if l.intro_1a}
+	{#if l.para_1a}
 	<div class="page-item">
-		<p>{l.intro_1a}</p>
+		<p>{l.para_1a}</p>
 	</div>
 	{/if}
 	<div class="page-item">
@@ -167,13 +174,6 @@
 
 	<a href={`/search`} data-sveltekit-reload>Back</a>
 </div> -->
-
-
-
-
-
-
-
 
 <svelte:head>
 	<title>FireKit - {l.title_1a}</title>
@@ -277,5 +277,5 @@ ul.paginator
 	.showing-3
 		background var(--delta)
 	.showing-4
-		background var(--delta)	
+		background var(--delta)
 </style>

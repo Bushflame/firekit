@@ -14,17 +14,19 @@
 
 	</div>
 	<div class="page-item">
-		<p>{l.intro_1a}</p>
+		<p>{l.para_1a}</p>
 	</div> -->
 
 	<Card
 		img={l.img_1a}
 		tit={l.title_1a}
-		intro={l.intro_1a}
+		para={l.para_1a}
 		li_a={l.li_1a}
 		li_b={l.li_1b}
 		li_c={l.li_1c}
 		li_d={l.li_1d}
+		li_f={l.li_1e}
+		li_d={l.li_1f}
 	/>
 </div>
 

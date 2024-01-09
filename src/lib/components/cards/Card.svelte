@@ -1,10 +1,12 @@
 <script>
 	export let tit = '';
-	export let intro = '';
+	export let para = '';
 	export let li_a = '';
 	export let li_b = '';
 	export let li_c = '';
 	export let li_d = '';
+	export let li_e = '';
+	export let li_f = '';
 	export let img = '';
 	// let show_slide_1 = true;
 	// let show_slide_2 = false;
@@ -30,40 +32,47 @@
 	<h1>{tit}</h1>
 	<img src={img} alt={tit} />
 	<div class="card-body">
-
-	<div class="card-inner">
-	{#if intro !== ''}
-		<p>
-			{intro}
-		</p>
-
-	{/if}
-	<ul>
-		{#if li_a != ''}
-			<li>
-				{li_a}
-			</li>
-		{/if}
-		{#if li_b != ''}
-			<li>
-				{li_b}
-			</li>
-		{/if}
-		{#if li_c != ''}
-			<li>
-				{li_c}
-			</li>
-		{/if}
-		{#if li_d != ''}
-			<li>
-				{li_d}
-			</li>
-		{/if}
-	</ul>
+		<div class="card-inner">
+			{#if para !== ''}
+				<p>
+					{para}
+				</p>
+			{/if}
+			<ul>
+				{#if li_a != ''}
+					<li>
+						{li_a}
+					</li>
+				{/if}
+				{#if li_b != ''}
+					<li>
+						{li_b}
+					</li>
+				{/if}
+				{#if li_c != ''}
+					<li>
+						{li_c}
+					</li>
+				{/if}
+				{#if li_d != ''}
+					<li>
+						{li_d}
+					</li>
+				{/if}
+				{#if li_e != ''}
+					<li>
+						{li_e}
+					</li>
+				{/if}
+				{#if li_f != ''}
+					<li>
+						{li_f}
+					</li>
+				{/if}
+			</ul>
+		</div>
+	</div>
 </div>
-</div>
-</div>
-
 
 <style lang="stylus">
 .card-body 

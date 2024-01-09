@@ -13,11 +13,12 @@
 {#if open}
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div class="navwrap" transition:fly={{ x: -300, duration: 300 }}>
-		<img src="/imgs/site/puppy.png" alt="puppy" class='bg-img'>
-		<header>			
+		<img src="/imgs/site/puppy.png" alt="puppy" class="bg-img" />
+		<header>
 			<a href="/">
-			<span class="brand">Firekit</span>
-		</a></header>
+				<span class="brand">Firekit</span>
+			</a>
+		</header>
 		<button on:click={() => (open = false)} class="burger">
 			<span />
 			<span />

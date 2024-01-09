@@ -8,4 +8,5 @@
 <slot />
 
 <style lang="stylus">
+
 </style>

@@ -31,15 +31,16 @@
 		<a href="/" class:active={$page.url.pathname === '/'}> Home</a>
 	</li>
 	<li>
-		<a href="/dashboard" class:active={$page.url.pathname === '/dashboard'} data-sveltekit-preload-data="off">Dashboard</a>
+		<a
+			href="/dashboard"
+			class:active={$page.url.pathname === '/dashboard'}
+			data-sveltekit-preload-data="off">Dashboard</a
+		>
 	</li>
 	<li>
 		<a href="/build" class:active={$page.url.pathname === '/build'}>Build</a>
 	</li>
 	<!-- {#if $hasListing} -->
-	<li>
-		<a href="/create" class:active={$page.url.pathname == '/create'}>Create</a>
-	</li>
 	<!-- {/if} -->
 	<li>
 		<a href={`/edit/${$userKey}`} class:active={$page.url.pathname == `/edit/${$userKey}`}>Edit</a>

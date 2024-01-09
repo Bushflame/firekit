@@ -1,6 +1,6 @@
 <script>
 	import { page } from '$app/stores';
-	import GlobalFrame from '$comps/GlobalFrame.svelte'
+	import GlobalFrame from '$comps/GlobalFrame.svelte';
 	import { logout } from '$lib/firebase/auth.client';
 	import messagesStore from '$lib/stores/messages.store';
 	import { goto } from '$app/navigation';
@@ -34,11 +34,18 @@
 				>
 			</li>
 			<li>
-				<a href="/dashboard" class:active={$page.url.pathname == '/dashboard'} data-sveltekit-preload-data="off">Dashboard</a>
+				<a
+					href="/dashboard"
+					class:active={$page.url.pathname == '/dashboard'}
+					data-sveltekit-preload-data="off">Dashboard</a
+				>
 			</li>
 
 			<li>
 				<a href="/about" class:active={$page.url.pathname === '/about'}>About</a>
+			</li>
+			<li>
+				<a href="/cropper" class:active={$page.url.pathname === '/cropper'}>Cropper</a>
 			</li>
 			<li>
 				<a href="/contact" class:active={$page.url.pathname === '/contact'}>Contact</a>

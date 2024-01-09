@@ -1,20 +1,17 @@
 <script>
-export let brand = 'Brand'
-
+	export let brand = 'Brand';
 </script>
 
 <section>
-    <img src="/imgs/site/puppy.png" alt="puppy" class='bg-img'>
-
-    <header>
-        <a href="/" class="brand">{brand}</a>
-        <slot name='header'/>
-    </header>
-    <slot/>
-    <div class="spacer"></div>
-    <footer>
-        <slot name='footer'/>
-    </footer>
+	<header>
+		<a href="/" class="brand">{brand}</a>
+		<slot name="header" />
+	</header>
+	<slot />
+	<div class="spacer"></div>
+	<footer>
+		<slot name="footer" />
+	</footer>
 </section>
 
 <style lang="stylus">
