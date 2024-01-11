@@ -2,6 +2,8 @@
 	import { goto } from '$app/navigation';
 	import { getByTitles } from '$lib/stores/store';
 	import Card from '$comps/cards/Card.svelte';
+	import FrontCard from '$comps/cards/PublicFrontCard.svelte';
+	import InnerCard from '$comps/cards/PublicInnerCard.svelte';
 	import Slide_1 from '$comps/slides/ResultsSlide.svelte';
 	export let data;
 	let l = data.listing;
@@ -17,7 +19,7 @@
 </script>
 
 {#if show_slide_1}
-	<Card
+	<FrontCard
 		img={l.img_1a}
 		tit={l.title_1a}
 		para={l.para_1a}
@@ -31,7 +33,7 @@
 {/if}
 
 {#if show_slide_2}
-	<Card
+	<InnerCard
 		img={l.img_2a}
 		tit={l.title_2a}
 		para={l.para_2a}
@@ -134,46 +136,12 @@
 	{/if}
 </ul>
 
-<!-- <div class="page-wrap">
-	<img class="img_1a" src={l.img_1a} alt={l.title_1a} />
-	<div class="page-item">
-		<h1>{l.title_1a}</h1>
-	</div>
-	{#if l.para_1a}
-	<div class="page-item">
-		<p>{l.para_1a}</p>
-	</div>
-	{/if}
-	<div class="page-item">
-	<ul>
-		{#if l.li_1a}
-			<li>
-				{l.li_1a}
-			</li>
-		{/if}
-		{#if l.li_1b}
-			<li>
-				{l.li_1b}
-			</li>
-		{/if}
-		{#if l.li_1c}
-			<li>
-				{l.li_1c}
-			</li>
-		{/if}
-		{#if l.li_1d}
-		<li>
-			{l.li_1d}
-		</li>
-
-		{/if}
-	</ul>
-</div>
 
 
 
-	<a href={`/search`} data-sveltekit-reload>Back</a>
-</div> -->
+
+	<!-- <a href={`/search`} data-sveltekit-reload>Back</a> -->
+
 
 <svelte:head>
 	<title>FireKit - {l.title_1a}</title>
@@ -219,7 +187,6 @@ li::before
 //paginator 
 ul.paginator 
 	background rgba(255,255,255,.1)
-	border 1px solid red
 	display grid 
 	grid-template-columns 1fr 1fr 1fr 1fr
 	align-items center 
@@ -235,8 +202,8 @@ ul.paginator
 	z-index 4
 	button 
 		background transparent
-		border 1px solid rgba(255,255,255,.4)
-		color #fff
+		border 1px solid var(--epsilon)
+		color  var(--epsilon)
 		height 2rem 
 		width 2rem
 .slide-grid 
@@ -270,12 +237,7 @@ ul.paginator
 	opacity 1
 	z-index 1
 .paginator
-	.showing-1
-		background var(--delta)
-	.showing-2
-		background var(--delta)	
-	.showing-3
-		background var(--delta)
-	.showing-4
-		background var(--delta)
+	.showing-1,	.showing-2,.showing-3,.showing-4
+		background var(--epsilon)
+		color  var(--beta)
 </style>

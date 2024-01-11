@@ -12,9 +12,9 @@
 	z-index 4
 	button 
 		background transparent
-		border 1px solid var(--alpha) // rgba(255,255,255,.4)
+		border 1px solid var(--delta) // rgba(255,255,255,.4)
 		border-radius 50%
-		color #fff
+		color var(--delta)
 		height 2rem 
 		outline none
 		transition all .5s
@@ -49,23 +49,15 @@
 	opacity 1
 	z-index 1
 .paginator
-	.showing-1
-		background var(--delta)
-		border none
-	.showing-2
-		background var(--delta)	
-		border none
-	.showing-3
-		background var(--delta)
-		border none
-	.showing-4
-		background var(--delta)	
-		border none
+	.showing-1, .showing-2, .showing-3, .showing-4
+		// background var(--delta)
+		border 1px solid var(--gamma)
+		color var(--gamma)
 .btn-submit 
-	background var(--delta)
-	border none
+	background transparent //var(--delta)
+	border 1px solid
 	border-radius 1.5rem
-	color #fff
+	color var(--delta)
 	font-size 1.2rem
 	margin 0 auto
 	outline none

@@ -55,7 +55,8 @@ li
     gap .4rem
     padding-bottom .1rem
 .icon 
-    background var(--beta)
+    background transparent //var(--beta)
+    border 1px solid var(--delta)
     border-radius 50%
     //border 1px solid  var(--gamma)
     height .8rem
@@ -86,7 +87,7 @@ a
         transform translate(0,-50%)
 
 a::before
-    background var(--beta)
+    //background var(--beta)
     //border-right 4px solid  var(--alpha)
     content ''
     height 100% 
@@ -97,7 +98,7 @@ a::before
 
 
 a::after 
-    background var(--beta)
+    //background var(--beta)
     //border-right 4px solid  var(--alpha)
     content ''
     height 100% 

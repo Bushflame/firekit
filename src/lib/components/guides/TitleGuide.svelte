@@ -1,20 +1,18 @@
 <script>
-export let title = ''
+	export let title = '';
 </script>
 
 <div class="guide">
-    <h3>{title}</h3>
-    <p>
-        While only the first page is required, titles are required on every page you decide to use.
-    </p>
-    <p>
-        The first page title helps visitors search for the desired breed. As such it should only
-        contain the actual breed of the dog.
-    </p>
-    <p>
-        On the secondary pages you may wish to discuss the parent's pedigree and so a short precise
-        title will be helpful.
-    </p>
+	<h3>{title}</h3>
+	<p>While only the first page is required, titles are required on every page you decide to use.</p>
+	<p>
+		The first page title helps visitors search for the desired breed. As such it should only contain
+		the actual breed of the dog.
+	</p>
+	<p>
+		On the secondary pages you may wish to discuss the parent's pedigree and so a short precise
+		title will be helpful.
+	</p>
 </div>
 
 <style lang="stylus">

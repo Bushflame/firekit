@@ -25,8 +25,8 @@
 		li_b={l.li_1b}
 		li_c={l.li_1c}
 		li_d={l.li_1d}
-		li_f={l.li_1e}
-		li_d={l.li_1f}
+		li_e={l.li_1e}
+		li_f={l.li_1f}
 	/>
 </div>
 

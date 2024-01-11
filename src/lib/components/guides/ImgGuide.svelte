@@ -1,21 +1,16 @@
 <script>
-export let title= ''
+	export let title = '';
 </script>
 
-<div class="guide">		
-    <h3>{title}</h3>
-    <p>
-        Your front page is what potential buyers will see when filtering by breed. A good option
-        here would be an image of the litter. To prevent distortion, a landscape orientation is
-        preferable.
-    </p>
-    <p>
-        To prevent distortion, a landscape orientation is
-        preferable.
-    </p>
-    <p>
-        Inner pages require a portrait image. These are ideal for showing images of the parents.
-    </p></div>
+<div class="guide">
+	<h3>{title}</h3>
+	<p>
+		Your front page is what potential buyers will see when filtering by breed. A good option here
+		would be an image of the litter. To prevent distortion, a landscape orientation is preferable.
+	</p>
+	<p>To prevent distortion, a landscape orientation is preferable.</p>
+	<p>Inner pages require a portrait image. These are ideal for showing images of the parents.</p>
+</div>
 
 <style lang="stylus">
 .guide 

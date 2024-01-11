@@ -1,21 +1,19 @@
 <script>
-export let title
+	export let title;
 </script>
 
 <div class="guide">
-    <h3>{title}</h3>
-    <p>
-        Paragraph text is optional. leave empty if you don't wish to use it. Paragragraphs can be
-        used with or without the bullet lists. Maybe you want use it as a suubtitle to introduce the
-        following bullet list.
-    </p>
-    <p>
-        While line breaks will occur naturally, to start a new line yourself: click return / enter.
-        Clicking return / enter twice will add extra space below, essentially creating a new
-        paragraph.
-    </p>
-    <p>For readabilty, short sentences / line breaks are recommended.</p>
-
+	<h3>{title}</h3>
+	<p>
+		Paragraph text is optional. leave empty if you don't wish to use it. Paragragraphs can be used
+		with or without the bullet lists. Maybe you want use it as a suubtitle to introduce the
+		following bullet list.
+	</p>
+	<p>
+		While line breaks will occur naturally, to start a new line yourself: click return / enter.
+		Clicking return / enter twice will add extra space below, essentially creating a new paragraph.
+	</p>
+	<p>For readabilty, short sentences / line breaks are recommended.</p>
 </div>
 
 <style lang="stylus">

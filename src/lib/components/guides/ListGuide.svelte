@@ -1,14 +1,14 @@
 <script>
-export let title = ''
+	export let title = '';
 </script>
 
 <div class="guide">
-    <h3>{title}</h3>
-    <p>Bullet lists make descriptions easier to read and are often prefered by visitors</p>
-    <p>
-        As with paragraph text, bullet list items are optional and can be used with or without
-        paragraph text. Leave any unwanted list items empty.
-    </p>
+	<h3>{title}</h3>
+	<p>Bullet lists make descriptions easier to read and are often prefered by visitors</p>
+	<p>
+		As with paragraph text, bullet list items are optional and can be used with or without paragraph
+		text. Leave any unwanted list items empty.
+	</p>
 </div>
 
 <style lang="stylus">

@@ -5,7 +5,7 @@
 	export let data;
 	export let form;
 	let li = data.listing;
-	let pageNum = 1
+	let pageNum = 1;
 	//===================================================================
 
 	let submitting = false;
@@ -29,6 +29,7 @@
 	let slide_4_isActive = false;
 	let showingSlide = 1;
 </script>
+
 <h3>Page {pageNum}</h3>
 <form
 	on:submit={submitForm}
@@ -153,7 +154,7 @@
 	<button
 		class:showing-1={slide_1_isActive}
 		on:click|preventDefault={() => {
-			pageNum = 1
+			pageNum = 1;
 			showingSlide = 1;
 			show_slide_1 = true;
 			show_slide_2 = false;
@@ -168,7 +169,7 @@
 	<button
 		class:showing-2={slide_2_isActive}
 		on:click|preventDefault={() => {
-			pageNum = 2
+			pageNum = 2;
 			showingSlide = 2;
 			show_slide_1 = false;
 			show_slide_2 = true;
@@ -183,7 +184,7 @@
 	<button
 		class:showing-3={slide_3_isActive}
 		on:click|preventDefault={() => {
-			pageNum = 3
+			pageNum = 3;
 			showingSlide = 3;
 			show_slide_1 = false;
 			show_slide_2 = false;
@@ -198,7 +199,7 @@
 	<button
 		class:showing-4={slide_4_isActive}
 		on:click|preventDefault={() => {
-			pageNum = 4
+			pageNum = 4;
 			showingSlide = 4;
 			show_slide_1 = false;
 			show_slide_2 = false;

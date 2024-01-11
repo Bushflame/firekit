@@ -37,19 +37,18 @@
 			data-sveltekit-preload-data="off">Dashboard</a
 		>
 	</li>
-	<li>
+	<!-- <li>
 		<a href="/build" class:active={$page.url.pathname === '/build'}>Build</a>
-	</li>
+	</li> -->
 	<!-- {#if $hasListing} -->
 	<!-- {/if} -->
-	<li>
+	<!-- <li>
 		<a href={`/edit/${$userKey}`} class:active={$page.url.pathname == `/edit/${$userKey}`}>Edit</a>
 	</li>
 	<li>
 		<a href={`/my-page/${$userKey}`} class:active={$page.url.pathname == `/my-page/${$userKey}`}
-			>My Page</a
-		>
-	</li>
+			>My Page</a>
+	</li> -->
 
 	<li>
 		<!-- svelte-ignore a11y-click-events-have-key-events -->

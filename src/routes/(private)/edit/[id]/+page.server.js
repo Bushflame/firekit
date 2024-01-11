@@ -41,6 +41,6 @@ export const actions = {
 
 		await editListing(params.id, data.listing, locals.user.id);
 		console.log('in edit listing on page.server actions edit -redirect');
-		throw redirect(303, `/listing/${params.id}`);
+		throw redirect(303, `/dashboard`);
 	}
 };

@@ -8,25 +8,7 @@
 	export let li_e = '';
 	export let li_f = '';
 	export let img = '';
-	// let show_slide_1 = true;
-	// let show_slide_2 = false;
-	// let show_slide_3 = false;
-	// let show_slide_4 = false;
-	// let slide_1_isActive = true
-	// let slide_2_isActive = false
-	// let slide_3_isActive = false
-	// let slide_4_isActive = false
 </script>
-
-<!-- <Card 
-    img={l.img_1a}
-    tit={l.title_1a} 
-    intro={l.intro_1a}
-    li_a={l.li_1a}
-    li_b={l.li_1b}   
-    li_c={l.li_1c}   
-    li_d={l.li_1d}           
-/> -->
 
 <div class="card">
 	<h1>{tit}</h1>

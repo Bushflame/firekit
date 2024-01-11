@@ -32,7 +32,3 @@ if (typeof localStorage !== 'undefined') {
 // export const showingTitleGuide = writable();
 // export const showingParaGuide = writable(false);
 // export const showingListGuide = writable(false);
-
-
-
-

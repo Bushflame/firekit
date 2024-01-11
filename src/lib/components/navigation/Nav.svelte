@@ -27,6 +27,9 @@
 				<a href="/" class:active={$page.url.pathname == '/'}>Home</a>
 			</li>
 			<li>
+				<a href="/frame" class:active={$page.url.pathname == '/frame'}>frame</a>
+			</li>
+			<li>
 				<a
 					href="/search"
 					class:active={$page.url.pathname === '/search'}
@@ -45,9 +48,6 @@
 				<a href="/about" class:active={$page.url.pathname === '/about'}>About</a>
 			</li>
 			<li>
-				<a href="/cropper" class:active={$page.url.pathname === '/cropper'}>Cropper</a>
-			</li>
-			<li>
 				<a href="/contact" class:active={$page.url.pathname === '/contact'}>Contact</a>
 			</li>
 			<li>
@@ -58,6 +58,9 @@
 		{:else}
 			<li>
 				<a href="/" class:active={$page.url.pathname == '/'}>Home</a>
+			</li>
+			<li>
+				<a href="/frame" class:active={$page.url.pathname == '/frame'}>frame</a>
 			</li>
 			<li>
 				<a href="/search" class:active={$page.url.pathname === '/search'}>Search</a>

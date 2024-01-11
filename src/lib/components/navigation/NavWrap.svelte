@@ -57,7 +57,7 @@ header
 footer
 	bottom 0
 .brand 
-	color var(--delta)
+	color var(--alpha)
 	font-size 1.4rem
 	font-weight bold
 .bg-img 
@@ -85,7 +85,7 @@ footer
 	top 0
 	overflow hidden
 	padding-top 4rem
-	z-index 4
+	z-index 8
 nav 
 	margin-left 1rem
 	width   calc(var(--globalWidth)- 2rem) 
@@ -97,7 +97,7 @@ ul
 	list-style none
 	width 100%
 .burger 
-	background   var(--delta) //rgba(255,255,255,.1)
+	background   var(--alpha) //rgba(255,255,255,.1)
 	border none //1px solid var(--beta)
 	border-radius 50% // 0  0 0 50%// 6px
 	display flex

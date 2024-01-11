@@ -1,9 +1,7 @@
-
-
 <script>
-		export let img =false;
-	let title  = true;
-	export {title as class}
+	export let img = false;
+	let title = true;
+	export { title as class };
 	export let para = false;
 	export let list = false;
 </script>
@@ -13,7 +11,7 @@
 		class:img
 		on:click|preventDefault={() => {
 			img = !img;
-			title = !title //false;
+			title = !title; //false;
 			para = false;
 			list = false;
 		}}
