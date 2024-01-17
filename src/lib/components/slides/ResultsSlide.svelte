@@ -1,5 +1,7 @@
 <script>
 	import { fade, fly } from 'svelte/transition';
+
+	import PublicFrame from '$lib/frames/PublicFrame.svelte';
 	/**
 	 * @type {any}
 	 */
@@ -11,77 +13,79 @@
 	export let counter = 0;
 </script>
 
-<div class="card-wrap">
-	{#if counter > 0}
-		<button
-			class="prev counter-btn"
-			on:click={() => {
-				{
-					counter = counter - 1;
-				}
-			}}>prev</button
-		>
-	{/if}
-	{#if counter < slides.length - 1}
-		<button
-			class="next counter-btn"
-			on:click={() => {
-				counter = counter + 1;
-			}}>next</button
-		>
-	{/if}
+<PublicFrame>
+	<div class="card-wrap">
+		{#if counter > 0}
+			<button
+				class="prev counter-btn"
+				on:click={() => {
+					{
+						counter = counter - 1;
+					}
+				}}>prev</button
+			>
+		{/if}
+		{#if counter < slides.length - 1}
+			<button
+				class="next counter-btn"
+				on:click={() => {
+					counter = counter + 1;
+				}}>next</button
+			>
+		{/if}
 
-	<p class="show-count">Showing {counter + 1} of {slides.length} results</p>
-	<article class="card">
-		{#each slides as slide, index}
-			{#if index == counter}
-				<div class="card-liner" transition:fly={{ x: -300, duration: 500 }}>
-					<img src={slide.img_1a} alt="" />
-					<div class="card-body">
-						<h1>{slide.title_1a}</h1>
-						<div class="card-inner">
-							<p>{slide.para_1a}</p>
-							<ul>
-								{#if slide.li_1a}
-									<li>
-										{slide.li_1a}
-									</li>
-								{/if}
-								{#if slide.li_1b}
-									<li>
-										{slide.li_1b}
-									</li>
-								{/if}
-								{#if slide.li_1c}
-									<li>
-										{slide.li_1c}
-									</li>
-								{/if}
-								{#if slide.li_1d}
-									<li>
-										{slide.li_1d}
-									</li>
-								{/if}
-								{#if slide.li_1e}
-									<li>
-										{slide.li_1e}
-									</li>
-								{/if}
-								{#if slide.li_1f}
-									<li>
-										{slide.li_1f}
-									</li>
-								{/if}
-							</ul>
-							<!-- needs to be the doc id -->
-							<a href={`/listing/${slide.id}`} data-sveltekit-preload-data="off">View</a>
+		<p class="show-count">Showing {counter + 1} of {slides.length} results</p>
+		<article class="card">
+			{#each slides as slide, index}
+				{#if index == counter}
+					<div class="card-liner" transition:fly={{ x: -300, duration: 500 }}>
+						<img src={slide.img_1a} alt="" />
+						<div class="card-body">
+							<h1>{slide.title_1a}</h1>
+							<div class="card-inner">
+								<p>{slide.para_1a}</p>
+								<ul>
+									{#if slide.li_1a}
+										<li>
+											{slide.li_1a}
+										</li>
+									{/if}
+									{#if slide.li_1b}
+										<li>
+											{slide.li_1b}
+										</li>
+									{/if}
+									{#if slide.li_1c}
+										<li>
+											{slide.li_1c}
+										</li>
+									{/if}
+									{#if slide.li_1d}
+										<li>
+											{slide.li_1d}
+										</li>
+									{/if}
+									{#if slide.li_1e}
+										<li>
+											{slide.li_1e}
+										</li>
+									{/if}
+									{#if slide.li_1f}
+										<li>
+											{slide.li_1f}
+										</li>
+									{/if}
+								</ul>
+								<!-- needs to be the doc id -->
+								<a href={`/listing/${slide.id}`} data-sveltekit-preload-data="off">View</a>
+							</div>
 						</div>
 					</div>
-				</div>
-			{/if}
-		{/each}
-	</article>
-</div>
+				{/if}
+			{/each}
+		</article>
+	</div>
+</PublicFrame>
 
 <style lang="stylus">
 .card-wrap
@@ -106,7 +110,7 @@ article.card
     gap .6rem
     padding .5rem 1rem
 p 
-	color var(--gamma)
+	color red //var(--gamma)
 ul 
 	display flex
 	gap .4rem
@@ -129,9 +133,8 @@ li::before
 	transform translate(0,-50%)
 	width 1rem
 p.show-count 
-    //background rgba(0,0,0,.5)
     border-radius 1rem
-    color var(--alpha)
+    color red //var(--alpha)
     margin-left 50% 
     padding .3rem 1rem
     transform translate(-50%,0)
@@ -145,7 +148,6 @@ img
     object-fit cover
     //width calc(var(--globalWidth) - 2px)
 a 
-    //background red
     color var(--alpha)
     position absolute 
     bottom 4rem 
@@ -153,7 +155,7 @@ a
     transform translate(-50%,0)
     z-index 10
 button.counter-btn 
-    background var(--delta) //rgba(0,0,0,.4)
+    background red //var(--delta) //rgba(0,0,0,.4)
     border 0
     border-radius 50%
     color #fff

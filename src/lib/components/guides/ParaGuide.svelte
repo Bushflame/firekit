@@ -1,9 +1,7 @@
 <script>
-	export let title;
 </script>
 
 <div class="guide">
-	<h3>{title}</h3>
 	<p>
 		Paragraph text is optional. leave empty if you don't wish to use it. Paragragraphs can be used
 		with or without the bullet lists. Maybe you want use it as a suubtitle to introduce the

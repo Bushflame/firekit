@@ -13,66 +13,66 @@
 	export let li_tel = '';
 	export let li_email = '';
 	export let li_fb = '';
+	export let front = false;
 </script>
 
-<PublicFrame>
+<PublicFrame {front}>
 	<div class="card one" slot="one">
 		<h1>{tit}</h1>
 		<div class="img">
-            <div class="corner small top-left-corner" />
+			<div class="corner small top-left-corner" />
 			<div class="corner small top-right-corner" />
 			<div class="corner small bottom-right-corner" />
 			<div class="corner small bottom-left-corner" />
 			<img src={img} alt={tit} />
 		</div>
 	</div>
-    <!-- contact / terms section -->
+	<!-- contact / terms section -->
 	<div class="card two" slot="two">
 		<div class="card-inner card-inner-2">
-            <div class="corner small top-left-corner" />
+			<div class="corner small top-left-corner" />
 			<div class="corner small top-right-corner" />
 			<div class="corner small bottom-right-corner" />
 			<div class="corner small bottom-left-corner" />
-            <p class="title">{tit}</p>
+			<p class="title">{tit}</p>
 			<div class="spacer" />
-            {#if para !== ''}
-            <p>
-                {para}
-            </p>
-        {/if}
-        <ul>
-            {#if li_a != ''}
-                <li>
-                    {li_a}
-                </li>
-            {/if}
-            {#if li_b != ''}
-                <li>
-                    {li_b}
-                </li>
-            {/if}
-            {#if li_c != ''}
-                <li>
-                    {li_c}
-                </li>
-            {/if}
-            {#if li_d != ''}
-                <li>
-                    {li_d}
-                </li>
-            {/if}
-            {#if li_e != ''}
-            <li>
-                {li_e}
-            </li>
-        {/if}
-        {#if li_f != ''}
-        <li>
-            {li_f}
-        </li>
-    {/if}
-        </ul>
-
+			{#if para !== ''}
+				<p>
+					{para}
+				</p>
+			{/if}
+			<ul>
+				{#if li_a != ''}
+					<li>
+						{li_a}
+					</li>
+				{/if}
+				{#if li_b != ''}
+					<li>
+						{li_b}
+					</li>
+				{/if}
+				{#if li_c != ''}
+					<li>
+						{li_c}
+					</li>
+				{/if}
+				{#if li_d != ''}
+					<li>
+						{li_d}
+					</li>
+				{/if}
+				{#if li_e != ''}
+					<li>
+						{li_e}
+					</li>
+				{/if}
+				{#if li_f != ''}
+					<li>
+						{li_f}
+					</li>
+				{/if}
+			</ul>
 		</div>
 	</div>
 </PublicFrame>

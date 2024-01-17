@@ -13,20 +13,21 @@
 
 <style lang="stylus">
 .guide 
-    background var(--alpha) 
-    border 1px solid var(--delta)
-    border-radius 2rem
+    background var(--beta) 
+    //border 1px solid var(--delta)
+    //border-radius 2rem
     color var(--delta)
     height fit-content //20rem
     padding 2rem 1rem 2rem
     position absolute
     top 0
     text-align center
-    z-index 50
+    z-index 0
 h3 
     color var(--delta)
     margin 0 auto 1rem
     text-align center
+    word-wrap no-wrap
 p 
     line-height 1.5
     margin-bottom 1rem

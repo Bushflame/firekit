@@ -47,7 +47,7 @@
 <!-- <SideNav /> -->
 <!-- <h2>Pathname: {$page.url.pathname}</h2> -->
 <main>
-	<GlobalFrame brand={'Firekit'}>
+	<GlobalFrame>
 		<Nav {isLoggedIn} />
 
 		{#if $messagesStore.show}
@@ -82,6 +82,7 @@
 :root 
 	--globalWidth 26.25rem
 	--globalHeight 39rem
+	--ddWidth 23rem
 
 	//single colour
 	--alpha #fff
@@ -92,7 +93,9 @@
 	--eta darken(#FFEADB,40%)
 	--zeta darken(#FFEADB,50%)
 	--theta darken(#FFEADB,60%)
-
+	--iota darken(#FFEADB,70%)
+	
+	--breakpoint 54rem
 main 
 	background linear-gradient(to bottom left,var(--beta),  var(--gamma));
 	display flex 
@@ -101,14 +104,17 @@ main
 	min-height 100vh
 // -----SEMANTIC-------------------
 h1 
-	color var(--delta)
+	color var(--theta)
 	font-size 1.5rem
+	text-align center
 h3 
-    color var(--delta)
+    color var(--theta)
     font-weight 800
 p
-	font-size 1rem
+	font-size 1.1rem
+	
 a 
+	color var(--eta)
 	font-size 1rem
 	text-decoration none
 button 

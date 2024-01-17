@@ -78,7 +78,7 @@ img
 	object-fit cover
 	width 100%
 p 
-	color var(--gamma)
+	color red // var(--eta)
 ul 
 	display flex
 	gap .4rem
@@ -87,7 +87,7 @@ ul
 	margin-top 1rem
 li 
 	border-bottom 1px solid var(--delta)
-	color var(--gamma)
+	color var(--eta)
 	padding  .2rem  0 .1rem 2rem
 	position relative
 li::before 

@@ -1,5 +1,6 @@
 <script>
 	import { page } from '$app/stores';
+	import Corners from '$comps/Corners.svelte';
 	import GlobalFrame from '$comps/GlobalFrame.svelte';
 	import { logout } from '$lib/firebase/auth.client';
 	import messagesStore from '$lib/stores/messages.store';
@@ -22,12 +23,10 @@
 
 {#if $page.url.pathname != '/dashboard'}
 	<NavWrap>
+		<!-- <Corners/> -->
 		{#if isLoggedIn}
 			<li>
 				<a href="/" class:active={$page.url.pathname == '/'}>Home</a>
-			</li>
-			<li>
-				<a href="/frame" class:active={$page.url.pathname == '/frame'}>frame</a>
 			</li>
 			<li>
 				<a
@@ -51,16 +50,11 @@
 				<a href="/contact" class:active={$page.url.pathname === '/contact'}>Contact</a>
 			</li>
 			<li>
-				<!-- svelte-ignore a11y-click-events-have-key-events -->
-				<!-- svelte-ignore a11y-no-static-element-interactions -->
-				<span on:click={onLogout} class="nav-link logout-btn">Logout</span>
+				<button on:click={onLogout} class="nav-link logout-btn">Logout</button>
 			</li>
 		{:else}
 			<li>
 				<a href="/" class:active={$page.url.pathname == '/'}>Home</a>
-			</li>
-			<li>
-				<a href="/frame" class:active={$page.url.pathname == '/frame'}>frame</a>
 			</li>
 			<li>
 				<a href="/search" class:active={$page.url.pathname === '/search'}>Search</a>
@@ -84,7 +78,7 @@
 <style lang="stylus">
 // active link
 .active 
-	color var(--beta)
+	color var(--theta)
 
 li 
 	//border-bottom  1px solid red //d var(--light-1)
@@ -93,8 +87,8 @@ li
 	white-space: nowrap
 	width 20rem
 a 
-	border-bottom 1px solid var(--beta)
-	color  var(--gamma)
+	border-bottom 1px solid var(--delta)
+	color  var(--iota)
 	display flex
 	align-items center
 	height 2rem
@@ -102,12 +96,13 @@ a
 	width 20rem
 .logout-btn
 	background transparent
-	border-bottom 1px solid var(--beta)
-	color  var(--gamma)
+	border-bottom 1px solid var(--delta)
+	color  var(--iota)
 	display flex
 	align-items center
 	font-size 1rem
 	height 2rem
 	position relative
 	outline none
+	width 100%
 </style>

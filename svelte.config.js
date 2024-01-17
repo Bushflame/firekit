@@ -14,6 +14,7 @@ const config = {
 		adapter: adapter(),
 		alias: {
 			$comps: './src/lib/components',
+			$blocks: './src/lib/building-blocks',			
 			$frames: './src/lib/frames',
 			$stylus: './src/lib/stylus'
 		}

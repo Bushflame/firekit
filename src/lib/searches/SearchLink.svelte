@@ -27,38 +27,38 @@
 <style lang="stylus">
 .wrap 
     margin auto
-    width fit-content
+    width calc(var(--globalWith) / 2)
 h3 
-    background var(--beta)
-    color var(--alpha)
-    margin .6rem auto
-    padding .4rem
+    //background var(--gamma)
+    border-radius 1rem
+    color var(--iota)
+    margin 1rem auto
+    padding .4rem 2rem
     text-align center
+    width fit-content
 .card 
-    //border 1px solid red
     display grid 
-    gap .4rem
+    gap .8rem
     grid-template-columns 1fr 1fr
     list-style none
     margin auto
-    //max-width 20rem
-    width fit-content
+    width 25rem //calc(var(--globalWith) - (var(--globalWith)* 0.5))
+
 li 
     //border 1px solid red
-    width 10rem
+    //width 10rem
 a 
-    background var(--delta)
-    color  var(--beta)
+    //background var(--delta)
+    border-bottom 1px solid var(--gamma)
+    color  var(--theta)
     display flex 
     justify-content space-between
-    //font-weight bold
-    //margin .2rem 
-    padding .2rem .5rem .2rem 2rem
+    padding .4rem 1rem
     position relative
     text-align center
-    width calc(100% - (border-left / 2))
+    //width calc(100% - (border-left / 2))
     span 
-        color  var(--beta)
+        color  var(--delta)
         font-size 3rem
         font-weight bold 
         position absolute
@@ -66,25 +66,23 @@ a
         top 30%
         transform translate(0,-50%)
 
-a::before
-    background var(--beta)
-    //border-right 4px solid  var(--alpha)
-    content ''
-    height 100% 
-    position absolute
-    left 0
-    top 0
-    width .8rem
+// a::before
+//     background var(--beta)
+//     content ''
+//     height 100% 
+//     position absolute
+//     left 0
+//     top 0
+//     width .8rem
 
 
-a::after 
-    background var(--beta)
-    //border-right 4px solid  var(--alpha)
-    content ''
-    height 100% 
-    position absolute
-    left 1.2rem
-    top 0
-    width .2rem
+// a::after 
+//     background var(--beta)
+//     content ''
+//     height 100% 
+//     position absolute
+//     left 1.2rem
+//     top 0
+//     width .2rem
 
 </style>

@@ -1,5 +1,7 @@
 <script>
 	import { goto } from '$app/navigation';
+	import { slide, fade, fly, scale } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
 	import { getByTitles } from '$lib/stores/store';
 	import Card from '$comps/cards/Card.svelte';
 	import FrontCard from '$comps/cards/PublicFrontCard.svelte';
@@ -16,63 +18,80 @@
 	let slide_2_isActive = false;
 	let slide_3_isActive = false;
 	let slide_4_isActive = false;
+	let front = true;
 </script>
 
-{#if show_slide_1}
-	<FrontCard
-		img={l.img_1a}
-		tit={l.title_1a}
-		para={l.para_1a}
-		li_a={l.li_1a}
-		li_b={l.li_1b}
-		li_c={l.li_1c}
-		li_d={l.li_1d}
-		li_e={l.li_1e}
-		li_f={l.li_1f}
-	/>
-{/if}
+<div class="wrap">
+	{#if show_slide_1}
+		<!-- <div class="transition" in:fly={{ x: 200, delay:0, duration: 600 }} out:fly={{ x: -200, duration: 400 }} > -->
+		<div
+			class="transition"
+			in:scale={{ duration: 500, delay: 100 }}
+			out:fly={{ x: -200, duration: 400 }}
+		>
+			<FrontCard
+				{front}
+				img={l.img_1a}
+				tit={l.title_1a}
+				para={l.para_1a}
+				li_a={l.li_1a}
+				li_b={l.li_1b}
+				li_c={l.li_1c}
+				li_d={l.li_1d}
+				li_e={l.li_1e}
+				li_f={l.li_1f}
+			/>
+		</div>
+	{/if}
 
-{#if show_slide_2}
-	<InnerCard
-		img={l.img_2a}
-		tit={l.title_2a}
-		para={l.para_2a}
-		li_a={l.li_2a}
-		li_b={l.li_2b}
-		li_c={l.li_2c}
-		li_d={l.li_2d}
-		li_e={l.li_2e}
-		li_f={l.li_2f}
-	/>
-{/if}
-{#if show_slide_3}
-	<Card
-		img={l.img_3a}
-		tit={l.title_3a}
-		para={l.para_3a}
-		li_a={l.li_3a}
-		li_b={l.li_3b}
-		li_c={l.li_3c}
-		li_d={l.li_3d}
-		li_e={l.li_3e}
-		li_f={l.li_3f}
-	/>
-{/if}
-{#if show_slide_4}
-	<Card
-		img={l.img_4a}
-		tit={l.title_4a}
-		para={l.para_4a}
-		li_a={l.li_4a}
-		li_b={l.li_4b}
-		li_c={l.li_4c}
-		li_d={l.li_4d}
-		li_e={l.li_4e}
-		li_f={l.li_4f}
-	/>
-{/if}
-
-<ul class="paginator">
+	{#if show_slide_2}
+		<!-- <div class="transition" in:fly={{delay:0, duration:600 }} out:fly={{ x: -200, duration: 400 }} > -->
+		<div
+			class="transition"
+			in:scale={{ duration: 500, delay: 100 }}
+			out:fly={{ x: -200, duration: 400 }}
+		>
+			<InnerCard
+				img={l.img_2a}
+				tit={l.title_2a}
+				para={l.para_2a}
+				li_a={l.li_2a}
+				li_b={l.li_2b}
+				li_c={l.li_2c}
+				li_d={l.li_2d}
+				li_e={l.li_2e}
+				li_f={l.li_2f}
+			/>
+		</div>
+	{/if}
+	{#if show_slide_3}
+		<Card
+			img={l.img_3a}
+			tit={l.title_3a}
+			para={l.para_3a}
+			li_a={l.li_3a}
+			li_b={l.li_3b}
+			li_c={l.li_3c}
+			li_d={l.li_3d}
+			li_e={l.li_3e}
+			li_f={l.li_3f}
+		/>
+	{/if}
+	{#if show_slide_4}
+		<Card
+			img={l.img_4a}
+			tit={l.title_4a}
+			para={l.para_4a}
+			li_a={l.li_4a}
+			li_b={l.li_4b}
+			li_c={l.li_4c}
+			li_d={l.li_4d}
+			li_e={l.li_4e}
+			li_f={l.li_4f}
+		/>
+	{/if}
+</div>
+<div class="paginator">
 	{#if l.title_2a}
 		<button
 			class:showing-1={slide_1_isActive}
@@ -134,58 +153,53 @@
 			}}>4</button
 		>
 	{/if}
-</ul>
+</div>
 
-
-
-
-
-	<!-- <a href={`/search`} data-sveltekit-reload>Back</a> -->
-
+<!-- <a href={`/search`} data-sveltekit-reload>Back</a> -->
 
 <svelte:head>
 	<title>FireKit - {l.title_1a}</title>
 </svelte:head>
 
 <style lang="stylus">
-section 
-	border 1px solid red
-	position relative
-.page-wrap
-	background rgba(255,255,255,.1)
-	display flex
-	flex-direction column
-	gap 1rem
-	//max-width 25rem
-	//padding 1rem 0
-	width 100%
-.page-item
-	padding  0 1rem 
-p 
-	color var(--gamma)
-ul 
-	display flex
-	gap .4rem
-	flex-direction column
-	list-style none
-li 
-	border-bottom 1px solid var(--delta)
-	color var(--gamma)
-	padding  .2rem  0 .1rem 2rem
-	position relative
-li::before 
-	content ''
-	background var(--delta)
-	border-radius 50% 
-	height 1rem 
-	position absolute
-	left 0 
-	top 50%
-	transform translate(0,-50%)
-	width 1rem
+// section 
+// 	border 1px solid red
+// 	position relative
+// .page-wrap
+// 	background rgba(255,255,255,.1)
+// 	display flex
+// 	flex-direction column
+// 	gap 1rem
+// 	//max-width 25rem
+// 	//padding 1rem 0
+// 	width 100%
+// .page-item
+// 	padding  0 1rem 
+// p 
+// 	color var(--gamma)
+// ul 
+// 	display flex
+// 	gap .4rem
+// 	flex-direction column
+// 	list-style none
+// li 
+// 	border-bottom 1px solid var(--delta)
+// 	color var(--gamma)
+// 	padding  .2rem  0 .1rem 2rem
+// 	position relative
+// li::before 
+// 	content ''
+// 	background var(--delta)
+// 	border-radius 50% 
+// 	height 1rem 
+// 	position absolute
+// 	left 0 
+// 	top 50%
+// 	transform translate(0,-50%)
+// 	width 1rem
 
 //paginator 
-ul.paginator 
+.paginator 
 	background rgba(255,255,255,.1)
 	display grid 
 	grid-template-columns 1fr 1fr 1fr 1fr
@@ -203,8 +217,10 @@ ul.paginator
 	button 
 		background transparent
 		border 1px solid var(--epsilon)
-		color  var(--epsilon)
+		border-radius 50%
+		color  var(--theta)
 		height 2rem 
+		transition all .5s
 		width 2rem
 .slide-grid 
 	//border 1px solid #000
@@ -238,6 +254,7 @@ ul.paginator
 	z-index 1
 .paginator
 	.showing-1,	.showing-2,.showing-3,.showing-4
-		background var(--epsilon)
-		color  var(--beta)
+		background var(--theta)
+		border none
+		color  var(--alpha)
 </style>

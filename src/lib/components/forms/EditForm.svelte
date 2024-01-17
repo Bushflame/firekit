@@ -1,12 +1,5 @@
 <script>
-	import { slide, fade } from 'svelte/transition';
-	//import DropdownBtns from '$comps/edit-dropdown/DropdownBtns.svelte'
-	//import Guide from '$comps/edit-dropdown/GuideDropdown.svelte'
-	import GeneralGuide from '$comps/guides/GeneralGuide.svelte';
-	import ListGuide from '$comps/guides/ListGuide.svelte';
-	import ParaGuide from '$comps/guides/ParaGuide.svelte';
-	import TitleGuide from '$comps/guides/TitleGuide.svelte';
-	import ImgGuide from '$comps/guides/ImgGuide.svelte';
+	import ListDropdown from '$comps/edit-dropdown/ListDropdown.svelte';
 
 	// @ts-ignore
 	//export let imgErrMsg, imgInval;
@@ -19,8 +12,11 @@
 		li_2Val = '',
 		li_3Val = '',
 		li_4Val = '',
-		li_5Val = '',
-		li_6Val = '';
+		li_5Val = '';
+	export let nameVal = '',
+		emailVal = '',
+		telVal = '',
+		fbookVal = '';
 	export let imgStr = '';
 	export let titleStr = '';
 	export let paraStr = '';
@@ -29,84 +25,19 @@
 	export let li_3Str = '';
 	export let li_4Str = '';
 	export let li_5Str = '';
-	export let li_6Str = '';
+	export let nameStr = '',
+		emailStr = '',
+		telStr = '',
+		fbookStr = '';
+
+	//export let li_6Str = '';
 	// dropdown & dropdown-btns classes
 	let img = false;
 	let title = false;
 	let para = false;
 	let list = false;
-	let showListGuide = false;
-	let showParaGuide = false;
-	let showTitleGuide = false;
-	let showImgGuide = false;
-	//close all guides when navigatiing between sections
-	const closeGuides = () => {
-		showListGuide = false;
-		showParaGuide = false;
-		showTitleGuide = false;
-		showImgGuide = false;
-	};
+	let contact = false;
 </script>
-
-<div class="guide-btns">
-	{#if img}
-		<button
-			class="guide-btn"
-			on:click|preventDefault={() => {
-				showImgGuide = !showImgGuide;
-			}}
-		>
-			{#if !showImgGuide}
-				Images guide
-			{:else}
-				Close guide
-			{/if}
-		</button>
-	{/if}
-	{#if title}
-		<button
-			class="guide-btn"
-			on:click|preventDefault={() => {
-				showTitleGuide = !showTitleGuide;
-			}}
-		>
-			{#if !showTitleGuide}
-				Titles guide
-			{:else}
-				Close guide
-			{/if}
-		</button>
-	{/if}
-	{#if para}
-		<button
-			class="guide-btn"
-			on:click|preventDefault={() => {
-				showParaGuide = !showParaGuide;
-			}}
-		>
-			{#if !showParaGuide}
-				Paragraph guide
-			{:else}
-				Close guide
-			{/if}</button
-		>
-	{/if}
-	{#if list}
-		<button
-			class="guide-btn"
-			on:click|preventDefault={() => {
-				showListGuide = !showListGuide;
-				//closeGuides();
-			}}
-		>
-			{#if !showListGuide}
-				List items guide
-			{:else}
-				Close guide
-			{/if}
-		</button>
-	{/if}
-</div>
 
 <div class="btn-wrap dropdown-btns">
 	<button
@@ -116,7 +47,7 @@
 			title = false;
 			para = false;
 			list = false;
-			closeGuides();
+			contact = false;
 		}}>Image</button
 	>
 
@@ -127,7 +58,7 @@
 			img = false;
 			para = false;
 			list = false;
-			closeGuides();
+			contact = false;
 		}}>Title</button
 	>
 	<button
@@ -137,8 +68,8 @@
 			img = false;
 			title = false;
 			list = false;
-			closeGuides();
-		}}>Paragraph</button
+			contact = false;
+		}}>Text</button
 	>
 
 	<button
@@ -148,41 +79,51 @@
 			img = false;
 			title = false;
 			para = false;
-			closeGuides();
-		}}>List items</button
+			contact = false;
+		}}>List</button
+	>
+	<button
+		class:contact
+		on:click|preventDefault={() => {
+			contact = !contact;
+			list = false;
+			img = false;
+			title = false;
+			para = false;
+		}}>Contact</button
 	>
 </div>
 <!-- -------------------------image---------------------------------- -->
 <div class="dropdown img-dropdown" class:img>
-	<div class="guide-wrap" class:showImgGuide>
-		<ImgGuide title={'Add / edit image'} />
+	<div class="form-group">
+		<label for={imgStr}>Image</label>
+		<input class="img-input" accept="image/*" name={imgStr || ''} type="file" />
 	</div>
-	<input class="img-input" accept="image/*" name={imgStr || ''} type="file" />
 </div>
 <!-- -----------------------------title------------------------------- -->
 <div class="dropdown title-dropdown" class:title>
-	<div class="guide-wrap" class:showTitleGuide>
-		<TitleGuide title={'Add / edit title'} />
+	<div class="form-group">
+		<label for={titleStr}>Title</label>
+		<input
+			type="text"
+			name={titleStr || ''}
+			id={titleStr}
+			class="form-control"
+			value={titleVal || ''}
+			class:is-invalid={titleErrMsg}
+		/>
+		{#if titleErrMsg}
+			<div class="invalid-feedback">{titleErrMsg}</div>
+		{/if}
 	</div>
-	<input
-		type="text"
-		name={titleStr || ''}
-		id={titleStr}
-		class="form-control"
-		value={titleVal || ''}
-		class:is-invalid={titleErrMsg}
-	/>
-	{#if titleErrMsg}
-		<div class="invalid-feedback">{titleErrMsg}</div>
-	{/if}
 </div>
 <!-- ----------------------para------------------------------ -->
 <div class="dropdown para-dropdown" class:para>
-	<div class="guide-wrap" class:showParaGuide>
-		<ParaGuide title={'Add / edit paragraph text'} />
+	<div class="form-group">
+		<label for={paraStr}>Paragraph text</label>
 	</div>
 	<textarea
-		class="form-control"
+		class="form-control para"
 		id={paraStr}
 		name={paraStr}
 		value={paraVal || ''}
@@ -195,166 +136,174 @@
 </div>
 <!-- ---------------------list items--------------------------- -->
 <div class="dropdown ul-dropdown" class:list>
-	<div class="guide-wrap" class:showListGuide>
-		<ListGuide title={'Create / edit list items'} />
-	</div>
+	<ListDropdown
+		{li_1Str}
+		{li_2Str}
+		{li_3Str}
+		{li_4Str}
+		{li_5Str}
+		{li_1Val}
+		{li_2Val}
+		{li_3Val}
+		{li_4Val}
+		{li_5Val}
+	/>
+</div>
+<!-- ---------------------contact--------------------------- -->
+
+<div class="dropdown contact-dropdown contact-li" class:contact>
 	<ul>
 		<li>
-			<input type="text" name={li_1Str} id={li_1Str} class="form-control" value={li_1Val} />
+			<label for={nameStr}>Name</label>
+			<input
+				type="text"
+				name={nameStr || ''}
+				id={nameStr}
+				class="form-control"
+				value={nameVal || ''}
+			/>
 		</li>
 		<li>
-			<!--  -->
-			<input type="text" name={li_2Str} id={li_2Str} class="form-control" value={li_2Val} />
+			<label for={emailStr}>Email</label>
+			<input
+				type="text"
+				name={emailStr || ''}
+				id={emailStr}
+				class="form-control"
+				value={emailVal || ''}
+			/>
 		</li>
 		<li>
-			<input type="text" name={li_3Str} id={li_3Str} class="form-control" value={li_3Val} />
+			<label for={telStr}>Telephone</label>
+			<input
+				type="text"
+				name={telStr || ''}
+				id={telStr}
+				class="form-control"
+				value={telVal || ''}
+			/>
 		</li>
+
 		<li>
-			<input type="text" name={li_4Str} id={li_4Str} class="form-control" value={li_4Val} />
+			<label for={fbookStr}>FaceBook</label>
+			<input
+				type="text"
+				name={fbookStr || ''}
+				id={fbookStr}
+				class="form-control"
+				value={fbookVal || ''}
+			/>
 		</li>
-		<li>
-			<input type="text" name={li_5Str} id={li_5Str} class="form-control" value={li_5Val} />
-		</li>
-		<li>
+		<li></li>
+		<!-- <li>
 			<input type="text" name={li_6Str} id={li_6Str} class="form-control" value={li_6Val} />
-		</li>
+		</li> -->
 	</ul>
 </div>
 
 <style lang="stylus">
+// .form-group
+// 	border 1px solid red
+// 	height fit-content
+label 
+	color var(--theta)
+	display block
+	margin .4rem 0
 input, textarea
 	background transparent
 	border 1px solid var(--delta) 
 	border-radius 1rem 
-	color var(--delta)
+	color var(--theta)
+	font-family Times
 	font-size 1rem
-	margin-top 2rem
+	line-height 1.5
+	//margin-left -1.2rem
 	outline none
-	padding .6rem
-	width calc(var(--globalWidth) - 2rem)
+	padding .2rem .4rem
+	width 20rem // calc(var(--globalWidth) - 2rem)
 
-.img-input
+.img-input 
 	background transparent
 	border 1px solid
 	border-radius 1.4rem
-	color var(--delta)
-	margin-top 4rem
+	color var(--theta)
+	//margin-top 4rem
+
 input[type=file]::file-selector-button 
 	background transparent
 	border: 1px solid var(--delta)
 	border-radius 1rem
-	color: var(--delta)
+	color: var(--theta)
 	font-weight 800
 	margin-right: 20px
-	padding: .3rem 15px
+	padding: .3rem 1rem
 	transition: .5s
 
-textarea 
+textarea.para 
 	min-height 16rem
 ul  
 	list-style none
 	margin 2rem auto
-
+	textarea 
+		height 3.5rem
+.contact 
 	input 
-		margin .2rem auto .2rem
-
+		16rem //width 100%
 .dropdown
-	//background red
+	align-items top
+	height calc(var(--globalHeight) - 16rem)
 	opacity 0
 	position absolute 
-	top 5rem
+	left  0 //.4rem
 	transition all .5s
 	z-index -1
-.ul-dropdown,.img-dropdown, .gen-dropdown
-	display flex
-	align-items center
-	height calc(var(--globalHeight) - 16rem)
-	top 5rem
-
-.title-dropdown
-	//display flex
-	align-items top
-	height calc(var(--globalHeight) - 16rem)
-.para-dropdown
-	display flex
-	align-items top
-	height calc(var(--globalHeight) - 16rem)
-	//position absolute
-	top 5rem
-
-
- .dropdown.img,.dropdown.title,.dropdown.para, .dropdown.list
+.ul-dropdown
+	height 14rem
+	top 1rem
+.img-dropdown
+	padding-top 4rem
+	top -1rem
+.contact-dropdown 
+	top 1rem
+.title-dropdown,.para-dropdown
+	top 3rem
+// active dropdown
+.dropdown.img,.dropdown.title,.dropdown.para, .dropdown.list,.dropdown.contact
 	opacity 1
 	z-index 1
 .btn-wrap 
+	//border 1px solid red
 	display flex
 	align-items center
-	gap .8rem
-	justify-content center //space-between
+	gap .4rem
+	justify-content space-between
 	margin-bottom 1rem
 	position absolute
-	left 1rem
-	right 1rem
+	left 0 //.5rem
+	//right .5rem
 	padding-bottom 1rem
-	top 2rem
+	top 0rem
+	width 100%
 	z-index 2
 	button 
 		border 1px solid var(--delta)
-		color var(--delta)
+		color var(--theta)
 button 
 	background transparent
 	border none
 	border 1px solid var(--beta)
 	border-radius 1rem
 	color var(--beta)
-	font-size 1rem
-	height 2.2rem
-	outline none
-	padding .1rem .3rem
-	transition all .5s
-	width 6rem 
-	//background var(--delta)
-button.img,button.title, button.para,  button.list
-	border 1px solid var(--gamma)
-	color var(--gamma)
-	transition all .5s
-.guide-btns
-	background var(--beta)
-	border-radius 0 0 1.2rem 1.2rem
-	display flex 
-	align-items center
-	justify-content center
-	margin-top 1rem
-	position relative
-.guide-btn 
-	background var(--beta)
-	border-radius 0 0 1.2rem 1.2rem
-	color var(--alpha)
-	font-size 1.2rem
-	font-weight bold
+	font-size .9rem
 	height 2rem
-	padding .3rem 1.2rem
-	position absolute 
-	bottom 0rem
+	outline none
+	padding .1rem .7rem
 	transition all .5s
-	width fit-content
-	z-index 20
-.guide-wrap 
-	background var(--alpha)
-	display flex
-	align-items top
-	height 0
-	opacity 0
-	overflow hidden
-	position absolute
-	left 50%
-	top -10%
-	transform translate(-50%, 10%)
+	//width 6rem 
+	//background var(--delta)
+button.img,button.title, button.para,  button.list, button.contact
+	background var(--theta)
+	border 1px solid var(--gamma)
+	color var(--beta)
 	transition all .5s
-	width calc(var(--globalWidth)- 2rem)
-	z-index -4
-.showImgGuide,.showTitleGuide,.showParaGuide,.showListGuide
-	height 26.5rem
-	opacity 1
-	z-index 40
 </style>

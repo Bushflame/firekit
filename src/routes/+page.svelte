@@ -1,33 +1,26 @@
 <script>
+	import Corners from '$comps/Corners.svelte';
+	import ToggleBtn from '$comps/buttons/ToggleBtn.svelte';
+	import PublicGrid from '$comps/grids/PublicGrid.svelte';
 	import GlobalList from '$comps/lists/GlobalList.svelte';
+	let sellers = false;
 </script>
 
-<h1>WELCOME TO FIREKIT</h1>
-<p class="sub-title">Absorbeth into thee naught from ye bull</p>
-<div class="grid">
-	<div class="visitor-info info-box">
-		<GlobalList listTitle={'Visitor Info'} linkTxt={'Begin Your Search'} linkTo={'/search'} />
+<PublicGrid>
+	<div slot="one" class="one">
+		<Corners>
+			<h1>one</h1>
+			<a href="/search">Search</a>
+		</Corners>
 	</div>
-	<div class="lister-info info-box">
-		<GlobalList listTitle={'Publisher Info'} linkTxt={'Full Details'} />
+
+	<div slot="two" class="two">
+		<Corners>
+			<h1>two</h1>
+		</Corners>
 	</div>
-</div>
+</PublicGrid>
 
 <style lang="stylus">
-
-.grid  
-	display grid 
-	gap 1rem
-.info-box
-	margin auto
-	min-height 6rem
-p.sub-title 
-	color var(--gamma)
-	font-size 1.2rem
-	font-weight bold
-	margin auto
-	max-width 18rem
-	text-align center
-	width 100%
 
 </style>

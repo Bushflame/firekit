@@ -1,9 +1,12 @@
 <script>
+	import { fade, scale, fly } from 'svelte/transition';
 	export let readMore = false;
+	export let front = false;
 </script>
 
 <div class="frame">
 	<!-- touchscreen devices-->
+
 	<div class="insert-1">
 		{#if !readMore}
 			<div class="one">
@@ -14,23 +17,35 @@
 				<slot name="two" />
 			</div>
 		{/if}
-
-		<button
-			class="read-more-btn"
-			on:click={() => {
-				readMore = !readMore;
-			}}
-		>
-			R <br />
-			e<br />
-			a<br />
-			d<br /><br />
-			m<br />
-			o<br />
-			r<br />
-			e
-		</button>
+		{#if front}
+			<button
+				class="read-more-btn"
+				on:click={() => {
+					readMore = !readMore;
+				}}
+			>
+				{#if !readMore}
+					Contact
+				{:else}
+					Back
+				{/if}
+			</button>
+		{:else}
+			<button
+				class="read-more-btn"
+				on:click={() => {
+					readMore = !readMore;
+				}}
+			>
+				{#if !readMore}
+					Details
+				{:else}
+					Back
+				{/if}
+			</button>
+		{/if}
 	</div>
+
 	<!-- desktop -->
 	<div class="insert-2">
 		<div class="one">
@@ -48,6 +63,7 @@
 	display flex
 	align-items center
 	height calc(var(--globalHeight) - 8.4rem)
+	overflow hidden
 	padding 1rem
 	width calc(var(--globalWidth) - 2px)
 .insert-1, .insert-2 
@@ -60,14 +76,19 @@
 	height 100%
 	width 100%
 .read-more-btn 
+	background var(--gamma)
 	border none
+	border-radius 1rem 
+	color var(--theta)
+	font-size 1rem
 	outline none
-	padding 1rem .4rem
+	padding  .4rem 1rem
 	position absolute
-	right 0 
-	top 50% 
-	transform translate(0, -50%)
-	width fit-content
+	//left 50% 
+	left calc(50% - 11rem)
+	bottom .6rem 
+	//transform translate(-50%)
+	width 10rem //fit-content
 	z-index 10
 @media(min-width 840px)
 	.insert-1 

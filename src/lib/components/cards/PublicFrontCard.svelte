@@ -1,4 +1,6 @@
 <script>
+	import { fade, scale, fly } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
 	import PublicFrame from '$frames/PublicFrame.svelte';
 	export let tit = '';
 	export let para = '';
@@ -6,33 +8,37 @@
 	export let li_b = '';
 	export let li_c = '';
 	export let li_d = '';
-	export let li_e = '';
-	export let li_f = '';
 	export let img = '';
 	//contact details
 	export let li_tel = '';
 	export let li_email = '';
 	export let li_fb = '';
+	export let front = true;
 </script>
 
-<PublicFrame>
-	<div class="card one" slot="one">
+<PublicFrame {front}>
+	<div
+		class="card one"
+		slot="one"
+		in:scale={{ duration: 500, delay: 100 }}
+		out:fly={{ x: -200, duration: 400 }}
+	>
 		<h1>{tit}</h1>
 		<div class="img">
-            <div class="corner small top-left-corner" />
+			<div class="corner small top-left-corner" />
 			<div class="corner small top-right-corner" />
 			<div class="corner small bottom-right-corner" />
 			<div class="corner small bottom-left-corner" />
 			<img src={img} alt={tit} />
 		</div>
 		<div class="card-body">
-            <div class="corner small top-left-corner" />
+			<div class="corner small top-left-corner" />
 			<div class="corner small top-right-corner" />
 			<div class="corner small bottom-right-corner" />
 			<div class="corner small bottom-left-corner" />
 			<div class="card-inner card-inner-1">
 				{#if para !== ''}
-					<p>
+					<p class="para">
 						{para}
 					</p>
 				{/if}
@@ -61,10 +67,15 @@
 			</div>
 		</div>
 	</div>
-    <!-- contact / terms section -->
-	<div class="card two" slot="two">
+	<!-- contact / terms section -->
+	<div
+		class="card two"
+		slot="two"
+		in:scale={{ duration: 500, delay: 100 }}
+		out:fly={{ x: -200, duration: 400 }}
+	>
 		<div class="card-inner card-inner-2">
-            <div class="corner small top-left-corner" />
+			<div class="corner small top-left-corner" />
 			<div class="corner small top-right-corner" />
 			<div class="corner small bottom-right-corner" />
 			<div class="corner small bottom-left-corner" />
@@ -88,6 +99,11 @@
 		</div>
 	</div>
 </PublicFrame>
+<svelte:head>
+	<title>{tit}</title>
+	<meta name="description" content={para} />
+	<!-- <link rel="canonical" href={data.canonical_url ?? `${PUBLIC_CANONICAL_ORIGIN}${$page.url.pathname}`} /> -->
+</svelte:head>
 
 <style lang="stylus">
 .card-body 
@@ -102,7 +118,7 @@
     height 100%
     position relative
 
-img 
+img         
     height 16rem
     object-fit cover
     width 100%
@@ -131,16 +147,18 @@ h1
     z-index 5
 
 h3 
-    color var(--delta)
+    color var(--iota)
     margin-bottom .6rem
     text-align center
 
 p
-    color var(--epsilon)
+    color var(--iota)
     line-height 1.5
     margin-bottom .4rem
     span 
         font-weight 800
+p.para 
+    text-align center
 .terms 
     padding 0 1rem
 ul 
@@ -151,7 +169,7 @@ ul
     margin-top 1rem
 li 
     //border-bottom 1px solid var(--delta)
-    color var(--epsilon)
+    color var(--iota)
     font-style italic
     padding  .2rem  0 .1rem 2rem
     position relative

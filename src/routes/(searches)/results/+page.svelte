@@ -1,16 +1,15 @@
 <script>
 	import Slide_1 from '$comps/slides/ResultsSlide.svelte';
+	import FrontCard from '$comps/cards/PublicFrontCard.svelte';
+	import SearchResults from '$lib/searches/SearchResults.svelte';
 	export let data;
-	//console.log('data',data.results)
 	let slides = data.results;
-	//console.log('slides',slides)
+
+	let front = true;
 </script>
 
-<Slide_1 {slides} />
+<SearchResults {slides} />
 
-<!-- <h2>{results}</h2>
-<h2>{$getByTitles}</h2> -->
-<!-- <h2>{$getByTitles}</h2> -->
 <style lang="stylus">
 
 </style>
