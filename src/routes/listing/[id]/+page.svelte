@@ -1,29 +1,49 @@
 <script>
-	import { goto } from '$app/navigation';
+	import Views from '$lib/building-views/Views.svelte'
+	import Img from '$lib/building-views/Img.svelte'
+	import Title from '$lib/building-views/Title.svelte'
+	import Para from '$lib/building-views/Para.svelte'
+	import Ul from '$lib/building-views/Ul.svelte'
+	import Li from '$lib/building-views/Li.svelte'
+	import Corners from '$comps/Corners.svelte';
 	import { slide, fade, fly, scale } from 'svelte/transition';
-	import { quintOut } from 'svelte/easing';
-	import { getByTitles } from '$lib/stores/store';
 	import Card from '$comps/cards/Card.svelte';
 	import FrontCard from '$comps/cards/PublicFrontCard.svelte';
 	import InnerCard from '$comps/cards/PublicInnerCard.svelte';
-	import Slide_1 from '$comps/slides/ResultsSlide.svelte';
+	import { limit } from 'firebase/firestore';
+
 	export let data;
 	let l = data.listing;
 
-	let show_slide_1 = true;
-	let show_slide_2 = false;
-	let show_slide_3 = false;
-	let show_slide_4 = false;
-	let slide_1_isActive = true;
-	let slide_2_isActive = false;
-	let slide_3_isActive = false;
-	let slide_4_isActive = false;
-	let front = true;
 </script>
 
 <div class="wrap">
-	{#if show_slide_1}
-		<!-- <div class="transition" in:fly={{ x: 200, delay:0, duration: 600 }} out:fly={{ x: -200, duration: 400 }} > -->
+
+	<Views>
+			<span slot='slot-1a'>
+				<Title title={l.title_1a}/>
+				<Img img={l.img_1a}/>
+			</span>
+		<span slot='slot-1b'>
+			<Para txt={l.para_1a} --align='center' --margin='-1rem auto .5rem' --weight='800'/>
+			<Ul>
+				<Li li={l.li_1a}/>
+				<Li li={l.li_1b}/>
+				<Li li={l.li_1c}/>
+			</Ul>
+		</span>
+		<span slot='slot-1c'>
+			<Para bold={'Contact Details'} --align='center' --margin='.2rem auto .3rem'/>
+			<Para bold={'Name:'} txt={l.name} --align='left' --margin='.2rem auto 1rem  ' flex={true}/>
+			<Para bold={'Email:'}  txt={l.email} --align='left' --margin='.2rem auto 1rem ' flex={true}/>		
+			<Para bold={'Tel::'} txt={l.tel} --align='left' --margin='.2rem auto 1rem 'flex={true}/>	
+			<Para bold={'FaceBook:'} txt={l.fbook} --align='left' --margin='.2rem auto 1rem 'flex={true}/>	
+			<Para bold={'Terms and Conditions'} --align='center' --margin='.2rem auto 1rem '/>					
+			<Para  txt={l.terms} --align='left' --margin='.2rem auto .3rem '/>							 
+		</span>
+
+	</Views>
+	<!-- {#if show_slide_1}
 		<div
 			class="transition"
 			in:scale={{ duration: 500, delay: 100 }}
@@ -39,13 +59,16 @@
 				li_c={l.li_1c}
 				li_d={l.li_1d}
 				li_e={l.li_1e}
-				li_f={l.li_1f}
+				email={l.email}
+				tel={l.tel}
+				fbook={l.fbook}
+				terms={l.terms}
+
 			/>
 		</div>
-	{/if}
+	{/if} -->
 
-	{#if show_slide_2}
-		<!-- <div class="transition" in:fly={{delay:0, duration:600 }} out:fly={{ x: -200, duration: 400 }} > -->
+	<!-- {#if show_slide_2}
 		<div
 			class="transition"
 			in:scale={{ duration: 500, delay: 100 }}
@@ -60,7 +83,6 @@
 				li_c={l.li_2c}
 				li_d={l.li_2d}
 				li_e={l.li_2e}
-				li_f={l.li_2f}
 			/>
 		</div>
 	{/if}
@@ -74,7 +96,7 @@
 			li_c={l.li_3c}
 			li_d={l.li_3d}
 			li_e={l.li_3e}
-			li_f={l.li_3f}
+
 		/>
 	{/if}
 	{#if show_slide_4}
@@ -87,11 +109,11 @@
 			li_c={l.li_4c}
 			li_d={l.li_4d}
 			li_e={l.li_4e}
-			li_f={l.li_4f}
+
 		/>
-	{/if}
+	{/if} -->
 </div>
-<div class="paginator">
+<!-- <div class="paginator">
 	{#if l.title_2a}
 		<button
 			class:showing-1={slide_1_isActive}
@@ -153,7 +175,7 @@
 			}}>4</button
 		>
 	{/if}
-</div>
+</div> -->
 
 <!-- <a href={`/search`} data-sveltekit-reload>Back</a> -->
 
@@ -162,99 +184,6 @@
 </svelte:head>
 
 <style lang="stylus">
-// section 
-// 	border 1px solid red
-// 	position relative
-// .page-wrap
-// 	background rgba(255,255,255,.1)
-// 	display flex
-// 	flex-direction column
-// 	gap 1rem
-// 	//max-width 25rem
-// 	//padding 1rem 0
-// 	width 100%
-// .page-item
-// 	padding  0 1rem 
-// p 
-// 	color var(--gamma)
-// ul 
-// 	display flex
-// 	gap .4rem
-// 	flex-direction column
-// 	list-style none
-// li 
-// 	border-bottom 1px solid var(--delta)
-// 	color var(--gamma)
-// 	padding  .2rem  0 .1rem 2rem
-// 	position relative
-// li::before 
-// 	content ''
-// 	background var(--delta)
-// 	border-radius 50% 
-// 	height 1rem 
-// 	position absolute
-// 	left 0 
-// 	top 50%
-// 	transform translate(0,-50%)
-// 	width 1rem
 
-//paginator 
-.paginator 
-	background rgba(255,255,255,.1)
-	display grid 
-	grid-template-columns 1fr 1fr 1fr 1fr
-	align-items center 
-	justify-content center
-	gap 1rem
-	height 2.5rem
-	padding .6rem
-	position absolute 
-	bottom .6rem
-	left 50%
-	transform translate(-50%,0)
-	width fit-content //16rem //100%
-	z-index 4
-	button 
-		background transparent
-		border 1px solid var(--epsilon)
-		border-radius 50%
-		color  var(--theta)
-		height 2rem 
-		transition all .5s
-		width 2rem
-.slide-grid 
-	//border 1px solid #000
-	display grid
-	justify-content center
-	grid-template-columns 1fr
-	grid-template-rows 1
-	//margin auto
-	position relative
-.slide 
-	//border 1px solid green
-	position absolute
-	top 0
-	opacity 0
-	transition all .5s
-	width 100%
-	z-index - 1
 
-.show-1 
-	z-index 1
-	opacity 1
-	transition all .5s
-.show-2 
-	opacity 1
-	z-index 1
-.show-3 
-	opacity 1	
-	z-index 1
-.show-4 
-	opacity 1
-	z-index 1
-.paginator
-	.showing-1,	.showing-2,.showing-3,.showing-4
-		background var(--theta)
-		border none
-		color  var(--alpha)
 </style>

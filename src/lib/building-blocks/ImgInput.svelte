@@ -2,10 +2,11 @@
  export let nam = ''
 export let alt =''
 export let lab = ''
+export let name = ''
 </script>
 
 <label for={nam}>{lab}</label>
-<input class="img-input" accept="image/*" id={nam} name={nam || ''} type="file" alt={alt} />
+<input class="img-input" accept="image/*" id={nam} name={name || ''} type="file" alt={alt} />
 
 
 <style lang="stylus">

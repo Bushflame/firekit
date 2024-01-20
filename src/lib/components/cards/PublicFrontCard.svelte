@@ -8,11 +8,13 @@
 	export let li_b = '';
 	export let li_c = '';
 	export let li_d = '';
+    export let li_e = '';
 	export let img = '';
 	//contact details
-	export let li_tel = '';
-	export let li_email = '';
-	export let li_fb = '';
+	export let tel = '';
+	export let email = '';
+	export let fbook = '';
+    export let terms = ''
 	export let front = true;
 </script>
 
@@ -63,6 +65,11 @@
 							{li_d}
 						</li>
 					{/if}
+                    {#if li_e!= ''}
+                    <li>
+                        {li_e}
+                    </li>
+                {/if}
 				</ul>
 			</div>
 		</div>
@@ -81,20 +88,16 @@
 			<div class="corner small bottom-left-corner" />
 			<h3>Contact Details</h3>
 
-			<p><span>Email: </span>me@me.com {li_email}</p>
+			<p><span>Email: </span>{email}</p>
 			<!-- {#if tel !== ''} -->
-			<p><span>Tel: </span>123 4567 890 {li_tel}</p>
+			<p><span>Tel: </span>{tel}</p>
 			<!-- {:else if fb !== '' } -->
-			<p><span>FaceBook: </span>facebook url {li_fb}</p>
+			<p><span>FaceBook: </span>{fbook}</p>
 			<!-- {/if} -->
 			<div class="spacer" />
 			<h3>Terms and Conditions</h3>
 			<p class="terms">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-				labore et dolore magna aliqua.
-				<br />
-				Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat
+                {terms}
 			</p>
 		</div>
 	</div>
@@ -102,7 +105,6 @@
 <svelte:head>
 	<title>{tit}</title>
 	<meta name="description" content={para} />
-	<!-- <link rel="canonical" href={data.canonical_url ?? `${PUBLIC_CANONICAL_ORIGIN}${$page.url.pathname}`} /> -->
 </svelte:head>
 
 <style lang="stylus">

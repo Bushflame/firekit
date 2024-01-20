@@ -1,6 +1,7 @@
 <script>
 	// @ts-nocheck
 	import { enhance } from '$app/forms';
+	import Pages from '$blocks/Pages.svelte'
 	import Corners from '$comps/Corners.svelte';
 	import Dropdown from '$blocks/Dropdown.svelte'
 	import Img from '$blocks/ImgInput.svelte'
@@ -25,13 +26,11 @@
 	function submitForm(e) {
 		submitting = true;
 	}
-let page_1 = true
-let page_2 = false
-let page_3 = false
-let page_4 = false
+// let page_1 = true
+// let page_2 = false
+// let page_3 = false
+// let page_4 = false
 </script>
-
-<h3>Page {pageNum}</h3>
 
 <div class="main-wrap">
 	<Corners>
@@ -43,43 +42,224 @@ let page_4 = false
 			method="POST"
 			form={{ ...data.listing, ...form }}
 		>
-			<div class="page-grid">
+		<Pages {pageNum}>
+			<span slot='page-1'>
+				<Dropdown txt_1={'Image'} txt_2={'Title'} txt_3={'Text'} txt_4={'List'} txt_5={'Contact'} txt_6={'Terms'}>
+					<span slot='slot-1'>
+						<Img nam={li.img_1a} lab={'Image'} name={'img_1a'} />
+					</span>
+					<span slot='slot-2'>
+						<Input  nam={li.title_1a} name={'title_1a'} lab={'Title'}/>
+					</span>
+					<span slot='slot-3'>
+						<Textarea lab={'Text'} nam={li.para_1a} rows={10}  name={'para_1a'}/>
+					</span>
+					<span slot='slot-4'>
+						<UlDropdown txt_1={1}  txt_2={2}  txt_3={3}  txt_4={4}  txt_5={5}>
+							<li slot='slot-1'>
+								<Textarea lab={'List item 1'} nam={li.li_1a}  name={'li_1a'}/>
+							</li>
+							<li slot='slot-2'>
+								<Textarea lab={'List item 2'} nam={li.li_1b}  name={'li_1b'}/>
+							</li>
+							<li slot='slot-3'>
+								<Textarea lab={'List item 3'} nam={li.li_1c}  name={'li_1c'}/>
+							</li>
+							<li slot='slot-4'>
+								<Textarea lab={'List item 4'} nam={li.li_1d}  name={'li_1d'}/>
+							</li>
+							<li slot='slot-5'>
+								<Textarea lab={'List item 5'} nam={li.li_1e}  name={'li_1e'}/>
+							</li>
+						
+						</UlDropdown>
+					</span>
+					<span slot='slot-5'>
+						<Input  nam={li.name} lab={'Name'}  name={'name'}/>
+						<Input  nam={li.email} lab={'Email'}  name={'email'}/>
+						<Input  nam={li.tel} lab={'Telephone'}  name={'tel'}/>
+						<Input  nam={li.fbook} lab={'FaceBook'}  name={'fbook'}/>
+					</span>
+					<span slot='slot-6'>
+						<Textarea lab={'Terms'} nam={'Terms'}  name={'terms'} rows={10}/>
+					</span>
+					
+				</Dropdown>
+			</span>
+			<span slot='page-2'>
+				<Dropdown txt_1={'Image'} txt_2={'Title'} txt_3={'Text'} txt_4={'List'} txt_5={'Contact'} txt_6={'Terms'}>
+					<span slot='slot-1'>
+						<Img nam={li.img_2a} lab={'Image'} name={'img_2a'} />
+					</span>
+					<span slot='slot-2'>
+						<Input  nam={li.title_2a} name={'title_2a'} lab={'Title'}/>
+					</span>
+					<span slot='slot-3'>
+						<Textarea lab={'Text'} nam={li.para_2a} rows={10}  name={'para_2a'}/>
+					</span>
+					<span slot='slot-4'>
+						<UlDropdown txt_1={1}  txt_2={2}  txt_3={3}  txt_4={4}  txt_5={5}>
+							<li slot='slot-1'>
+								<Textarea lab={'List item 1'} nam={li.li_2a}  name={'li_2a'}/>
+							</li>
+							<li slot='slot-2'>
+								<Textarea lab={'List item 2'} nam={li.li_2b}  name={'li_2b'}/>
+							</li>
+							<li slot='slot-3'>
+								<Textarea lab={'List item 3'} nam={li.li_2c}  name={'li_2c'}/>
+							</li>
+							<li slot='slot-4'>
+								<Textarea lab={'List item 4'} nam={li.li_2d}  name={'li_2d'}/>
+							</li>
+							<li slot='slot-5'>
+								<Textarea lab={'List item 5'} nam={li.li_2e}  name={'li_2e'}/>
+							</li>
+						
+						</UlDropdown>
+					</span>
+					<span slot='slot-5'>
+						<Input  nam={li.name} lab={'Name'}  name={'name'}/>
+						<Input  nam={li.email} lab={'Email'}  name={'email'}/>
+						<Input  nam={li.tel} lab={'Telephone'}  name={'tel'}/>
+						<Input  nam={li.fbook} lab={'FaceBook'}  name={'fbook'}/>
+					</span>
+					<span slot='slot-6'>
+						<Textarea lab={'Terms'} nam={'Terms'}  name={'terms'} rows={10}/>
+					</span>
+				</Dropdown>				
+			</span>
+			<span slot='page-3'>
+				<Dropdown txt_1={'Image'} txt_2={'Title'} txt_3={'Text'} txt_4={'List'} txt_5={'Contact'}  txt_6={'Terms'}>
+					<span slot='slot-1'>
+						<Img nam={li.img_3a} lab={'Image'} name={'img_3a'} />
+					</span>
+					<span slot='slot-2'>
+						<Input  nam={li.title_3a} name={'title_3a'} lab={'Title'}/>
+					</span>
+					<span slot='slot-3'>
+						<Textarea lab={'Text'} nam={li.para_3a} rows={10}  name={'para_3a'}/>
+					</span>
+					<span slot='slot-4'>
+						<UlDropdown txt_1={1}  txt_2={2}  txt_3={3}  txt_4={4}  txt_5={5}>
+							<li slot='slot-1'>
+								<Textarea lab={'List item 1'} nam={li.li_3a}  name={'li_3a'}/>
+							</li>
+							<li slot='slot-2'>
+								<Textarea lab={'List item 2'} nam={li.li_3b}  name={'li_3b'}/>
+							</li>
+							<li slot='slot-3'>
+								<Textarea lab={'List item 3'} nam={li.li_3c}  name={'li_3c'}/>
+							</li>
+							<li slot='slot-4'>
+								<Textarea lab={'List item 4'} nam={li.li_3d}  name={'li_3d'}/>
+							</li>
+							<li slot='slot-5'>
+								<Textarea lab={'List item 5'} nam={li.li_3e}  name={'li_3e'}/>
+							</li>
+						
+						</UlDropdown>
+					</span>
+					<span slot='slot-5'>
+						<Input  nam={li.name} lab={'Name'}  name={'name'}/>
+						<Input  nam={li.email} lab={'Email'}  name={'email'}/>
+						<Input  nam={li.tel} lab={'Telephone'}  name={'tel'}/>
+						<Input  nam={li.fbook} lab={'FaceBook'}  name={'fbook'}/>
+					</span>
+					<span slot='slot-6'>
+						<Textarea lab={'Terms'} nam={'Terms'}  name={'terms'} rows={10}/>
+					</span>
+				</Dropdown>				
+			</span>
+			<span slot='page-4'>
+				<Dropdown txt_1={'Image'} txt_2={'Title'} txt_3={'Text'} txt_4={'List'} txt_5={'Contact'}  txt_6={'Terms'}>
+					<span slot='slot-1'>
+						<Img nam={li.img_4a} lab={'Image'} name={'img_4a'} />
+					</span>
+					<span slot='slot-2'>
+						<Input  nam={li.title_4a} name={'title_4a'} lab={'Title'}/>
+					</span>
+					<span slot='slot-3'>
+						<Textarea lab={'Text'} nam={li.para_4a} rows={10}  name={'para_4a'}/>
+					</span>
+					<span slot='slot-4'>
+						<UlDropdown txt_1={1}  txt_2={2}  txt_3={3}  txt_4={4}  txt_5={5}>
+							<li slot='slot-1'>
+								<Textarea lab={'List item 1'} nam={li.li_4a}  name={'li_4a'}/>
+							</li>
+							<li slot='slot-2'>
+								<Textarea lab={'List item 2'} nam={li.li_4b}  name={'li_4b'}/>
+							</li>
+							<li slot='slot-3'>
+								<Textarea lab={'List item 3'} nam={li.li_4c}  name={'li_4c'}/>
+							</li>
+							<li slot='slot-4'>
+								<Textarea lab={'List item 4'} nam={li.li_4d}  name={'li_4d'}/>
+							</li>
+							<li slot='slot-5'>
+								<Textarea lab={'List item 5'} nam={li.li_4e}  name={'li_4e'}/>
+							</li>
+						</UlDropdown>
+					</span>
+					<span slot='slot-5'>
+						<Input  nam={li.name} lab={'Name'}  name={'name'}/>
+						<Input  nam={li.email} lab={'Email'}  name={'email'}/>
+						<Input  nam={li.tel} lab={'Telephone'}  name={'tel'}/>
+						<Input  nam={li.fbook} lab={'FaceBook'}  name={'fbook'}/>
+					</span>
+					<span slot='slot-6'>
+						<Textarea lab={'Terms'} nam={'Terms'}  name={'terms'}  rows={10}/>
+					</span>
+					
+				</Dropdown>
+			</span>
+			<span slot='submit'>
+				<button disabled={submitting} type="submit" class="btn btn-submit">
+					{#if submitting}
+						Submitting...
+					{:else}
+						Submit
+					{/if}
+				</button>
+			</span>
+		</Pages >
+
+			<!-- <div class="page-grid">
 				<div class="page" class:page_1>
 					<Dropdown txt_1={'Image'} txt_2={'Title'} txt_3={'Text'} txt_4={'List'} txt_5={'Contact'}>
 						<span slot='slot-1'>
-							<Img nam={li.img_1a} lab={'Image'} />
+							<Img nam={li.img_1a} lab={'Image'} name={'img_1a'} />
 						</span>
 						<span slot='slot-2'>
-							<Input  nam={li.title_1a} lab={'Title'}/>
+							<Input  nam={li.title_1a} name={'title_1a'} lab={'Title'}/>
 						</span>
 						<span slot='slot-3'>
-							<Textarea lab={'Text'} nam={li.para_1a} rows={10}/>
+							<Textarea lab={'Text'} nam={li.para_1a} rows={10}  name={'para_1a'}/>
 						</span>
 						<span slot='slot-4'>
 							<UlDropdown txt_1={1}  txt_2={2}  txt_3={3}  txt_4={4}  txt_5={5}>
 								<li slot='slot-1'>
-									<Textarea lab={'List item 1'} nam={li.li_1a}/>
+									<Textarea lab={'List item 1'} nam={li.li_1a}  name={'li_1a'}/>
 								</li>
 								<li slot='slot-2'>
-									<Textarea lab={'List item 2'} nam={li.li_1b}/>
+									<Textarea lab={'List item 2'} nam={li.li_1b}  name={'li_1b'}/>
 								</li>
 								<li slot='slot-3'>
-									<Textarea lab={'List item 3'} nam={li.li_1c}/>
+									<Textarea lab={'List item 3'} nam={li.li_1c}  name={'li_1c'}/>
 								</li>
 								<li slot='slot-4'>
-									<Textarea lab={'List item 4'} nam={li.li_1d}/>
+									<Textarea lab={'List item 4'} nam={li.li_1d}  name={'li_1d'}/>
 								</li>
 								<li slot='slot-5'>
-									<Textarea lab={'List item 5'} nam={li.li_1e}/>
+									<Textarea lab={'List item 5'} nam={li.li_1e}  name={'li_1e'}/>
 								</li>
 							
 							</UlDropdown>
 						</span>
 						<span slot='slot-5'>
-							<Input  nam={li.name} lab={'Name'}/>
-							<Input  nam={li.email} lab={'Email'}/>
-							<Input  nam={li.tel} lab={'Telephone'}/>
-							<Input  nam={li.fbook} lab={'FaceBook'}/>
+							<Input  nam={li.name} lab={'Name'}  name={'name'}/>
+							<Input  nam={li.email} lab={'Email'}  name={'email'}/>
+							<Input  nam={li.tel} lab={'Telephone'}  name={'tel'}/>
+							<Input  nam={li.fbook} lab={'FaceBook'}  name={'fbook'}/>
 						</span>
 						
 					</Dropdown>
@@ -87,79 +267,78 @@ let page_4 = false
 				<div class="page" class:page_2>
 					<Dropdown txt_1={'Image'} txt_2={'Title'} txt_3={'Text'} txt_4={'List'} txt_5={'Contact'}>
 						<span slot='slot-1'>
-							<Img nam={li.img_2a} lab={'Image'} />
+							<Img nam={li.img_2a} lab={'Image'} name={'img_2a'} />
 						</span>
 						<span slot='slot-2'>
-							<Input  nam={li.title_2a} lab={'Title'}/>
+							<Input  nam={li.title_2a} name={'title_2a'} lab={'Title'}/>
 						</span>
 						<span slot='slot-3'>
-							<Textarea lab={'Text'} nam={li.para_2a} rows={10}/>
+							<Textarea lab={'Text'} nam={li.para_2a} rows={10}  name={'para_2a'}/>
 						</span>
 						<span slot='slot-4'>
 							<UlDropdown txt_1={1}  txt_2={2}  txt_3={3}  txt_4={4}  txt_5={5}>
 								<li slot='slot-1'>
-									<Textarea lab={'List item 1'} nam={li.li_2a}/>
+									<Textarea lab={'List item 1'} nam={li.li_2a}  name={'li_2a'}/>
 								</li>
 								<li slot='slot-2'>
-									<Textarea lab={'List item 2'} nam={li.li_2b}/>
+									<Textarea lab={'List item 2'} nam={li.li_2b}  name={'li_2b'}/>
 								</li>
 								<li slot='slot-3'>
-									<Textarea lab={'List item 3'} nam={li.li_2c}/>
+									<Textarea lab={'List item 3'} nam={li.li_2c}  name={'li_2c'}/>
 								</li>
 								<li slot='slot-4'>
-									<Textarea lab={'List item 4'} nam={li.li_2d}/>
+									<Textarea lab={'List item 4'} nam={li.li_2d}  name={'li_2d'}/>
 								</li>
 								<li slot='slot-5'>
-									<Textarea lab={'List item 5'} nam={li.li_2e}/>
+									<Textarea lab={'List item 5'} nam={li.li_2e}  name={'li_2e'}/>
 								</li>
 							
 							</UlDropdown>
 						</span>
 						<span slot='slot-5'>
-							<Input  nam={li.name} lab={'Name'}/>
-							<Input  nam={li.email} lab={'Email'}/>
-							<Input  nam={li.tel} lab={'Telephone'}/>
-							<Input  nam={li.fbook} lab={'FaceBook'}/>
+							<Input  nam={li.name} lab={'Name'}  name={'name'}/>
+							<Input  nam={li.email} lab={'Email'}  name={'email'}/>
+							<Input  nam={li.tel} lab={'Telephone'}  name={'tel'}/>
+							<Input  nam={li.fbook} lab={'FaceBook'}  name={'fbook'}/>
 						</span>
-						
 					</Dropdown>
 				</div>
 				<div class="page" class:page_3>
 					<Dropdown txt_1={'Image'} txt_2={'Title'} txt_3={'Text'} txt_4={'List'} txt_5={'Contact'}>
 						<span slot='slot-1'>
-							<Img nam={li.img_3a} lab={'Image'} />
+							<Img nam={li.img_3a} lab={'Image'} name={'img_3a'} />
 						</span>
 						<span slot='slot-2'>
-							<Input  nam={li.title_3a} lab={'Title'}/>
+							<Input  nam={li.title_3a} name={'title_3a'} lab={'Title'}/>
 						</span>
 						<span slot='slot-3'>
-							<Textarea lab={'Text'} nam={li.para_3a} rows={10}/>
+							<Textarea lab={'Text'} nam={li.para_3a} rows={10}  name={'para_3a'}/>
 						</span>
 						<span slot='slot-4'>
 							<UlDropdown txt_1={1}  txt_2={2}  txt_3={3}  txt_4={4}  txt_5={5}>
 								<li slot='slot-1'>
-									<Textarea lab={'List item 1'} nam={li.li_3a}/>
+									<Textarea lab={'List item 1'} nam={li.li_3a}  name={'li_3a'}/>
 								</li>
 								<li slot='slot-2'>
-									<Textarea lab={'List item 2'} nam={li.li_3b}/>
+									<Textarea lab={'List item 2'} nam={li.li_3b}  name={'li_3b'}/>
 								</li>
 								<li slot='slot-3'>
-									<Textarea lab={'List item 3'} nam={li.li_3c}/>
+									<Textarea lab={'List item 3'} nam={li.li_3c}  name={'li_3c'}/>
 								</li>
 								<li slot='slot-4'>
-									<Textarea lab={'List item 4'} nam={li.li_3d}/>
+									<Textarea lab={'List item 4'} nam={li.li_3d}  name={'li_3d'}/>
 								</li>
 								<li slot='slot-5'>
-									<Textarea lab={'List item 5'} nam={li.li_3e}/>
+									<Textarea lab={'List item 5'} nam={li.li_3e}  name={'li_3e'}/>
 								</li>
 							
 							</UlDropdown>
 						</span>
 						<span slot='slot-5'>
-							<Input  nam={li.name} lab={'Name'}/>
-							<Input  nam={li.email} lab={'Email'}/>
-							<Input  nam={li.tel} lab={'Telephone'}/>
-							<Input  nam={li.fbook} lab={'FaceBook'}/>
+							<Input  nam={li.name} lab={'Name'}  name={'name'}/>
+							<Input  nam={li.email} lab={'Email'}  name={'email'}/>
+							<Input  nam={li.tel} lab={'Telephone'}  name={'tel'}/>
+							<Input  nam={li.fbook} lab={'FaceBook'}  name={'fbook'}/>
 						</span>
 						
 					</Dropdown>
@@ -167,56 +346,50 @@ let page_4 = false
 				<div class="page" class:page_4>
 					<Dropdown txt_1={'Image'} txt_2={'Title'} txt_3={'Text'} txt_4={'List'} txt_5={'Contact'}>
 						<span slot='slot-1'>
-							<Img nam={li.img_4txt_4a} lab={'Image'} />
+							<Img nam={li.img_4a} lab={'Image'} name={'img_4a'} />
 						</span>
 						<span slot='slot-2'>
-							<Input  nam={li.title_4txt_4a} lab={'Title'}/>
+							<Input  nam={li.title_4a} name={'title_4a'} lab={'Title'}/>
 						</span>
 						<span slot='slot-3'>
-							<Textarea lab={'Text'} nam={li.para_4txt_4a} rows={10}/>
+							<Textarea lab={'Text'} nam={li.para_4a} rows={10}  name={'para_4a'}/>
 						</span>
 						<span slot='slot-4'>
 							<UlDropdown txt_1={1}  txt_2={2}  txt_3={3}  txt_4={4}  txt_5={5}>
 								<li slot='slot-1'>
-									<Textarea lab={'List item 1'} nam={li.li_4txt_4a}/>
+									<Textarea lab={'List item 1'} nam={li.li_4a}  name={'li_4a'}/>
 								</li>
 								<li slot='slot-2'>
-									<Textarea lab={'List item 2'} nam={li.li_4txt_4b}/>
+									<Textarea lab={'List item 2'} nam={li.li_4b}  name={'li_4b'}/>
 								</li>
 								<li slot='slot-3'>
-									<Textarea lab={'List item 3'} nam={li.li_4txt_4c}/>
+									<Textarea lab={'List item 3'} nam={li.li_4c}  name={'li_4c'}/>
 								</li>
 								<li slot='slot-4'>
-									<Textarea lab={'List item 4'} nam={li.li_4txt_4d}/>
+									<Textarea lab={'List item 4'} nam={li.li_4d}  name={'li_4d'}/>
 								</li>
 								<li slot='slot-5'>
-									<Textarea lab={'List item 5'} nam={li.li_4txt_4e}/>
+									<Textarea lab={'List item 5'} nam={li.li_4e}  name={'li_4e'}/>
 								</li>
 							
 							</UlDropdown>
 						</span>
 						<span slot='slot-5'>
-							<Input  nam={li.name} lab={'Name'}/>
-							<Input  nam={li.email} lab={'Email'}/>
-							<Input  nam={li.tel} lab={'Telephone'}/>
-							<Input  nam={li.fbook} lab={'FaceBook'}/>
+							<Input  nam={li.name} lab={'Name'}  name={'name'}/>
+							<Input  nam={li.email} lab={'Email'}  name={'email'}/>
+							<Input  nam={li.tel} lab={'Telephone'}  name={'tel'}/>
+							<Input  nam={li.fbook} lab={'FaceBook'}  name={'fbook'}/>
 						</span>
 						
 					</Dropdown>
 				</div>
-			</div>
+			</div> -->
 
-			<button disabled={submitting} type="submit" class="btn btn-submit">
-				{#if submitting}
-					Submitting...
-				{:else}
-					Submit
-				{/if}
-			</button>
+
 		</form>
 	</Corners>
 </div>
-<div class="paginator">
+<!-- <div class="paginator">
 	<button
 		class:page_1
 		on:click|preventDefault={() => {
@@ -258,69 +431,69 @@ let page_4 = false
 			page_4 = true
 		}}>4</button
 	>
-</div>
+</div> -->
 
 <style lang="stylus">
 //@require '/src/lib/stylus/listingForm.styl'
 .main-wrap
 	padding 1rem
 	position relative
-.page-grid 
-	display grid
-	justify-content center
-	grid-template-columns 1fr
-	grid-template-rows 1
-	position relative
+// .page-grid 
+// 	display grid
+// 	justify-content center
+// 	grid-template-columns 1fr
+// 	grid-template-rows 1
+// 	position relative
 form 
-	height 26rem //calc(var(--globalHeight) -6rem)
+	//height 26rem //calc(var(--globalHeight) -6rem)
 	margin auto
 	padding 1rem 1rem 0
 	position relative
 	width 22rem //calc(var(--globalWidth) - 4rem)
-h3 
-	color var(--theta)
-	position absolute //relative
-	left 50%  
-	top 1rem
-	transform translate(-50%)
-	text-align center
-	z-index 200
-.page 
-	margin-left -40rem
-	opacity 0
-	position absolute
-	transition all .5s
-	width 0 //100%
-	z-index -1
-.page.page_1, .page.page_2, .page.page_3, .page.page_4
-	margin-left 0
-	opacity 1
-	width 100%
-	z-index 1	
-.paginator 
-	display flex 
-	align-items center 
-	justify-content space-between
-	gap 1rem
-	padding .6rem
-	position absolute 
-	bottom 0
-	left 50%
-	transform translate(-50%)
-	width fit-content
-	z-index 4
-	button 
-		background transparent
-		border 1px solid var(--gamma) 
-		border-radius 50%
-		color var(--theta)
-		height 2rem 
-		outline none
-		transition all .5s
-		width 2rem
-button.page_1, button.page_2, button.page_3, button.page_4
-	background var(--gamma)
-	color var(--iota)
+// h3 
+// 	color var(--theta)
+// 	position absolute //relative
+// 	left 50%  
+// 	top 1rem
+// 	transform translate(-50%)
+// 	text-align center
+// 	z-index 200
+// .page 
+// 	margin-left -40rem
+// 	opacity 0
+// 	position absolute
+// 	transition all .5s
+// 	width 0 //100%
+// 	z-index -1
+// .page.page_1, .page.page_2, .page.page_3, .page.page_4
+// 	margin-left 0
+// 	opacity 1
+// 	width 100%
+// 	z-index 1	
+// .paginator 
+// 	display flex 
+// 	align-items center 
+// 	justify-content space-between
+// 	gap 1rem
+// 	padding .6rem
+// 	position absolute 
+// 	bottom 0
+// 	left 50%
+// 	transform translate(-50%)
+// 	width fit-content
+// 	z-index 4
+// 	button 
+// 		background transparent
+// 		border 1px solid var(--gamma) 
+// 		border-radius 50%
+// 		color var(--theta)
+// 		height 2rem 
+// 		outline none
+// 		transition all .5s
+// 		width 2rem
+// button.page_1, button.page_2, button.page_3, button.page_4
+// 	background var(--gamma)
+// 	color var(--iota)
 .btn-submit 
 	background transparent //var(--delta)
 	border 1px solid
@@ -335,4 +508,5 @@ button.page_1, button.page_2, button.page_3, button.page_4
 	bottom 1rem 
 	transform translate(-50%)
 	width 12rem
+	z-index 20
 </style>

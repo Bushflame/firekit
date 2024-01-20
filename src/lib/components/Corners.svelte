@@ -13,11 +13,13 @@
 .corners
     border 1px solid transparent
     box-shadow inset 0 0 40px 20px var(--gamma)
-    height calc(var(--globalHeight) - 10rem)
+    height var(--height)
     margin auto
     //width calc(var(--globalWidth) - 4rem)
     padding 2rem 1rem
     position relative
+    width 100% //10rem
+    z-index 20
 .corner 
     background var(--beta)
     color  var(--beta)

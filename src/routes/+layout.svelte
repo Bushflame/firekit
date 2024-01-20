@@ -84,7 +84,7 @@
 	--globalHeight 39rem
 	--ddWidth 23rem
 
-	//single colour
+	//BROWNS
 	--alpha #fff
 	--beta #FFEADB
 	--gamma darken(#FFEADB,10%)
@@ -94,7 +94,35 @@
 	--zeta darken(#FFEADB,50%)
 	--theta darken(#FFEADB,60%)
 	--iota darken(#FFEADB,70%)
-	
+	//GREYS
+	--beta darken(#fff, 10%)
+	--gamma darken(#fff,20%)
+	--delta darken(#fff,30%)
+	--epsilon darken(#fff,40%)
+	--eta darken(#fff,50%)
+	--zeta darken(#fff,60%)
+	--theta darken(#fff,70%)
+	--iota darken(#fff,80%)
+	// Turquoise
+	// --beta darken(#EBFBFA, 10%)
+	// --gamma darken(#EBFBFA,20%)
+	// --delta darken(#EBFBFA,30%)
+	// --epsilon darken(#EBFBFA,40%)
+	// --eta darken(#EBFBFA,50%)
+	// --zeta darken(#EBFBFA,60%)
+	// --theta darken(#EBFBFA,70%)
+	// --iota darken(#EBFBFA,80%)
+	//Teal
+	// --beta darken(#e2ffff, 10%)
+	// --gamma darken(#e2ffff,20%)
+	// --delta darken(#e2ffff,30%)
+	// --epsilon darken(#e2ffff,40%)
+	// --eta darken(#e2ffff,50%)
+	// --zeta darken(#e2ffff,60%)
+	// --theta darken(#e2ffff,70%)
+	// --iota darken(#e2ffff,80%)
+
+
 	--breakpoint 54rem
 main 
 	background linear-gradient(to bottom left,var(--beta),  var(--gamma));

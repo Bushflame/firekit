@@ -18,29 +18,35 @@ export default async function validate(formData, edit = false) {
 		li_1c: yup.string(),
 		li_1d: yup.string(),
 		li_1e: yup.string(),
-		li_1f: yup.string(),
+	
 
 		li_2a: yup.string(),
 		li_2b: yup.string(),
 		li_2c: yup.string(),
 		li_2d: yup.string(),
 		li_2e: yup.string(),
-		li_2f: yup.string(),
+	
 
 		li_3a: yup.string(),
 		li_3b: yup.string(),
 		li_3c: yup.string(),
 		li_3d: yup.string(),
 		li_3e: yup.string(),
-		li_3f: yup.string(),
+
 
 		li_4a: yup.string(),
 		li_4b: yup.string(),
 		li_4c: yup.string(),
 		li_4d: yup.string(),
 		li_4e: yup.string(),
-		li_4f: yup.string(),
 
+		//contact----------------
+		lname: yup.string(),
+		email: yup.string(),
+		tel: yup.string(),
+		fbook: yup.string(),
+
+		terms:yup.string(),
 		//images------------------
 
 		img_1a: yup
@@ -54,7 +60,7 @@ export default async function validate(formData, edit = false) {
 			})
 			.test('fileSize', 'The file must be under 4 MB.', (value) => {
 				if (value && value.size) {
-					return value.size < 4_000_000;
+					return value.size >6_00;
 				}
 				return true;
 			}),
@@ -69,7 +75,7 @@ export default async function validate(formData, edit = false) {
 			})
 			.test('fileSize', 'The file must be under 4 MB.', (value) => {
 				if (value && value.size) {
-					return value.size < 4_000_000;
+					return value.size >6_00;
 				}
 				return true;
 			}),
@@ -84,7 +90,7 @@ export default async function validate(formData, edit = false) {
 			})
 			.test('fileSize', 'The file must be under 4 MB.', (value) => {
 				if (value && value.size) {
-					return value.size < 4_000_000;
+					return value.size >6_00;
 				}
 				return true;
 			}),
@@ -99,7 +105,7 @@ export default async function validate(formData, edit = false) {
 			})
 			.test('fileSize', 'The file must be under 4 MB.', (value) => {
 				if (value && value.size) {
-					return value.size < 4_000_000;
+					return value.size >6_00;
 				}
 				return true;
 			})
@@ -124,28 +130,30 @@ export default async function validate(formData, edit = false) {
 		li_1c: formData.get('li_1c'),
 		li_1d: formData.get('li_1d'),
 		li_1e: formData.get('li_1e'),
-		li_1f: formData.get('li_1f'),
 
 		li_2a: formData.get('li_2a'),
 		li_2b: formData.get('li_2b'),
 		li_2c: formData.get('li_2c'),
 		li_2d: formData.get('li_2d'),
 		li_2e: formData.get('li_2e'),
-		li_2f: formData.get('li_2f'),
 
 		li_3a: formData.get('li_3a'),
 		li_3b: formData.get('li_3b'),
 		li_3c: formData.get('li_3c'),
 		li_3d: formData.get('li_3d'),
 		li_3e: formData.get('li_3e'),
-		li_3f: formData.get('li_3f'),
 
 		li_4a: formData.get('li_4a'),
 		li_4b: formData.get('li_4b'),
 		li_4c: formData.get('li_4c'),
 		li_4d: formData.get('li_4d'),
 		li_4e: formData.get('li_4e'),
-		li_4f: formData.get('li_4f'),
+
+		name: formData.get('name'),
+		email:  formData.get('email'),
+		tel: formData.get('tel'),
+		fbook: formData.get('fbook'),
+		terms: formData.get('terms'),
 		//images----------------------
 		img_1a: emptyFileIsNull(formData.get('img_1a')),
 		img_2a: emptyFileIsNull(formData.get('img_2a')),

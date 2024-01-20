@@ -2,11 +2,12 @@
 
 export let lab = ''
 export let nam = ''
-export let rows = 3
+export let rows = 6
+export let name = ''
 
 </script>
 <label for={nam}>{lab}</label>
-<textarea name={nam} id={nam} cols="30" rows={rows} value={nam}/>
+<textarea name={name || ''} id={nam} cols="30" rows={rows} value={nam}/>
 
 
 <style lang="stylus">

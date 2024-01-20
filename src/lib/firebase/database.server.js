@@ -27,29 +27,30 @@ export async function addListing(listing, userId) {
 		list_1c: listing.li_1c || '',
 		list_1d: listing.li_1d || '',
 		list_1e: listing.li_1e || '',
-		list_1f: listing.li_1f || '',
 
 		list_2a: listing.li_2a || '',
 		list_2b: listing.li_2b || '',
 		list_2c: listing.li_2c || '',
 		list_2d: listing.li_2d || '',
 		list_2e: listing.li_2e || '',
-		list_2f: listing.li_2f || '',
 
 		list_3a: listing.li_3a || '',
 		list_3b: listing.li_3b || '',
 		list_3c: listing.li_3c || '',
 		list_3d: listing.li_3d || '',
 		list_3e: listing.li_3e || '',
-		list_3f: listing.li_3f || '',
 
 		list_4a: listing.li_4a || '',
 		list_4b: listing.li_4b || '',
 		list_4c: listing.li_4c || '',
 		list_4d: listing.li_4d || '',
 		list_4e: listing.li_4e || '',
-		list_4f: listing.li_4f || '',
 
+		name: listing.name || '',
+		email: listing.email || '',
+		tel: listing.tel || '',
+		fbook: listing.fbook || '',
+		terms: listing.terms || '',
 		user_id: userId,
 		created_at: admin.firestore.Timestamp.now().seconds
 		//likes: 0
@@ -112,7 +113,8 @@ export async function editListing(id, form, userId) {
 export async function getListing(id) {
 	const listingRef = await db.collection('listings').doc(id).get();
 	if (listingRef.exists) {
-		return { id: listingRef.id, ...listingRef.data() };
+		return { id: listingRef.id,  ...listingRef.data() };
+		// 	console.log('temp',temp, uid)
 	}
 }
 
@@ -122,10 +124,11 @@ export async function getListings() {
 	 * @type {firestore.DocumentData[]}
 	 */
 	let all = [];
-	const listingsRef = db.collection('listings');
+const listingsRef = db.collection('listings');
 	const snapshot = await listingsRef.get();
 
 	snapshot.forEach((doc) => {
+
 		let temp = [];
 		let getUid = {
 			uid: doc.id
@@ -194,13 +197,19 @@ export async function getAdminListing() {
 	const snapshot = await listingsRef.get();
 
 	//get user(to match dashboard user) and doc ids (to create url to edit page + my listing)
+
 	snapshot.forEach((doc) => {
+
 		let temp = [];
 		let getUid = {
+			createdAt: doc.data().created_at,
+			expDate: doc.data().expDate,
 			uid: doc.id,
-			userid: doc.data().user_id
+			userid: doc.data().user_id,
+			
 		};
-		//console.log('doc.data', doc.data);
+		let dat =new Date(getUid.expDate * 1000)
+		console.log('exp datw', getUid.expDate)
 		temp.push(doc.data());
 		userKeys.push(getUid);
 	});

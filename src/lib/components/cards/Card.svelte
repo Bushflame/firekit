@@ -6,7 +6,6 @@
 	export let li_c = '';
 	export let li_d = '';
 	export let li_e = '';
-	export let li_f = '';
 	export let img = '';
 </script>
 
@@ -44,11 +43,6 @@
 				{#if li_e != ''}
 					<li>
 						{li_e}
-					</li>
-				{/if}
-				{#if li_f != ''}
-					<li>
-						{li_f}
 					</li>
 				{/if}
 			</ul>

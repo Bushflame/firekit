@@ -6,10 +6,18 @@
 	//import { copy } from 'svelte-copy';
 
 	export let data;
+	let expires = data.expiresOn
+	let created = data.createdOn
+
 	$userKey = data.userid;
-	//let url = `/listing/${data.thisId}`
+	console.log('dat',)
 	let clickToGo = `http://localhost:5173/listing/7FZfOTLYaKVYdY81J0xi5J589Fl2`;
-	let showGuide = false;
+	var today = new Date().toDateString();
+// 	var today = new Date();
+// var tomorrow = new Date();
+// tomorrow.setDate(today.getDate()+1);
+console.log('tom ', today)
+
 </script>
 
 <div class="dashboard">
@@ -18,7 +26,8 @@
 		<Guides />
 		<hr />
 		<div class="link-bar">
-			<a href={`/edit/${$userKey}`} class:active={$page.url.pathname == `/edit/${$userKey}`}>Edit</a
+
+			<a href={`/edit/${$userKey}`} class:active={$page.url.pathname == `/edit/${$userKey}` } data-sveltekit-preload-data="off">Edit</a
 			>
 			<br />
 			<a
@@ -28,12 +37,16 @@
 			>
 			<button class="copy-url"> My URL </button>
 		</div>
+		<div class="acc-details">
+			<h3>Account details</h3>
+			<p>Created on: {created}</p>
+			<p>Expires on: {expires}</p>
+		</div>
 	</Corners>
 </div>
 
 <style lang="stylus">
 .dashboard 
-	//margin-top 2rem
 	padding 1rem
 	position relative
 .link-bar
@@ -57,43 +70,19 @@ hr
 	border 1px solid var(--gamma)
 	margin 1.5rem auto
 	width 50%
-// .guide-dropdown 
-// 	border 1px solid var(--delta)
-// 	//border-radius 2rem
-// 	height 0
-// 	margin auto
-// 	opacity 0
-// 	position absolute
-// 	left 50%
-// 	top 8rem
-// 	transform translate(-50%)
-// 	transition all .5s
-// 	width calc(var(--globalWidth) - 4rem)
-// 	z-index -1
-// .showGuide 
-// 	height 18rem
-// 	opacity 1
-// 	z-index 1
-// .guide-btn 
-// 	background var(--beta)
-// 	border-radius 0 0 1.2rem 1.2rem
-// 	color var(--alpha)
-// 	font-size 1.2rem
-// 	font-weight bold
-// 	height 2rem
-// 	padding .3rem 1.2rem
-// 	position absolute 
-// 	left 50%
-// 	top 2rem
-// 	transform translate(-50%)
-// 	transition all .5s
-// 	width fit-content
-// 	z-index 2
-// .close-btn 
-// 	display block
-// 	margin auto
+
 h1 
 	margin-bottom 1rem
 	text-align center
+.acc-details 
+	margin auto
+	text-align center
+	width fit-content
+	h3
+		color var(--theta)
+		margin-bottom .6rem
 
+p 
+	color var(--iota)
+	line-height 1.5
 </style>
