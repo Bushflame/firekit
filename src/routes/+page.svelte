@@ -1,26 +1,27 @@
 <script>
-	import Corners from '$comps/Corners.svelte';
-	import ToggleBtn from '$comps/buttons/ToggleBtn.svelte';
-	import PublicGrid from '$comps/grids/PublicGrid.svelte';
-	import GlobalList from '$comps/lists/GlobalList.svelte';
-	let sellers = false;
+	import SinglePageFrame from '$frames/SinglePageFrame.svelte'
+	import Corners from '$lib/grids/Corners.svelte'
+	import Header from '$lib/building-views/Header.svelte'
+	import Footer from '$lib/building-views/Footer.svelte'
+	import Frame from '$frames/ResultsFrame.svelte'
+	import FrameWrap from '$frames/FrameWrap.svelte'
 </script>
-
-<PublicGrid>
-	<div slot="one" class="one">
-		<Corners>
-			<h1>one</h1>
-			<a href="/search">Search</a>
-		</Corners>
-	</div>
-
-	<div slot="two" class="two">
-		<Corners>
-			<h1>two</h1>
-		</Corners>
-	</div>
-</PublicGrid>
-
+<FrameWrap>
+	<Header></Header>
+	<Frame>
+		<span slot='slot-1a' class='slot-1a'>
+			<Corners  img={'/imgs/alsation-dog-1.jpg' } >
+			</Corners>
+		</span>
+		<span slot='slot-1b'  class='slot-1b'>
+			<Corners  >
+				<h1>page 2</h1>
+			</Corners> 
+		</span>
+	</Frame>
+	<Footer
+	></Footer>
+</FrameWrap>
 <style lang="stylus">
-
+// calc(var(--(globalWidth) - 2rem))
 </style>

@@ -42,7 +42,6 @@
 					data-sveltekit-preload-data="off">Dashboard</a
 				>
 			</li>
-
 			<li>
 				<a href="/about" class:active={$page.url.pathname === '/about'}>About</a>
 			</li>

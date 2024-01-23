@@ -11,7 +11,7 @@
 
 <style lang="stylus">
 .corners
-    border 1px solid transparent
+    //order 1px solid transparent
     box-shadow inset 0 0 40px 20px var(--gamma)
     height var(--height)
     margin auto
@@ -21,8 +21,8 @@
     width 100% //10rem
     z-index 20
 .corner 
-    background var(--beta)
-    color  var(--beta)
+    background var(--alpha)
+    color  var(--alpha)
     position absolute
     z-index 4
 .corner.small

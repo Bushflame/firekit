@@ -8,12 +8,14 @@ export let title = ''
 h1 
     background var(--beta)
     border-radius 1rem
+    color var(--epsilon)
+    margin 1rem auto .6rem
     padding .2rem .6rem
-    position absolute
-    left 50%
-    top .6rem
-    transform translate(-50%)
+    //position absolute
+    // left 50%
+    // top .6rem
+    // transform translate(-50%)
     text-align center
     width 16rem
-    z-index 1
+    //z-index 100
 </style>

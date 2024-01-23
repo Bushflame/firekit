@@ -14,7 +14,7 @@ export let flex = false
 {/if}
 <style lang="stylus">
 p 
-    color var(--theta)
+    color var(--alpha)
     font-size 1rem
     font-weight var(--weight)
     line-height 1.5

@@ -2,7 +2,9 @@
 	import { page } from '$app/stores';
 	import { userKey } from '$lib/stores/store';
 	import Guides from '$comps/guides/Guides.svelte';
-	import Corners from '$comps/Corners.svelte';
+	import Frame from '$lib/frames/SingleBlockFame.svelte'
+
+	import Corners from '$lib/grids/Corners.svelte';
 	//import { copy } from 'svelte-copy';
 
 	export let data;
@@ -19,9 +21,7 @@
 console.log('tom ', today)
 
 </script>
-
-<div class="dashboard">
-	<Corners>
+<Frame>
 		<h1>Dashboard</h1>
 		<Guides />
 		<hr />
@@ -42,13 +42,15 @@ console.log('tom ', today)
 			<p>Created on: {created}</p>
 			<p>Expires on: {expires}</p>
 		</div>
-	</Corners>
-</div>
+</Frame>
+
 
 <style lang="stylus">
 .dashboard 
+	height 770px
 	padding 1rem
 	position relative
+	width 880px
 .link-bar
 	display flex
 	gap .4rem

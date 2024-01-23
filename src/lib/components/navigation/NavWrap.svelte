@@ -50,10 +50,10 @@
 	flex-direction column
 	gap .6rem
 	justify-content start
-	height calc(var(--globalHeight) - 12rem)
+	height calc(var(--globalHeight) - 9rem)
 	overflow hidden
-	padding 4rem 1rem 6rem
-	width calc(var(--globalWidth) - 6rem)
+	padding 2rem 1rem 6rem
+	width calc(var(--globalWidth) - 1rem)
 	position absolute
 	left 50%
 	top 50%
@@ -75,7 +75,7 @@ ul
 	//position absolute
 	width 40rem
 .burger 
-	background   var(--theta) //rgba(255,255,255,.1)
+	background   var(--beta) //rgba(255,255,255,.1)
 	border none //1px solid var(--beta)
 	border-radius 50% // 0  0 0 50%// 6px
 	display flex

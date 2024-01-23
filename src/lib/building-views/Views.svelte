@@ -7,52 +7,76 @@
     let side_1a = true
     let side_1b = true
     export let pageNum = 1
+    let sideWrap_1a = true
+    let sideWrap_1b = false
+
+    //if front page or not
+    export let isFront = true
     </script>
-    <div class="main-wrap">
-    <div class="pages">
-        <section class="page page-1"
-            class:page_1 
+    <!-- <div class="main-wrap"> -->
+            <!-- <button class="toggle"
+            on:click={()=>{
+                sideWrap_1a = !sideWrap_1a
+                sideWrap_1b = !sideWrap_1b
+            }}
+            >toggle</button> -->
+        <!-- <div class="pages"> -->
+            <section class="page page-1"
+                class:page_1 
+                >
+                <div class="side-wrap side-wrap-1a" class:sideWrap_1a>
+                    <!-- pos if -->
+                    
+                    <span class="side side-1a"
+                    class:side_1a
+                    >
+                    {#if isFront}
+                        <Corners --height='calc(50% - .5rem'>
+                            <slot name='slot-1a'/>
+                        </Corners>
+                        <div class="spacer"></div>
+                        <Corners --height='calc(50% - .5rem)'>
+                            <slot name='slot-1b'/>
+                        </Corners>
+                    {:else}
+                    <Corners --height='100%'>
+                        <slot name='slot-1'/>
+                    </Corners>
+                    {/if}
+                    </span>
+                </div>
+                <div class="side-wrap side-wrap-1b" class:sideWrap_1b>
+                    <span class="side side-1c"
+                    class:side_1b
+                    >
+                    <Corners --height='100%'>
+                        <slot name='slot-1c'/>
+                    </Corners>
+
+                    </span>
+                </div>
+            </section>
+        
+            <!-- <section class="page"
+            class:page_2
+            >   
+            <slot name='page-2'/>view 2
+            </section>
+        
+            <section class="page"
+            class:page_3
             >
-                <span class="side side-1a"
-                class:side_1a
-                >
-                <Corners --height='calc(50% - .5rem'>
-                    <slot name='slot-1a'/>
-                </Corners>
-                <div class="spacer"></div>
-                <Corners --height='calc(50% - .5rem'>
-                    <slot name='slot-1b'/>
-                </Corners>
-                </span>
-                <span class="side side-1c"
-                class:side_1b
-                >
-                <Corners --height='100%'>
-                    <slot name='slot-1c'/>
-                </Corners>
-                </span>
-        </section>
-    
-        <!-- <section class="page"
-        class:page_2
-        >   
-        <slot name='page-2'/>view 2
-        </section>
-    
-        <section class="page"
-        class:page_3
-        >
-        <slot name='page-3'/>view 3
-        </section>
-    
-        <section class="page"
-        class:page_4
-        >  
-        <slot name='page-4'/> view 4
-        </section> -->
-    </div>
-    </div>
-    <div class="paginator">
+            <slot name='page-3'/>view 3
+            </section>
+        
+            <section class="page"
+            class:page_4
+            >  
+            <slot name='page-4'/> view 4
+            </section> -->
+        <!-- </div> -->
+        <!-- </div> -->
+        <!-- <div class="paginator">
         <button
             class:page_1
             on:click|preventDefault={() => {
@@ -93,51 +117,82 @@
                 page_4 = true
             }}>4</button
         >
-    </div>
+    </div> -->
 <style lang="stylus">
-.main-wrap 
-    //border 1px solid red
-    padding 1rem
-    position relative
-.pages
-    display grid
-    gap 1rem
-    //columns -> var
-    //grid-template-columns 50% 50% //1fr 1fr
-    //grid-template-rows 1
-    justify-content center
-    height 28rem //100%
-    margin auto
-    position relative
-    //left 50%
-    top 0 //-2.4rem
-    //transform translate(-50%)
-    //width set on page with var
-    //width 100% //22rem
-.page 
+// .main-wrap 
+//     background var(--beta)
+//     border 1px solid blue
+//     height calc(var(--globalHeight) - 8rem)
+//     display flex
+//     //margin-left 2px //1rem
+//     overflow hidden
+//     padding  0
+    //position relative
+    //width var(--globalWidth) //calc(var(--globalWidth) - 0rem)// 40rem //100%
+.toggle
+    position absolute 
+    right 0
+    top 0
+
+.page
     //border 1px solid blue
     display grid
-    gap 1rem
-    grid-template-columns  1fr 1fr
-    height 100% //26rem
-    //margin-left -60rem
+    //gap 1rem
+    grid-template-columns  1fr //1fr
+    height calc(var(--globalHeight ) - 8.5rem)
+    margin 0 //1rem
     opacity 0
-    //position absolute
+    position relative 
+    left 1rem //5rem 
     transition all .5s
-    width 0 //100%
     z-index -1
-
+//toggle inner pages with toggle btn
+.side-wrap 
+    //border 1px solid yellow
+    height calc(var(--globalHeight) - 8.5rem)//  -6 on small
+    margin-left -30rem
+    opacity 0
+    position absolute
+    //top 1rem
+    bottom 0
+    //transform translate(-52.2%)
+    transition all .5s
+    width 24.2rem
+    z-index -1
+.side 
+    border 0px solid yellow
+.side-wrap.sideWrap_1a, .side-wrap.sideWrap_1b
+    margin-left 0rem
+    opacity 1
+    z-index 1
+@media(min-width 50rem)
+    .page 
+        grid-template-columns 1fr 1fr
+        //left 25%
+        //transform translate(-48%)
+        position relative //absolute
+    .side-wrap 
+        height calc(var(--globalHeight) - 8.5rem)//  -6 on small
+        margin-left 1.8rem
+        opacity 1
+        position relative
+        //left 47%
+    .toggle 
+        display none
+//toggle main pages with paginator
 .page.page_1, .page.page_2, .page.page_3, .page.page_4
     margin-left 0
     opacity 1
     width 100%
     z-index 1	
+
 .side 
-    position relative
+    //position relative
     width 25rem
+
 .spacer 
     height 1rem
-    position reletive
+    position relative
 // .side-1a 			
 //     position relative
     //width 100%
