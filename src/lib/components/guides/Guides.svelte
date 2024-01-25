@@ -185,46 +185,46 @@
 
 <style lang="stylus">
 .guides 
-    position relative
+	position relative
 .guide
-    background var(--beta)
-    //border 1px solid red
-    height 20rem
-    padding 2rem 1rem
-    position absolute
-    left 50%
-    top -4.5rem 
-    transform translate(-50%)
-    width 90%
+	background var(--beta)
+	border-radius 1rem
+	height 24rem
+	padding 2rem 1rem
+	position absolute
+	left 50%
+	top -7.5rem 
+	transform translate(-50%)
+	width 390px
 .btns 
-    display grid
-    gap 1rem
-    grid-template-columns 1fr 1fr 1fr
-    justify-content space-between
-    padding 0 .4rem
-    width 100%
+	display grid
+	gap 1rem
+	grid-template-columns 1fr 1fr 1fr
+	justify-content space-between
+	padding 0 .4rem
+	width 100%
 button 
-    background var(--beta)
-    border 1px solid var(--epsilon)
-    border-radius 1rem 
-    color var(--theta)
-    font-size 1rem
-    padding .3rem .5rem
+	background var(--gamma)
+	border 1px solid var(--epsilon)
+	border-radius 1.2rem
+	color var(--theta)
+	font-size 1rem
+	padding .5rem .8rem
 button.close 
-    display block
-    margin 2rem auto
-    width 8rem
+	display block
+	margin 2rem auto
+	width 8rem
 h3 
-    color var(--epsilon)
-    margin-bottom .5rem
-    text-align center
+	color var(--theta)
+	margin-bottom .5rem
+	text-align center
 p 
-    color var(--theta)
-    line-height 1.5
+	color var(--theta)
+	line-height 1.5
 ul 
-    list-style none
+	list-style none
 li 
-    color var(--theta)
-    margin-bottom .3rem
+	color var(--theta)
+	margin-bottom .3rem
 
 </style>

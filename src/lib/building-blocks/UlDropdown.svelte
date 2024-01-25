@@ -89,7 +89,7 @@
     position relative
     width 20rem
 .dropdown 
-    background var(--beta)
+    background transparent //red //var(--beta)
     position absolute
     bottom 0
     top 4rem

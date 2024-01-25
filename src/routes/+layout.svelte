@@ -1,5 +1,7 @@
 <script>
 	import Nav from '$comps/navigation/Nav.svelte';
+	import { page } from '$app/stores';
+	//$page.url.pathname === '/login'
 	//import GlobalFrame from '$comps/GlobalFrame.svelte';
 	import messagesStore from '$lib/stores/messages.store';
 	import '$lib/firebase/firebase.client';
@@ -49,8 +51,11 @@
 <main>
 	<!-- <GlobalFrame> -->
 		<div class="wrap">
+		{#if $page.url.pathname !== '/login'}
+		{#if $page.url.pathname  !== '/signup'}
 		<Nav {isLoggedIn} />
-
+			{/if}
+			{/if}
 		{#if $messagesStore.show}
 			<div class="messages">
 				<div class="messages-liner">
@@ -88,33 +93,33 @@
 	--ddWidth 23rem
 
 	//BROWNS
-	--alpha #fff
-	--beta #FFEADB
-	--gamma darken(#FFEADB,10%)
-	--delta darken(#FFEADB,20%)
-	--epsilon darken(#FFEADB,30%)
-	--eta darken(#FFEADB,40%)
-	--zeta darken(#FFEADB,50%)
-	--theta darken(#FFEADB,60%)
-	--iota darken(#FFEADB,70%)
+	// --alpha #fff
+	// --beta #FFEADB
+	// --gamma darken(#FFEADB,10%)
+	// --delta darken(#FFEADB,20%)
+	// --epsilon darken(#FFEADB,30%)
+	// --eta darken(#FFEADB,40%)
+	// --zeta darken(#FFEADB,50%)
+	// --theta darken(#FFEADB,60%)
+	// --iota darken(#FFEADB,70%)
 	//reds #ffe5e5
-	--beta #ffe5e5
-	--gamma darken(#ffe5e5,10%)
-	--delta darken(#ffe5e5,20%)
-	--epsilon darken(#ffe5e5,30%)
-	--eta darken(#ffe5e5,40%)
-	--zeta darken(#ffe5e5,50%)
-	--theta darken(#ffe5e5,60%)
-	--iota darken(#ffe5e5,70%)
+	// --beta #ffe5e5
+	// --gamma darken(#ffe5e5,10%)
+	// --delta darken(#ffe5e5,20%)
+	// --epsilon darken(#ffe5e5,30%)
+	// --eta darken(#ffe5e5,40%)
+	// --zeta darken(#ffe5e5,50%)
+	// --theta darken(#ffe5e5,60%)
+	// --iota darken(#ffe5e5,70%)
 	//GREYS
-	// --beta darken(#fff, 10%)
-	// --gamma darken(#fff,20%)
-	// --delta darken(#fff,30%)
-	// --epsilon darken(#fff,40%)
-	// --eta darken(#fff,50%)
-	// --zeta darken(#fff,60%)
-	// --theta darken(#fff,70%)
-	// --iota darken(#fff,80%)
+	--beta darken(#fff, 10%)
+	--gamma darken(#fff,20%)
+	--delta darken(#fff,30%)
+	--epsilon darken(#fff,40%)
+	--eta darken(#fff,50%)
+	--zeta darken(#fff,60%)
+	--theta darken(#fff,70%)
+	--iota darken(#fff,80%)
 	// Turquoise
 	// --beta darken(#EBFBFA, 10%)
 	// --gamma darken(#EBFBFA,20%)
@@ -135,30 +140,40 @@
 	// --iota darken(#e2ffff,80%)
 
 	//aqua 	#ecfefa
-	--beta #ecfefa
-	--gamma darken(#ecfefa,10%)
-	--delta darken(#ecfefa,20%)
-	--epsilon darken(#ecfefa,30%)
-	--eta darken(#ecfefa,40%)
-	--zeta darken(#ecfefa,50%)
-	--theta darken(#ecfefa,60%)
-	--iota darken(#ecfefa,70%)
-	// raspberry pink #fbe7f1
-	--beta #fbe7f1
-	--gamma darken(#fbe7f1,10%)
-	--delta darken(#fbe7f1,20%)
-	--epsilon darken(#fbe7f1,30%)
-	--eta darken(#fbe7f1,40%)
-	--zeta darken(#fbe7f1,50%)
-	--theta darken(#fbe7f1,60%)
-	--iota darken(#fbe7f1,70%)
+	// --beta #ecfefa
+	// --gamma darken(#ecfefa,10%)
+	// --delta darken(#ecfefa,20%)
+	// --epsilon darken(#ecfefa,30%)
+	// --eta darken(#ecfefa,40%)
+	// --zeta darken(#ecfefa,50%)
+	// --theta darken(#ecfefa,60%)
+	// --iota darken(#ecfefa,70%)
 
+	// raspberry pink #fbe7f1
+	// --beta #fbe7f1
+	// --gamma darken(#fbe7f1,10%)
+	// --delta darken(#fbe7f1,20%)
+	// --epsilon darken(#fbe7f1,30%)
+	// --eta darken(#fbe7f1,40%)
+	// --zeta darken(#fbe7f1,50%)
+	// --theta darken(#fbe7f1,60%)
+	// --iota darken(#fbe7f1,70%)
+
+	// gold #fff9d8
+	// --beta #fff9d8
+	// --gamma darken(#fff9d8,10%)
+	// --delta darken(#fff9d8,20%)
+	// --epsilon darken(#fff9d8,30%)
+	// //--eta darken(#fff9d81,40%)
+	// --zeta darken(#fff9d8,50%)
+	// --theta darken(#fff9d8,60%)
+	// --iota darken(#fff9d8,70%)
 
 	--breakpoint 54rem
 main 
 	//background linear-gradient(to bottom left,var(--beta),  var(--gamma));
 	//box-shadow inset 0 0 40px 20px var(--delta)
-	background var(--iota)
+	background var(--gamma)
 	display flex 
 	align-items center
 	justify-content center

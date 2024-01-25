@@ -44,7 +44,8 @@
 
 //----------------------------------------
 .navwrap
-	background var(--beta)
+	background var(--gamma)
+	border 1px solid var(--epsilon)
 	border-radius 2rem
 	display flex
 	flex-direction column
@@ -62,10 +63,12 @@
 	padding-top 1rem
 	z-index 200
 nav 
+
 	margin	1rem
 	position absolute
-	width  calc(var(--globalWidth)- 8rem) 
+	//width  calc(var(--globalWidth)- 8rem) 
 ul 
+	//border 1px solid var(--beta)
 	display flex
 	align-items left
 	flex-direction column 
@@ -73,10 +76,10 @@ ul
 	height 20rem //100%
 	list-style none
 	//position absolute
-	width 40rem
+	width 22rem
 .burger 
-	background   var(--beta) //rgba(255,255,255,.1)
-	border none //1px solid var(--beta)
+	background   transparent //var(--epsilon) //rgba(255,255,255,.1)
+	border 1px solid var(--theta)
 	border-radius 50% // 0  0 0 50%// 6px
 	display flex
 	flex-direction column

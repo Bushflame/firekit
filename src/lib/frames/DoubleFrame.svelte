@@ -7,41 +7,21 @@ let page_1 = true
 let page_2 = false
 let page_3 = false
 let page_4 = false
-export let toggleTxt = ''
-export let title = ''
+
 </script>
 
 <div class="outer">
-        <button 
-        class='toggle-btn'
-        on:click={()=>{
-            one= !one
-            two= !two
-        }}
-        >{#if one}
-        {#if page_1}
-            Contact
-        {:else}
-        Details
-        {/if}
-        {:else}
-        Back 
-        {/if}
-        </button>
+
 
     <!-- <div class="wrap"> -->
         <section  class='page' class:page_1>
             <!-- for edits-  usae ifs -->
-            {#if 'challenge'}
             <div class="side side-1" class:one>
                 <slot name='slot-1a'/>
             </div>
             <div class="side side-2" class:two>
                 <slot name='slot-1b'/>
             </div>
-            {:else}
-
-            {/if}
         </section>
 
 
@@ -71,7 +51,23 @@ export let title = ''
                 <slot name='slot-4b'/>
             </div>
         </section>
-
+        <button 
+        class='toggle-btn'
+            on:click={()=>{
+                one= !one
+                two= !two
+            }}
+            >
+            {#if one}
+                {#if page_1}
+                    Contact
+                {:else}
+                    Details
+                {/if}
+            {:else}
+            Back 
+            {/if}
+        </button>
     </div>
     <div class="paginator">
         <button
@@ -127,19 +123,19 @@ export let title = ''
     height calc(var(--globalHeight) - 128px)
     //position relative
 .toggle-btn 
-    background  transparent 
-    border 1px solid var(--beta)
+    background  var(--iota) //transparent 
+    //border 1px solid var(--beta)
     border-radius 1.5rem
     color var(--beta)
     display block   
-    font-size 1.2rem
-    font-weight 800
+    font-size 1.1rem
+    //font-weight 800
     position absolute
     left 50%
-    top 8px
+    bottom 5.1rem
     transform translate(-50%)
     outline none
-    padding .6rem 2rem
+    padding .3rem 2rem
     text-align center
 
 .page 
@@ -154,12 +150,6 @@ export let title = ''
     transform scale(.5)
     transition all 1s
     width var(--globalWidth)
-
-.page.page_1, .page.page_2, .page.page_3, .page.page_4
-    order 1
-    opacity 1
-    width 100%
-
 .side-1, .side-2
     opacity 0
     transition all .5s
@@ -181,6 +171,7 @@ export let title = ''
     display grid
     grid-template-columns 1fr
     opacity 1
+    order 1
     transform scale(1)
     width 100%
 
@@ -191,7 +182,7 @@ export let title = ''
     gap 1rem
     padding .6rem
     position absolute
-    bottom .2rem
+    bottom 0
     left 50%
     transform translate(-50%)
     width fit-content
@@ -201,10 +192,11 @@ export let title = ''
         border 1px solid var(--beta) 
         border-radius 50%
         color var(--beta)
-        height 2rem 
+        font-size 1.4rem
+        height 2.8rem 
         outline none
         transition all .5s
-        width 2rem
+        width 2.8rem
 button.page_1, button.page_2, button.page_3, button.page_4
     background var(--gamma)
     color var(--iota)

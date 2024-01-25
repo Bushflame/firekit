@@ -8,12 +8,13 @@ export let li = ''
 
 <style lang="stylus">
 li 
-    color var(--alpha)
+    color var(--theta)
     margin-bottom .5rem
+    max-width 20rem
     padding-left 1.3rem
     position relative
 li::after 
-    border 1px solid var(--beta)
+    border 1px solid var(--zeta)
     border-radius 50% 
     content ''
     height 1rem 

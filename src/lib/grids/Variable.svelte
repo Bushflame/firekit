@@ -2,16 +2,6 @@
 export let img = ''
 </script>
 
-<!-- <div class="grid">
-    <div class="img-wrap">
-    <img src="/imgs/alsation-dog-1.jpg" alt="">
-</div>
-    <div class="corner top-left"/>
-    <div class="corner top-right"/>
-    <div class="corner bottom-left"/>
-    <div class="corner bottom-right"/>
-</div> -->
-
 <div class="grid">
     <img src={img} alt="">
     <div class="filter"><slot/></div>
@@ -22,17 +12,22 @@ export let img = ''
 </div>
 
 <style lang="stylus">
+// half page size
+// calcs based on header 64px footer 64px page padding 16px x 2 gap 16px / 2
 .grid
-    //background var(--gamma)
+    background var(--theta)
     display  grid
     grid-template-columns 2rem 1fr 2rem
     grid-template-rows 2rem 1fr 2rem
-    height calc(var(--globalHeight) - 160px)
+
+    height var(--hgt)// calc((var(--globalHeight) - 172px) / 2)
     margin auto
+    // to create gap whe stacking
+    margin-bottom var(--mb)
+    position relative
     width calc(var(--globalWidth) - 32px)
 .corner 
-    background var(--gamma)
-    position relative
+    background var(--iota)
 .img, .filter,img
     grid-column 1 / 4
     grid-row 1 / 4
@@ -43,7 +38,6 @@ export let img = ''
     align-items center
     flex-direction column
     justify-content center
-    position relative
 .a
     border-radius 0 0 100% 0
     grid-column 1 / 2
@@ -68,10 +62,9 @@ export let img = ''
 img 
     height 100% 
     object-fit cover
-    opacity var(--opacity)
     width 100%
 @media(min-width 880px)
     .grid 
-        height calc(var(--globalHeight) - 160px)   // 100% //var(--wHeight)
+        //height calc(var(--globalHeight) - 160px)   // 100% //var(--wHeight)
         width calc(var(--globalWidth) / 2 - 24px)
 </style>

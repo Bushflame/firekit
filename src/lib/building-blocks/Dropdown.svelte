@@ -118,10 +118,12 @@ export let txt_1 = '', txt_2='', txt_3='', txt_4='', txt_5='', txt_6 =''
     height 21rem
     margin 0 auto
     position relative
-    width 20rem
+    width 22rem
 .dropdown 
-    background var(--beta)
-    border-radius 0 0 2rem 2rem
+    background   var(--iota)
+    border-radius 2rem 
+    height 22rem
+    padding 1rem
     position absolute
     bottom 0
     top 5.5rem

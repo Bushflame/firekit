@@ -1,5 +1,9 @@
 <script>
 	import { page } from '$app/stores';
+	import FrameWrap from '$frames/FrameWrap.svelte'
+	import Header from '$lib/building-views/Header.svelte'
+	import Footer from '$lib/building-views/Footer.svelte'
+	import Corners from '$lib/grids/Variable.svelte';
 	/**
 	 * @type {any}
 	 */
@@ -17,12 +21,11 @@
 		currPage = 'Reset Password';
 	}
 </script>
-
+<Corners --hgt='400px'>
 <div class="authframe">
 	<form on:submit|preventDefault>
 		<h1>{currPage}</h1>
-		<hr />
-		<div class="mb-3">
+		<div class="wrap">
 			<label for="email" class="form-label">Email</label>
 			<input
 				type="email"
@@ -34,7 +37,7 @@
 			/>
 		</div>
 		{#if !forgotPassword}
-			<div class="mb-3">
+			<div class="wrap">
 				<label for="password" class="form-label">Password</label>
 				<input
 					type="password"
@@ -52,45 +55,58 @@
 		{/if}
 		<button type="submit" class="btn-success">{btnName}</button>
 	</form>
+	<a href="/" class='cancel'>Cancel</a>
 	<div class="slot">
 		<slot />
 	</div>
 </div>
-
+</Corners>
 <style lang="stylus">
 .authframe
-	background rgba(255,255,255,.1)
+	//background rgba(255,255,255,.1)
 	height fit-content
-	max-width 25rem
+	max-width 22rem
 	padding 1rem
 	position relative
 	width 100%
 form 
 	display flex
 	flex-direction column
-	gap 1rem
+	gap 1.4rem
 	width 100%
 h1 
+	color var(--beta)
 	text-align center
+.wrap 
+	display flex
+	align-items center
+	justify-content space-between
 label 
-	color #fff
-	margin-bottom 1rem
+	color var(--beta)
+	//margin-bottom 1rem
 
-input 
-	background rgba(255,255,255,.2)
+input[type="email"], input[type="password"]  
+	display block
+	background var(--gamma)// rgba(255,255,255,.2)
 	border none
 	margin-top .4rem
 	outline none
-	padding .6rem
+	padding .5rem
+	width 14rem
 button 
-	//margin-top .4rem
-	padding .6rem
-.btn-success 
-	background rgba(75,181,67, 1)
-	color #fff
+	padding .7rem
+	background var(--eta)
+	color var(--beta)
+	font-size 1.1rem
 .slot 
 	padding-top 1rem
 a 
 	font-size .9rem
+	color var(--beta)
 	text-align right
+a.cancel 
+	display block
+	font-size 1rem
+	margin-top 2rem
+	text-align center
 </style>

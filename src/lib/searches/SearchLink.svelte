@@ -42,18 +42,19 @@ h3
     grid-template-columns 1fr 1fr
     list-style none
     margin auto
-    width 25rem //calc(var(--globalWith) - (var(--globalWith)* 0.5))
+    width 21rem //calc(var(--globalWith) - (var(--globalWith)* 0.5))
 
 li 
     //border 1px solid red
     //width 10rem
 a 
-    //background var(--delta)
-    border-bottom 1px solid var(--gamma)
-    color  var(--theta)
+    background var(--gamma)
+    border-bottom 1px solid var(--delta)
+    border-radius 4px
+    color  var(--iota)
     display flex 
     justify-content space-between
-    padding .4rem 1rem
+    padding .4rem .2rem
     position relative
     text-align center
     //width calc(100% - (border-left / 2))
@@ -66,23 +67,5 @@ a
         top 30%
         transform translate(0,-50%)
 
-// a::before
-//     background var(--beta)
-//     content ''
-//     height 100% 
-//     position absolute
-//     left 0
-//     top 0
-//     width .8rem
-
-
-// a::after 
-//     background var(--beta)
-//     content ''
-//     height 100% 
-//     position absolute
-//     left 1.2rem
-//     top 0
-//     width .2rem
 
 </style>

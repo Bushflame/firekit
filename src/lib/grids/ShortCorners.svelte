@@ -15,7 +15,7 @@ export let img = ''
 // half page size
 // calcs based on header 64px footer 64px page padding 16px x 2 gap 16px / 2
 .grid
-    background var(--theta)
+    background var(--gamma)
     display  grid
     grid-template-columns 2rem 1fr 2rem
     grid-template-rows 2rem 1fr 2rem
@@ -23,9 +23,10 @@ export let img = ''
     margin auto
     // to create gap whe stacking
     margin-bottom var(--mb)
+    position relative
     width calc(var(--globalWidth) - 32px)
 .corner 
-    background var(--iota)
+    background var(--gamma)
 .img, .filter,img
     grid-column 1 / 4
     grid-row 1 / 4

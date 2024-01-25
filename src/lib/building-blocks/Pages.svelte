@@ -120,7 +120,7 @@ export let pageNum = 1
 	gap 1rem
 	padding .6rem
 	position absolute 
-	bottom -2.8rem
+	bottom -8.5rem
 	left 50%
 	transform translate(-50%)
 	width fit-content
@@ -129,7 +129,8 @@ export let pageNum = 1
 		background transparent
 		border 1px solid var(--gamma) 
 		border-radius 50%
-		color var(--theta)
+		color var(--iota)
+		font-size 1.2rem
 		height 2rem 
 		outline none
 		transition all .5s

@@ -23,16 +23,15 @@ export let img = ''
 
 <style lang="stylus">
 .grid
-    //background var(--gamma)
+    background var(--gamma)
     display  grid
     grid-template-columns 2rem 1fr 2rem
     grid-template-rows 2rem 1fr 2rem
     height calc(var(--globalHeight) - 160px)
     margin auto
-    width calc(var(--globalWidth) - 32px)
+    width 95% //calc(var(--globalWidth) - 32px)
 .corner 
     background var(--gamma)
-    position relative
 .img, .filter,img
     grid-column 1 / 4
     grid-row 1 / 4
@@ -42,8 +41,7 @@ export let img = ''
     display flex 
     align-items center
     flex-direction column
-    justify-content center
-    position relative
+    //justify-content center
 .a
     border-radius 0 0 100% 0
     grid-column 1 / 2
@@ -68,10 +66,9 @@ export let img = ''
 img 
     height 100% 
     object-fit cover
-    opacity var(--opacity)
     width 100%
 @media(min-width 880px)
     .grid 
         height calc(var(--globalHeight) - 160px)   // 100% //var(--wHeight)
-        width calc(var(--globalWidth) / 2 - 24px)
+        //width calc(var(--globalWidth) / 2 - 24px)
 </style>

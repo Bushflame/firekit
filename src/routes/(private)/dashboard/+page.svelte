@@ -3,8 +3,10 @@
 	import { userKey } from '$lib/stores/store';
 	import Guides from '$comps/guides/Guides.svelte';
 	import Frame from '$lib/frames/SingleBlockFame.svelte'
-
-	import Corners from '$lib/grids/Corners.svelte';
+	import FrameWrap from '$frames/FrameWrap.svelte'
+	import Header from '$lib/building-views/Header.svelte'
+	import Footer from '$lib/building-views/Footer.svelte'
+	import Corners from '$lib/grids/FullWidth.svelte';
 	//import { copy } from 'svelte-copy';
 
 	export let data;
@@ -21,8 +23,11 @@
 console.log('tom ', today)
 
 </script>
-<Frame>
-		<h1>Dashboard</h1>
+<FrameWrap>
+	<Header/>
+	<Corners>
+		<div class="liner">
+		<h3>Dashboard</h3>
 		<Guides />
 		<hr />
 		<div class="link-bar">
@@ -38,53 +43,59 @@ console.log('tom ', today)
 			<button class="copy-url"> My URL </button>
 		</div>
 		<div class="acc-details">
-			<h3>Account details</h3>
+			<h4>Account details</h4>
 			<p>Created on: {created}</p>
 			<p>Expires on: {expires}</p>
 		</div>
-</Frame>
+	</div>
+	</Corners>
+	<Footer/>
+</FrameWrap>
 
 
 <style lang="stylus">
-.dashboard 
-	height 770px
-	padding 1rem
-	position relative
-	width 880px
+.liner 
+	margin-top 4rem
+h3 
+	color var(--theta)
+	font-size 2rem
+	margin-bottom 1rem
+	text-align center
 .link-bar
 	display flex
 	gap .4rem
 	margin 1rem auto
 	width fit-content
 	a, button 
-		background var(--iota)
+		background var(--delta)
 		border 1px solid var(--theta)
 		border-radius 1rem
-		color var(--beta)
+		color var(--theta)
 		font-size 1rem
 		//height 2.2rem
 		outline none
 		padding .4rem 1rem //.3rem
 		text-align center
 		transition all .5s
-		//width 6.5rem 
+		width 7rem 
 hr 
-	border 1px solid var(--gamma)
-	margin 1.5rem auto
+	border 1px solid var(--delta)
+	margin 2rem auto
 	width 50%
 
 h1 
 	margin-bottom 1rem
 	text-align center
 .acc-details 
-	margin auto
+	color var(--theta)
+	margin 2rem auto
 	text-align center
 	width fit-content
-	h3
+	h4
 		color var(--theta)
 		margin-bottom .6rem
 
 p 
-	color var(--iota)
+	color var(--theta)
 	line-height 1.5
 </style>

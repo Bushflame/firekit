@@ -4,7 +4,7 @@
 	import Header from '$lib/building-views/Header.svelte'
 	import Footer from '$lib/building-views/Footer.svelte'
 	import Ul from '$lib/building-views/Ul.svelte'
-	import Li from '$lib/building-views/Li.svelte'
+	import Li from '$lib/building-views/FlatLi.svelte'
 	import Title from '$lib/building-views/Title.svelte'
 	import Corners from '$lib/grids/Corners.svelte';
 	import HalfCorners from '$lib/grids/ShortCorners.svelte';
@@ -25,32 +25,33 @@ let pageNum
 <DoubleFrame>
     <span slot='slot-1a' class='slot-1a'>
 		<HalfCorners  img={l.img_1a } --mb='14px' >
+			<Title title={l.title_1a}/>
 		</HalfCorners>
 		<HalfCorners >
-			<Title title={l.title_1a}/>
-			<Para txt={l.para_1a} --align='center' --margin='.5rem auto .5rem' --weight='800'/>
+			
+			<Para txt={l.para_1a} --align='center' --margin='-1rem auto .5rem'/>
 			<Ul>
-				<Li li={l.li_1a}/>
-				<Li li={l.li_1b}/>
-				<Li li={l.li_1c}/>
+				<Li item={l.li_1a}/>
+				<Li item={l.li_1b}/>
+				<Li item={l.li_1c}/>
 			</Ul>
 		</HalfCorners>
 	</span>
-	<span slot='slot-1b'>
+	<span slot='slot-1b' class='slot-1b'>
 		<Corners>
 			<Para bold={'Contact Details'} --align='center' --margin='.2rem 1rem .3rem'/>
-			<Para bold={'Name:'} txt={l.name} --align='left' --margin='.2rem 1rem 1rem  ' flex={true}/>
-			<Para bold={'Email:'}  txt={l.email} --align='left' --margin='.2rem 1rem 1rem ' flex={true}/>		
-			<Para bold={'Tel::'} txt={l.tel} --align='left' --margin='.2rem 1rem 1rem 'flex={true}/>	
-			<Para bold={'FaceBook:'} txt={l.fbook} --align='left' --margin='.2rem 1rem 1rem 'flex={true}/>	
-			<Para bold={'Terms and Conditions'} --align='center' --margin='.2rem auto 1rem '/>					
+			<Para bold={'Name:'} txt={l.name} --align='left' --margin='.2rem 1rem .4rem  ' flex={true}/>
+			<Para bold={'Email:'}  txt={l.email} --align='left' --margin='.2rem 1rem .4rem ' flex={true}/>		
+			<Para bold={'Tel::'} txt={l.tel} --align='left' --margin='.2rem 1rem .4rem 'flex={true}/>	
+			<Para bold={'FaceBook:'} txt={l.fbook} --align='left' --margin='.2rem 1rem .4rem 'flex={true}/>	
+			<Para bold={'Terms and Conditions'} --align='center' --margin='.2rem auto .4rem '/>					
 			<Para  txt={l.terms} --align='left' --margin='.2rem 1rem .3rem '/>	
 		</Corners> 
 	</span>
     
 
     <span slot='slot-2a'>
-		<Corners --width='400px' --height='100%'>
+		<Corners  img={l.img_2a } --width='400px' --height='100%'>
 			<Title title={l.title_1a}/>
 		</Corners>
 	</span>
@@ -58,9 +59,9 @@ let pageNum
 		<Corners --width='400px' --height='100%'>
 			<Para txt={l.para_1a} --align='center' --margin='.5rem auto .5rem' --weight='800'/>
 			<Ul>
-				<Li li={l.li_1a}/>
-				<Li li={l.li_1b}/>
-				<Li li={l.li_1c}/>
+				<Li item={l.li_1a}/>
+				<Li item={l.li_1b}/>
+				<Li item={l.li_1c}/>
 			</Ul>
 		</Corners>
 	</span>
@@ -74,9 +75,9 @@ let pageNum
 		<Corners --width='420px' --height='100%'>
 			<Para txt={l.para_1a} --align='center' --margin='.5rem auto .5rem' --weight='800'/>
 			<Ul>
-				<Li li={l.li_1a}/>
-				<Li li={l.li_1b}/>
-				<Li li={l.li_1c}/>
+				<Li item={l.li_1a}/>
+				<Li item={l.li_1b}/>
+				<Li item={l.li_1c}/>
 			</Ul>
 		</Corners>
 	</span>
@@ -90,9 +91,9 @@ let pageNum
 		<Corners --width='420px' --height='100%'>
 			<Para txt={l.para_1a} --align='center' --margin='.5rem auto .5rem' --weight='800'/>
 			<Ul>
-				<Li li={l.li_1a}/>
-				<Li li={l.li_1b}/>
-				<Li li={l.li_1c}/>
+				<Li item={l.li_1a}/>
+				<Li item={l.li_1b}/>
+				<Li item={l.li_1c}/>
 			</Ul>
 		</Corners>
 	</span>
@@ -193,6 +194,18 @@ let pageNum
 </svelte:head> -->
 
 <style lang="stylus">
+// .slot-1b
+// 	position relative 
+// .slot-1b::after 
+// 	box-shadow: 0px 2px 15px 1px rgba(0, 0, 0, 0.75)
+// 	content ''
+// 	position absolute
+// 	//height 100%
+// 	bottom 2rem
+// 	top 2rem
+// 	right 0
+// 	width 1px
+// 	z-index -1
 .spacer 
 	flex-grow 1
 .wrap 

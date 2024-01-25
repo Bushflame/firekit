@@ -10,7 +10,7 @@
 
     import Title from '$lib/building-views/Title.svelte'
     import Para from '$lib/building-views/Para.svelte'
-    import Li from '$lib/building-views/Li.svelte'
+    import Li from '$lib/building-views/FlatLi.svelte'
     import Ul from '$lib/building-views/Ul.svelte'
 
 	//contact details
@@ -23,7 +23,7 @@
 	 * @type {string | any[]}
 	 */
 	 export let results = [];
-	export let counter = 0;
+	$:counter = 0;
 let isIndex = false
 </script>
 
@@ -36,7 +36,8 @@ let isIndex = false
 					counter--; // = counter - 1;
 				}
 			}}
-			>&#8250;
+            			>&#8249;
+		
 		</button>
 		<!-- <p class="show-count">Showing {counter + 1} of {results.length} results</p> -->
 	{/if}
@@ -46,26 +47,28 @@ let isIndex = false
 			on:click={() => {
 				counter++; // = counter + 1;
 			}}
-			>&#8249;
+	>&#8250;
 		</button>
-		<!-- <p class="show-count">Showing {counter+1} of {results.length} results</p> -->
 	{/if}
-	<!-- <p class="show-count">Showing {counter + 1} of {results.length} results</p> -->
+	<p class="show-count">Showing {counter + 1} of {results.length} results</p>
 <FrameWrap>
     <Header></Header>
 	{#each results as res, index}
 		{#if index == counter}
+        
 			<ResultsFrame {isIndex}>
-                <span slot='slot-1a'>               
+                <span slot='slot-1a'>     
+                            
                     <HalfCorners  img={res.img_1a } --mb='14px' >
+                        <Title title={res.title_1a}/>  
                     </HalfCorners>
                     <HalfCorners >
-                        <Title title={res.title_1a}/>
-                        <Para txt={res.para_1a} --align='center' --margin='.5rem auto .5rem' --weight='800'/>
+                        
+                        <Para txt={res.para_1a} --align='center' --margin='.5rem auto .5rem' --weight='400'/>
                         <Ul>
-                            <Li li={res.li_1a}/>
-                            <Li li={res.li_1b}/>
-                            <Li li={res.li_1c}/>
+                            <Li item={res.li_1a}/>
+                            <Li item={res.li_1b}/>
+                            <Li item={res.li_1c}/>
                         </Ul>
                     </HalfCorners>
             </span>
@@ -97,7 +100,7 @@ let isIndex = false
 
 p.show-count 
     border-radius 1rem
-    color var(--eta)
+    color var(--iota)
     margin-left 50% 
     padding .3rem 1rem
     transform translate(-50%,0)
@@ -111,7 +114,7 @@ p.show-count
 
 
 .card-inner-2
-    box-shadow inset 0 0 40px 20px var(--gamma)
+    //box-shadow inset 0 0 40px 20px var(--gamma)
     display flex
     gap 1rem
     flex-direction column
@@ -139,26 +142,27 @@ a
 button.counter-btn 
     background var(--epsilon) //rgba(0,0,0,.4)
     border 0
-    //border-radius 50%
+    border-radius 50%
     color #fff
     display flex
     align-items center
     justify-content center
-    font-size 2rem
-    height 2rem
+    font-size 2.2rem
+    height 2.2rem
     outline 0
     padding-bottom .3rem
     position absolute 
-    top 51% 
+    top 50% 
     transform translate(0, -50%)
+    transition all .5s
     text-align center
     width 2rem
     z-index 10
 .prev 
-    left 0 //1rem
+    right 0 //1rem
 
 .next 
-    right 0 //1rem
+    left 0 //1rem
 
 
 

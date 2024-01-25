@@ -2,26 +2,11 @@
 let one = true
 let two = false
 let page_1 = true
-
+export let btnTxt = 'Contact'
 </script>
 
 <div class="outer">
-        <button 
-        class='toggle-btn'
-        on:click={()=>{
-            one= !one
-            two= !two
-        }}
-        >{#if one}
-        {#if page_1}
-            Contact
-        {:else}
-        Details
-        {/if}
-        {:else}
-        Back 
-        {/if}
-        </button>
+
 
     <!-- <div class="wrap"> -->
         <section  class='page'>
@@ -32,6 +17,18 @@ let page_1 = true
                 <slot name='slot-1b'/>
             </div>
         </section>
+        <button 
+        class='toggle-btn'
+        on:click={()=>{
+            one= !one
+            two= !two
+        }}
+        >{#if one}
+        {btnTxt}
+        {:else}
+        Back 
+        {/if}
+        </button>
     </div>
 
 
@@ -44,21 +41,20 @@ let page_1 = true
     //padding 1rem
     //position relative
 .toggle-btn 
-    background  transparent 
-    border 1px solid var(--beta)
+    background  var(--gamma) //transparent 
+    //border 1px solid var(--beta)
     border-radius 1.5rem
-    color var(--beta)
+    color var(--iota)
     display block   
-    font-size 1.2rem
-    font-weight 800
+    font-size 1.1rem
+    //font-weight 800
     position absolute
     left 50%
-    top 8px
+    bottom 6.1rem
     transform translate(-50%)
     outline none
-    padding .6rem 2rem
+    padding .3rem 2rem
     text-align center
-
 .page 
     display grid
     grid-template-columns 1fr 
@@ -67,6 +63,7 @@ let page_1 = true
     // grid-row 1 / 2
     justify-content center
     margin auto
+    margin-bottom 1rem
     order 0
     transition all 1s
     width var(--globalWidth)

@@ -40,7 +40,7 @@
 <style lang="stylus">
 	// active link
 	.active 
-		color var(--theta)
+		color var(--iota)
 	
 	li 
 		//border-bottom  1px solid red //d var(--light-1)
@@ -50,7 +50,7 @@
 		width 20rem
 	a 
 		border-bottom 1px solid var(--delta)
-		color  var(--iota)
+		color  var(--theta)
 		display flex
 		align-items center
 		height 2rem
@@ -59,7 +59,7 @@
 	.logout-btn
 		background transparent
 		border-bottom 1px solid var(--delta)
-		color  var(--iota)
+		color  var(--beta)
 		display flex
 		align-items center
 		font-size 1rem
