@@ -113,7 +113,7 @@ export async function editListing(id, form, userId) {
 export async function getListing(id) {
 	const listingRef = await db.collection('listings').doc(id).get();
 	if (listingRef.exists) {
-		return { id: listingRef.id,  ...listingRef.data() };
+		return { id: listingRef.id, ...listingRef.data() };
 		// 	console.log('temp',temp, uid)
 	}
 }
@@ -124,11 +124,10 @@ export async function getListings() {
 	 * @type {firestore.DocumentData[]}
 	 */
 	let all = [];
-const listingsRef = db.collection('listings');
+	const listingsRef = db.collection('listings');
 	const snapshot = await listingsRef.get();
 
 	snapshot.forEach((doc) => {
-
 		let temp = [];
 		let getUid = {
 			uid: doc.id
@@ -199,17 +198,15 @@ export async function getAdminListing() {
 	//get user(to match dashboard user) and doc ids (to create url to edit page + my listing)
 
 	snapshot.forEach((doc) => {
-
 		let temp = [];
 		let getUid = {
 			createdAt: doc.data().created_at,
 			expDate: doc.data().expDate,
 			uid: doc.id,
-			userid: doc.data().user_id,
-			
+			userid: doc.data().user_id
 		};
-		let dat =new Date(getUid.expDate * 1000)
-		console.log('exp datw', getUid.expDate)
+		let dat = new Date(getUid.expDate * 1000);
+		console.log('exp datw', getUid.expDate);
 		temp.push(doc.data());
 		userKeys.push(getUid);
 	});

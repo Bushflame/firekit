@@ -1,10 +1,9 @@
 <script>
-
 </script>
-<footer>
-    <slot/>
-</footer>
 
+<footer>
+	<slot />
+</footer>
 
 <style lang="stylus">
 footer 

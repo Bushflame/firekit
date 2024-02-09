@@ -1,38 +1,36 @@
 <script>
-    import Nav from '$comps/navigation/Nav.svelte'
-    import Title from '$lib/building-views/Title.svelte'
-let one = true
-let two = false
-export let isIndex = true
-
+	import Nav from '$comps/navigation/Nav.svelte';
+	import Title from '$lib/building-views/Title.svelte';
+	let one = true;
+	let two = false;
+	export let isIndex = true;
 </script>
 
-        <button 
-        class='toggle-btn'
-        on:click={()=>{
-            one= !one
-            two= !two
-        }}
-        >{#if one}
-            {#if isIndex}
-        Sellers
-            {:else}
-            Contact
-            {/if}
-        {:else}
-        Back 
-        {/if}
-        </button>
+<button
+	class="toggle-btn"
+	on:click={() => {
+		one = !one;
+		two = !two;
+	}}
+	>{#if one}
+		{#if isIndex}
+			Sellers
+		{:else}
+			Contact
+		{/if}
+	{:else}
+		Back
+	{/if}
+</button>
 
-
-        <section  class='page'>
-            <div class="side side-1" class:one>
-                <slot name='slot-1a'/>
-            </div>
-            <div class="side side-2" class:two>
-                <slot name='slot-1b'/>
-            </div>
-        </section>
+<section class="page">
+	<div class="side side-1" class:one>
+		<slot name="slot-1a" />
+	</div>
+	<div class="side side-2" class:two>
+		<slot name="slot-1b" />
+	</div>
+</section>
 
 <style lang="stylus">
 .toggle-btn 

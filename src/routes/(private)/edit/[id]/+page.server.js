@@ -6,17 +6,16 @@ import validateListing from '$lib/validators/listing.validator.js';
 // @ts-ignore
 export async function load({ params, locals }) {
 	const listing = await getListing(params.id);
-	console.log('edit page server ', listing)
+	console.log('edit page server ', listing);
 	if (!listing) {
 		throw error(404, { message: 'Listing not found!' });
 	}
-	
+
 	// @ts-ignore
 	if (listing.user_id !== locals.user.id) {
 		throw error(403, { message: 'Access Denied!' });
 	}
 	//console.log('listing in edit page.server', listing)
-
 
 	return { listing };
 }

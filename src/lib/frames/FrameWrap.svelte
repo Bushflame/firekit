@@ -1,9 +1,8 @@
 <script>
-
 </script>
 
 <div class="frame">
-    <slot/>
+	<slot />
 </div>
 
 <style lang="stylus">

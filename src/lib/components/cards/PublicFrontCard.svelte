@@ -8,13 +8,13 @@
 	export let li_b = '';
 	export let li_c = '';
 	export let li_d = '';
-    export let li_e = '';
+	export let li_e = '';
 	export let img = '';
 	//contact details
 	export let tel = '';
 	export let email = '';
 	export let fbook = '';
-    export let terms = ''
+	export let terms = '';
 	export let front = true;
 </script>
 
@@ -65,11 +65,11 @@
 							{li_d}
 						</li>
 					{/if}
-                    {#if li_e!= ''}
-                    <li>
-                        {li_e}
-                    </li>
-                {/if}
+					{#if li_e != ''}
+						<li>
+							{li_e}
+						</li>
+					{/if}
 				</ul>
 			</div>
 		</div>
@@ -97,7 +97,7 @@
 			<div class="spacer" />
 			<h3>Terms and Conditions</h3>
 			<p class="terms">
-                {terms}
+				{terms}
 			</p>
 		</div>
 	</div>

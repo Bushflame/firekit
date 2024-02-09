@@ -1,12 +1,11 @@
 <script>
-    	import Corners from '$comps/Corners.svelte';
-export let img = ''
+	import Corners from '$comps/Corners.svelte';
+	export let img = '';
 </script>
+
 <div class="img">
-        <img src={img} alt="">
+	<img src={img} alt="" />
 </div>
-
-
 
 <style lang="stylus">
 .img

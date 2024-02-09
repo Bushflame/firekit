@@ -1,9 +1,8 @@
 <script>
-
 </script>
 
 <ul>
-    <slot/>
+	<slot />
 </ul>
 
 <style lang="stylus">

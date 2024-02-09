@@ -29,6 +29,15 @@
 				<a href="/" class:active={$page.url.pathname == '/'}>Home</a>
 			</li>
 			<li>
+				<a href="/front" class:active={$page.url.pathname == '/front'}>front</a>
+			</li>
+			<li>
+				<a href="/book" class:active={$page.url.pathname == '/book'}>book</a>
+			</li>
+			<li>
+				<a href="/mag" class:active={$page.url.pathname == '/mag'}>Mag</a>
+			</li>
+			<li>
 				<a
 					href="/search"
 					class:active={$page.url.pathname === '/search'}
@@ -54,6 +63,15 @@
 		{:else}
 			<li>
 				<a href="/" class:active={$page.url.pathname == '/'}>Home</a>
+			</li>
+			<li>
+				<a href="/front" class:active={$page.url.pathname == '/front'}>front</a>
+			</li>
+			<li>
+				<a href="/book" class:active={$page.url.pathname == '/book'}>book</a>
+			</li>
+			<li>
+				<a href="/mag" class:active={$page.url.pathname == '/mag'}>Mag</a>
 			</li>
 			<li>
 				<a href="/search" class:active={$page.url.pathname === '/search'}>Search</a>
@@ -87,7 +105,7 @@ li
 	width 20rem
 a 
 	border-bottom 1px solid var(--delta)
-	color  var(--theta)
+	color  var(--beta)
 	display flex
 	align-items center
 	height 2rem

@@ -1,9 +1,9 @@
 <script>
-export let li = ''
+	export let li = '';
 </script>
 
 <li>
-     {li}
+	{li}
 </li>
 
 <style lang="stylus">

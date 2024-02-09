@@ -1,5 +1,5 @@
 <script>
-export let img = ''
+	export let img = '';
 </script>
 
 <!-- <div class="grid">
@@ -13,12 +13,12 @@ export let img = ''
 </div> -->
 
 <div class="grid">
-    <img src={img} alt="">
-    <div class="filter"><slot/></div>
-    <div class="corner a"/>
-    <div class="corner b"/>
-    <div class="corner c"/>
-    <div class="corner d"/>
+	<img src={img} alt="" />
+	<div class="filter"><slot /></div>
+	<div class="corner a" />
+	<div class="corner b" />
+	<div class="corner c" />
+	<div class="corner d" />
 </div>
 
 <style lang="stylus">

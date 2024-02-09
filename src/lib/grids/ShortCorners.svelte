@@ -1,14 +1,14 @@
 <script>
-export let img = ''
+	export let img = '';
 </script>
 
 <div class="grid">
-    <img src={img} alt="">
-    <div class="filter"><slot/></div>
-    <div class="corner a"/>
-    <div class="corner b"/>
-    <div class="corner c"/>
-    <div class="corner d"/>
+	<img src={img} alt="" />
+	<div class="filter"><slot /></div>
+	<div class="corner a" />
+	<div class="corner b" />
+	<div class="corner c" />
+	<div class="corner d" />
 </div>
 
 <style lang="stylus">
@@ -19,14 +19,16 @@ export let img = ''
     display  grid
     grid-template-columns 2rem 1fr 2rem
     grid-template-rows 2rem 1fr 2rem
-    height calc((var(--globalHeight) - 172px) / 2)
+    //height calc((var(--globalHeight) - 172px) / 2)
+    height fit-content //calc(var(--globalWidth) / 1.777778)
     margin auto
     // to create gap whe stacking
-    margin-bottom var(--mb)
+    margin-bottom 0 //var(--mb)
     position relative
-    width calc(var(--globalWidth) - 32px)
+    width calc(var(--globalWidth) - 0)
 .corner 
     background var(--gamma)
+    display none
 .img, .filter,img
     grid-column 1 / 4
     grid-row 1 / 4
@@ -65,5 +67,8 @@ img
 @media(min-width 880px)
     .grid 
         //height calc(var(--globalHeight) - 160px)   // 100% //var(--wHeight)
-        width calc(var(--globalWidth) / 2 - 24px)
+
+        height calc(var(--globalWidth) / 2 / 1.777778)
+        width calc(var(--globalWidth) / 2 )
+
 </style>

@@ -1,10 +1,9 @@
 <script>
-
 </script>
-<header>
-    <slot/>
-</header>
 
+<header>
+	<slot />
+</header>
 
 <style lang="stylus">
 header 

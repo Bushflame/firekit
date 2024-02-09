@@ -5,27 +5,19 @@ import { db } from '$lib/firebase/firebase.client.js';
  */
 //use current date to set expiry date
 var today = new Date().toDateString();
-let now = new Date()
+let now = new Date();
 let later = new Date();
 later.setDate(now.getDate() + 90);
-let expDate = later.toDateString()
+let expDate = later.toDateString();
 
 //console.log('tom ', tomorrow.toDateString())
-
-
-
-
-
-
-
-
 
 export async function create(userId) {
 	const docRef = doc(db, 'listings', userId);
 	setDoc(
 		docRef,
 		{
-			created_at:today,
+			created_at: today,
 			expDate: expDate,
 			img_1a: '',
 			img_2a: '',

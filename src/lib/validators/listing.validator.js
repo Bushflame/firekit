@@ -18,21 +18,18 @@ export default async function validate(formData, edit = false) {
 		li_1c: yup.string(),
 		li_1d: yup.string(),
 		li_1e: yup.string(),
-	
 
 		li_2a: yup.string(),
 		li_2b: yup.string(),
 		li_2c: yup.string(),
 		li_2d: yup.string(),
 		li_2e: yup.string(),
-	
 
 		li_3a: yup.string(),
 		li_3b: yup.string(),
 		li_3c: yup.string(),
 		li_3d: yup.string(),
 		li_3e: yup.string(),
-
 
 		li_4a: yup.string(),
 		li_4b: yup.string(),
@@ -46,7 +43,7 @@ export default async function validate(formData, edit = false) {
 		tel: yup.string(),
 		fbook: yup.string(),
 
-		terms:yup.string(),
+		terms: yup.string(),
 		//images------------------
 
 		img_1a: yup
@@ -60,7 +57,7 @@ export default async function validate(formData, edit = false) {
 			})
 			.test('fileSize', 'The file must be under 4 MB.', (value) => {
 				if (value && value.size) {
-					return value.size >6_00;
+					return value.size > 6_00;
 				}
 				return true;
 			}),
@@ -75,7 +72,7 @@ export default async function validate(formData, edit = false) {
 			})
 			.test('fileSize', 'The file must be under 4 MB.', (value) => {
 				if (value && value.size) {
-					return value.size >6_00;
+					return value.size > 6_00;
 				}
 				return true;
 			}),
@@ -90,7 +87,7 @@ export default async function validate(formData, edit = false) {
 			})
 			.test('fileSize', 'The file must be under 4 MB.', (value) => {
 				if (value && value.size) {
-					return value.size >6_00;
+					return value.size > 6_00;
 				}
 				return true;
 			}),
@@ -105,7 +102,7 @@ export default async function validate(formData, edit = false) {
 			})
 			.test('fileSize', 'The file must be under 4 MB.', (value) => {
 				if (value && value.size) {
-					return value.size >6_00;
+					return value.size > 6_00;
 				}
 				return true;
 			})
@@ -150,7 +147,7 @@ export default async function validate(formData, edit = false) {
 		li_4e: formData.get('li_4e'),
 
 		name: formData.get('name'),
-		email:  formData.get('email'),
+		email: formData.get('email'),
 		tel: formData.get('tel'),
 		fbook: formData.get('fbook'),
 		terms: formData.get('terms'),

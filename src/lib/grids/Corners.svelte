@@ -1,5 +1,5 @@
 <script>
-export let img = ''
+	export let img = '';
 </script>
 
 <!-- <div class="grid">
@@ -13,12 +13,12 @@ export let img = ''
 </div> -->
 
 <div class="grid">
-    <img src={img} alt="">
-    <div class="filter"><slot/></div>
-    <div class="corner a"/>
-    <div class="corner b"/>
-    <div class="corner c"/>
-    <div class="corner d"/>
+	<img src={img} alt="" />
+	<div class="filter"><slot /></div>
+	<div class="corner a" />
+	<div class="corner b" />
+	<div class="corner c" />
+	<div class="corner d" />
 </div>
 
 <style lang="stylus">
@@ -27,18 +27,19 @@ export let img = ''
     display  grid
     grid-template-columns 2rem 1fr 2rem
     grid-template-rows 2rem 1fr 2rem
-    height calc(var(--globalHeight) - 160px)
+    height calc(var(--globalHeight) - 0)
+    height 100%
     margin auto
-    width calc(var(--globalWidth) - 32px)
+    width calc(var(--globalWidth) - 0)
 .corner 
-    background var(--gamma)
+    //background var(--gamma)
     position relative
 .img, .filter,img
     grid-column 1 / 4
     grid-row 1 / 4
 
 .filter 
-    box-shadow inset 0 0 40px 20px var(--delta)
+    //box-shadow inset 0 0 40px 20px var(--delta)
     display flex 
     align-items center
     flex-direction column
@@ -66,12 +67,12 @@ export let img = ''
 
 
 img 
-    height 100% 
+    height var(--globalHeight)
     object-fit cover
     opacity var(--opacity)
     width 100%
 @media(min-width 880px)
     .grid 
-        height calc(var(--globalHeight) - 160px)   // 100% //var(--wHeight)
-        width calc(var(--globalWidth) / 2 - 24px)
+        height 100% //calc(var(--globalHeight) - 0)   // 100% //var(--wHeight)
+        width calc(var(--globalWidth) / 2 )
 </style>

@@ -2,37 +2,37 @@
 	import { page } from '$app/stores';
 	import { userKey } from '$lib/stores/store';
 	import Guides from '$comps/guides/Guides.svelte';
-	import Frame from '$lib/frames/SingleBlockFame.svelte'
-	import FrameWrap from '$frames/FrameWrap.svelte'
-	import Header from '$lib/building-views/Header.svelte'
-	import Footer from '$lib/building-views/Footer.svelte'
+	import Frame from '$frames/Single.svelte';
+	import FrameWrap from '$frames/FrameWrap.svelte';
+	import Header from '$lib/building-views/Header.svelte';
+	import Footer from '$lib/building-views/Footer.svelte';
 	import Corners from '$lib/grids/FullWidth.svelte';
 	//import { copy } from 'svelte-copy';
 
 	export let data;
-	let expires = data.expiresOn
-	let created = data.createdOn
+	let expires = data.expiresOn;
+	let created = data.createdOn;
 
 	$userKey = data.userid;
-	console.log('dat',)
+	console.log('dat');
 	let clickToGo = `http://localhost:5173/listing/7FZfOTLYaKVYdY81J0xi5J589Fl2`;
 	var today = new Date().toDateString();
-// 	var today = new Date();
-// var tomorrow = new Date();
-// tomorrow.setDate(today.getDate()+1);
-console.log('tom ', today)
-
+	// 	var today = new Date();
+	// var tomorrow = new Date();
+	// tomorrow.setDate(today.getDate()+1);
+	console.log('tom ', today);
 </script>
-<FrameWrap>
-	<Header/>
-	<Corners>
-		<div class="liner">
+
+<Frame>
+	<div class="liner">
 		<h3>Dashboard</h3>
 		<Guides />
 		<hr />
 		<div class="link-bar">
-
-			<a href={`/edit/${$userKey}`} class:active={$page.url.pathname == `/edit/${$userKey}` } data-sveltekit-preload-data="off">Edit</a
+			<a
+				href={`/edit/${$userKey}`}
+				class:active={$page.url.pathname == `/edit/${$userKey}`}
+				data-sveltekit-preload-data="off">Edit</a
 			>
 			<br />
 			<a
@@ -48,16 +48,13 @@ console.log('tom ', today)
 			<p>Expires on: {expires}</p>
 		</div>
 	</div>
-	</Corners>
-	<Footer/>
-</FrameWrap>
-
+</Frame>
 
 <style lang="stylus">
 .liner 
 	margin-top 4rem
 h3 
-	color var(--theta)
+	color var(--alpha)
 	font-size 2rem
 	margin-bottom 1rem
 	text-align center
@@ -87,15 +84,15 @@ h1
 	margin-bottom 1rem
 	text-align center
 .acc-details 
-	color var(--theta)
+	color var(--beta)
 	margin 2rem auto
 	text-align center
 	width fit-content
 	h4
-		color var(--theta)
+		color var(--beta)
 		margin-bottom .6rem
 
 p 
-	color var(--theta)
+	color var(--beta)
 	line-height 1.5
 </style>

@@ -1,8 +1,8 @@
 <script>
 	import { page } from '$app/stores';
-	import FrameWrap from '$frames/FrameWrap.svelte'
-	import Header from '$lib/building-views/Header.svelte'
-	import Footer from '$lib/building-views/Footer.svelte'
+	import FrameWrap from '$frames/FrameWrap.svelte';
+	import Header from '$lib/building-views/Header.svelte';
+	import Footer from '$lib/building-views/Footer.svelte';
 	import Corners from '$lib/grids/Variable.svelte';
 	/**
 	 * @type {any}
@@ -21,46 +21,48 @@
 		currPage = 'Reset Password';
 	}
 </script>
-<Corners --hgt='400px'>
-<div class="authframe">
-	<form on:submit|preventDefault>
-		<h1>{currPage}</h1>
-		<div class="wrap">
-			<label for="email" class="form-label">Email</label>
-			<input
-				type="email"
-				name="email"
-				class="form-control"
-				id="email"
-				placeholder="Email"
-				required
-			/>
-		</div>
-		{#if !forgotPassword}
+
+<Corners --hgt="400px">
+	<div class="authframe">
+		<form on:submit|preventDefault>
+			<h1>{currPage}</h1>
 			<div class="wrap">
-				<label for="password" class="form-label">Password</label>
+				<label for="email" class="form-label">Email</label>
 				<input
-					type="password"
-					name="password"
+					type="email"
+					name="email"
 					class="form-control"
-					id="password"
-					placeholder="Password"
+					id="email"
+					placeholder="Email"
+					required
 				/>
 			</div>
-		{/if}
-		{#if currPage === 'Sign in'}
-			<a href="/forgot-password">Forgot Password?</a>
-		{:else if currPage === 'Register'}
-			<a href="/login">Already have an account?</a>
-		{/if}
-		<button type="submit" class="btn-success">{btnName}</button>
-	</form>
-	<a href="/" class='cancel'>Cancel</a>
-	<div class="slot">
-		<slot />
+			{#if !forgotPassword}
+				<div class="wrap">
+					<label for="password" class="form-label">Password</label>
+					<input
+						type="password"
+						name="password"
+						class="form-control"
+						id="password"
+						placeholder="Password"
+					/>
+				</div>
+			{/if}
+			{#if currPage === 'Sign in'}
+				<a href="/forgot-password">Forgot Password?</a>
+			{:else if currPage === 'Register'}
+				<a href="/login">Already have an account?</a>
+			{/if}
+			<button type="submit" class="btn-success">{btnName}</button>
+		</form>
+		<a href="/" class="cancel">Cancel</a>
+		<div class="slot">
+			<slot />
+		</div>
 	</div>
-</div>
 </Corners>
+
 <style lang="stylus">
 .authframe
 	//background rgba(255,255,255,.1)

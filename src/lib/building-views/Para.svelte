@@ -1,20 +1,31 @@
 <script>
-export let txt = ''
-export let bold = ''
-export let flex = false
+	export let txt = '';
+	export let bold = '';
+	export let flex = false;
+	export let hr = false;
 </script>
+
 {#if flex}
-<p class='flex'>
-    <span>{bold}</span> {txt}
-</p>
+	<p class="flex">
+		<span>{bold}</span>
+		{txt}
+	</p>
+	{#if hr}
+		<hr />
+	{/if}
 {:else}
-<p>
-    <span>{bold}</span> {txt}
-</p>
+	<p>
+		<span>{bold}</span>
+		{txt}
+	</p>
+	{#if hr}
+		<hr />
+	{/if}
 {/if}
+
 <style lang="stylus">
 p 
-    color var(--theta)
+    color var(--beta)
     font-size 1.2rem
     font-weight var(--weight)
     line-height 1.3
@@ -30,4 +41,10 @@ p.flex
 
 span 
     font-weight 800
+hr 
+	background var(--delta)
+	border 1px solid var(--delta)
+	//height 2px
+	margin .4rem auto 1rem
+	width 10rem
 </style>

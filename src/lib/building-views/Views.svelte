@@ -1,63 +1,57 @@
 <script>
-    	import Corners from '$comps/Corners.svelte';
-    let page_1 = true
-    let page_2 = false
-    let page_3 = false
-    let page_4 = false
-    let side_1a = true
-    let side_1b = true
-    export let pageNum = 1
-    let sideWrap_1a = true
-    let sideWrap_1b = false
+	import Corners from '$comps/Corners.svelte';
+	let page_1 = true;
+	let page_2 = false;
+	let page_3 = false;
+	let page_4 = false;
+	let side_1a = true;
+	let side_1b = true;
+	export let pageNum = 1;
+	let sideWrap_1a = true;
+	let sideWrap_1b = false;
 
-    //if front page or not
-    export let isFront = true
-    </script>
-    <!-- <div class="main-wrap"> -->
-            <!-- <button class="toggle"
+	//if front page or not
+	export let isFront = true;
+</script>
+
+<!-- <div class="main-wrap"> -->
+<!-- <button class="toggle"
             on:click={()=>{
                 sideWrap_1a = !sideWrap_1a
                 sideWrap_1b = !sideWrap_1b
             }}
             >toggle</button> -->
-        <!-- <div class="pages"> -->
-            <section class="page page-1"
-                class:page_1 
-                >
-                <div class="side-wrap side-wrap-1a" class:sideWrap_1a>
-                    <!-- pos if -->
-                    
-                    <span class="side side-1a"
-                    class:side_1a
-                    >
-                    {#if isFront}
-                        <Corners --height='calc(50% - .5rem'>
-                            <slot name='slot-1a'/>
-                        </Corners>
-                        <div class="spacer"></div>
-                        <Corners --height='calc(50% - .5rem)'>
-                            <slot name='slot-1b'/>
-                        </Corners>
-                    {:else}
-                    <Corners --height='100%'>
-                        <slot name='slot-1'/>
-                    </Corners>
-                    {/if}
-                    </span>
-                </div>
-                <div class="side-wrap side-wrap-1b" class:sideWrap_1b>
-                    <span class="side side-1c"
-                    class:side_1b
-                    >
-                    <Corners --height='100%'>
-                        <slot name='slot-1c'/>
-                    </Corners>
+<!-- <div class="pages"> -->
+<section class="page page-1" class:page_1>
+	<div class="side-wrap side-wrap-1a" class:sideWrap_1a>
+		<!-- pos if -->
 
-                    </span>
-                </div>
-            </section>
-        
-            <!-- <section class="page"
+		<span class="side side-1a" class:side_1a>
+			{#if isFront}
+				<Corners --height="calc(50% - .5rem">
+					<slot name="slot-1a" />
+				</Corners>
+				<div class="spacer"></div>
+				<Corners --height="calc(50% - .5rem)">
+					<slot name="slot-1b" />
+				</Corners>
+			{:else}
+				<Corners --height="100%">
+					<slot name="slot-1" />
+				</Corners>
+			{/if}
+		</span>
+	</div>
+	<div class="side-wrap side-wrap-1b" class:sideWrap_1b>
+		<span class="side side-1c" class:side_1b>
+			<Corners --height="100%">
+				<slot name="slot-1c" />
+			</Corners>
+		</span>
+	</div>
+</section>
+
+<!-- <section class="page"
             class:page_2
             >   
             <slot name='page-2'/>view 2
@@ -74,9 +68,9 @@
             >  
             <slot name='page-4'/> view 4
             </section> -->
-        <!-- </div> -->
-        <!-- </div> -->
-        <!-- <div class="paginator">
+<!-- </div> -->
+<!-- </div> -->
+<!-- <div class="paginator">
         <button
             class:page_1
             on:click|preventDefault={() => {

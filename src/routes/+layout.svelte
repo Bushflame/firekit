@@ -50,12 +50,12 @@
 <!-- <h2>Pathname: {$page.url.pathname}</h2> -->
 <main>
 	<!-- <GlobalFrame> -->
-		<div class="wrap">
+	<div class="global-frame">
 		{#if $page.url.pathname !== '/login'}
-		{#if $page.url.pathname  !== '/signup'}
-		<Nav {isLoggedIn} />
+			{#if $page.url.pathname !== '/signup'}
+				<Nav {isLoggedIn} />
 			{/if}
-			{/if}
+		{/if}
 		{#if $messagesStore.show}
 			<div class="messages">
 				<div class="messages-liner">
@@ -75,25 +75,30 @@
 			</div>
 		{/if}
 		<slot />
-	<!-- </GlobalFrame> -->
-</div>
+	</div>
 </main>
 
 <style lang="stylus" global>
-	.wrap 
-		position relative
+
 * 
 	box-sizing border-box
 	margin 0
 	padding 0
-
+.global-frame 
+	display flex
+	align-items center
+	justify-content center
+	height var(--globalHeight)
+	//overflow hidden
+	position relative
+	width var(--globalWidth)
 :root 
 	--globalWidth 422px
-	--globalHeight 747px
+	--globalHeight 750px
 	--ddWidth 23rem
 
 	//BROWNS
-	// --alpha #fff
+	--alpha #fff
 	// --beta #FFEADB
 	// --gamma darken(#FFEADB,10%)
 	// --delta darken(#FFEADB,20%)
@@ -103,14 +108,17 @@
 	// --theta darken(#FFEADB,60%)
 	// --iota darken(#FFEADB,70%)
 	//reds #ffe5e5
-	// --beta #ffe5e5
-	// --gamma darken(#ffe5e5,10%)
-	// --delta darken(#ffe5e5,20%)
-	// --epsilon darken(#ffe5e5,30%)
-	// --eta darken(#ffe5e5,40%)
-	// --zeta darken(#ffe5e5,50%)
-	// --theta darken(#ffe5e5,60%)
-	// --iota darken(#ffe5e5,70%)
+	--beta #ffe5e5
+	--gamma darken(#ffe5e5,10%)
+	--delta darken(#ffe5e5,20%)
+	--epsilon darken(#ffe5e5,30%)
+	--eta darken(#ffe5e5,40%)
+	--zeta darken(#ffe5e5,50%)
+	--theta darken(#ffe5e5,60%)
+	--iota darken(#ffe5e5,70%)
+	--kappa darken(#ffe5e5,80%)
+	--lambda darken(#ffe5e5,90%)
+	--mu darken(#ffe5e5,95%)
 	//GREYS
 	--beta darken(#fff, 10%)
 	--gamma darken(#fff,20%)
@@ -120,6 +128,8 @@
 	--zeta darken(#fff,60%)
 	--theta darken(#fff,70%)
 	--iota darken(#fff,80%)
+	--kappa darken(#fff,90%)
+	--lambda darken(#fff,95%)
 	// Turquoise
 	// --beta darken(#EBFBFA, 10%)
 	// --gamma darken(#EBFBFA,20%)
@@ -169,11 +179,10 @@
 	// --theta darken(#fff9d8,60%)
 	// --iota darken(#fff9d8,70%)
 
-	--breakpoint 54rem
 main 
 	//background linear-gradient(to bottom left,var(--beta),  var(--gamma));
 	//box-shadow inset 0 0 40px 20px var(--delta)
-	background var(--gamma)
+	background var(--iota)
 	display flex 
 	align-items center
 	justify-content center
@@ -207,7 +216,7 @@ img
 	border none
 	max-width 100%
 	object-fit cover
-@media(min-width: 54rem)
+@media(min-width: 900px)
 	:root 
 		--globalWidth 860px
 		//--globalHeight 39rem
