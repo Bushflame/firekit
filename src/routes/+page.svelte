@@ -12,29 +12,32 @@
 	import ALink from '$lib/building-views/ALink.svelte';
 
 	import Pages from '$lib/book/Pages.svelte'
+	import Quote from '$lib/book/Blockquote.svelte'
 	import Sticker from '$lib/book/Sticker.svelte'
 	import Glazed from '$lib/book/Glazed.svelte'
 </script>
 <Pages showPaginator={false}>
     <span slot='slot-1a' class='slot-1a'> 
-        <img src="/imgs/lab.jpg" alt="" class='bg'>
-		<div class="flex-box between">
-			<Glazed>
-				<h1>the title</h1>
-			</Glazed>
-			<Glazed>
-				<span class="large">
-					WELCOME...<br/>
-					DOG BUYERS <br />
-					&<br/>
-					DOG SELLERS <br />
-				</span>
-			</Glazed>
+        <img src="/imgs/bulldog.jpg" alt="" class='bg'>
+		<div class="flex-box">
+
+				<div class="title-box">
+					<!-- <p class='intro'>DogsFX brings you...</p> -->
+					<h1><span>Dogs</span><br/> for sale</h1>
+					<p class='intro'>The place to buy and sell new best friends</p>
+				</div>
+				<!-- <div class="sub-heading">
+					<Quote>
+						<p>The place for buying and selling new best friends</p>
+					</Quote>
+				</div> -->
 	</div>
     </span>
     <span slot='slot-1b'>
-			<img src="/imgs/bulldog.jpg" class='bg' alt="">
+		<div class="filter"></div>
+			<img src="/imgs/bulldog.jpg" class='bg flip' alt="">
 		<div class="flex-box center">
+			<Quote><p class='quote'>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p></Quote>
 			<Sticker>
 				<p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
 				<ALink linkTo={'/search'} linkTxt={'Start searching'} />
@@ -59,14 +62,26 @@ img.bg
 	top 0
 	height 100%
 	z-index 1
+
 .flex-box
 	display flex
 	flex-direction column
+	justify-content end
 	gap 2rem
 	height 100% 
 	padding 4rem 1rem
 	position relative
 	z-index 2
+.filter //styl
+	background  rgba(0,0,0,.7)
+	height 100%
+	position absolute
+	left 0
+	top 0 
+	width 100%
+	z-index 2
+.flip 
+	transform rotateY(180deg)
 .center 
 	justify-content center
 .between 
@@ -74,12 +89,33 @@ img.bg
 
 .large
 	color var(--theta)
-	font-size 2.1rem 
+	font-size 2.2rem 
 	font-weight 800
 	line-height 1
 	text-transform: uppercase
 	z-index 1
+.title-box 
+	background var(--iota-alpha-d) //rgba(0,0,0,.5)
+	margin-left -1rem
+	padding 1rem .8rem 1rem .5rem
+	width fit-content
 h1 
-	color var(--iota)
+	color var(--gamma)
+	font-size 2.2rem
+	line-height 1
+	font-weight 800
+	margin 0rem 0 1rem 1rem
+	text-align left
 	text-transform: uppercase
+h1 span 
+	font-size 4rem
+.sub-heading 
+	width 300px
+p.intro 
+	color var(--beta)
+	font-size 1.1rem
+	margin-left 1.1rem
+p.quote 
+	color var(--beta)
+	margin 1rem 0
 </style>

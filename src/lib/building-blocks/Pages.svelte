@@ -74,7 +74,7 @@
 
 <style lang="stylus">
 .main-wrap
-	background var(--alpha)
+	//background var(--alpha)
 	position relative
 .pages
 	height 32rem
@@ -111,22 +111,22 @@
 	gap 1rem
 	padding .6rem
 	position absolute 
-	bottom -7rem
+	bottom -4rem
 	left 50%
 	transform translate(-50%)
 	width fit-content
 	z-index 4
 	button 
-		background transparent
-		border 1px solid var(--gamma) 
+		background var(--gamma)// transparent
+		//border 1px solid var(--gamma) 
 		border-radius 50%
-		color var(--beta)
+		color var(--kappa)
 		font-size 1.2rem
 		height 2rem 
 		outline none
 		transition all .5s
 		width 2rem
 button.page_1, button.page_2, button.page_3, button.page_4
-	background var(--gamma)
-	color var(--iota)
+	background var(--eta)
+	color var(--gamma)
 </style>

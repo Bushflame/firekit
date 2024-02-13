@@ -49,6 +49,7 @@
 <!-- <SideNav /> -->
 <!-- <h2>Pathname: {$page.url.pathname}</h2> -->
 <main>
+	<img src="/imgs/generic/woman-bike.jpg" class='bg' alt="dog with woman pushing a bicycle background">
 	<!-- <GlobalFrame> -->
 	<div class="global-frame">
 		{#if $page.url.pathname !== '/login'}
@@ -92,44 +93,79 @@
 	//overflow hidden
 	position relative
 	width var(--globalWidth)
+img.bg 
+	position absolute
 :root 
 	--globalWidth 422px
 	--globalHeight 750px
 	--ddWidth 23rem
 
 	//BROWNS
-	--alpha #fff
-	// --beta #FFEADB
-	// --gamma darken(#FFEADB,10%)
-	// --delta darken(#FFEADB,20%)
-	// --epsilon darken(#FFEADB,30%)
-	// --eta darken(#FFEADB,40%)
-	// --zeta darken(#FFEADB,50%)
-	// --theta darken(#FFEADB,60%)
-	// --iota darken(#FFEADB,70%)
+	// dark start 	62, 26, 0
+	--alpha rgba(255, 234, 219,1)
+	--beta  darken(#FFEADB,10%)
+	--beta-alpha rgba(255, 234, 219,.1)
+	--beta-alpha-d rgba(62, 26, 0,.1)
+	//---
+	--gamma darken(#FFEADB,20%)
+	--gamma-alpha rgba(255, 234, 219,.2)
+	--gamma-alpha-d rgba(62, 26, 0,.2)
+	//---
+	--delta darken(#FFEADB,30%)
+	--delta-alpha rgba(255, 234, 219,.3)
+	--delta-alpha-d rgba(62, 26, 0,.3)
+	//---
+	--epsilon darken(#FFEADB,40%)
+	--epsilon-alpha rgba(255, 234, 219,.4)
+	--epsilon-alpha-d rgba(62, 26, 0,.4)
+	//---
+	--eta darken(#FFEADB,50%)
+	--eta-alpha rgba(255, 234, 219,.5)
+	--eta-alpha-d rgba(62, 26, 0,.5)
+	//---
+	--zeta darken(#FFEADB,60%)
+	--zeta-alpha rgba(255, 234, 219,.6)
+	--zeta-alpha-d rgba(62, 26, 0,.6)
+	//---
+	--theta darken(#FFEADB,70%)
+	--theta-alpha rgba(255, 234, 219,.7)
+	--theta-alpha-d rgba(62, 26, 0,.7)
+	//---
+	--iota darken(#FFEADB,80%)
+	--iota-alpha rgba(255, 234, 219,.8)
+	--iota-alpha-d rgba(62, 26, 0,.8)
+	//---
+	--kappa darken(#FFEADB,90%)
+	--kappa-alpha rgba(255, 234, 219,.9)
+	--kappa-alpha-d rgba(62, 26, 0,.9)
+	//---
+	--lambda darken(#FFEADB,95%)
+	--lambda-alpha rgba(255, 234, 219,.95)
+	--lambda-alpha-d rgba(62, 26, 0,.95)
+
 	//reds #ffe5e5
-	--beta #ffe5e5
-	--gamma darken(#ffe5e5,10%)
-	--delta darken(#ffe5e5,20%)
-	--epsilon darken(#ffe5e5,30%)
-	--eta darken(#ffe5e5,40%)
-	--zeta darken(#ffe5e5,50%)
-	--theta darken(#ffe5e5,60%)
-	--iota darken(#ffe5e5,70%)
-	--kappa darken(#ffe5e5,80%)
-	--lambda darken(#ffe5e5,90%)
-	--mu darken(#ffe5e5,95%)
+	// --beta  darken(#ffe5e5,10%)
+	// --gamma darken(#ffe5e5,30%)
+	// --delta darken(#ffe5e5,20%)
+	// --epsilon darken(#ffe5e5,40%)
+	// --eta darken(#ffe5e5,50%)
+	// --zeta darken(#ffe5e5,60%)
+	// --theta darken(#ffe5e5,70%)
+	// --iota darken(#ffe5e5,80%)
+	// --kappa darken(#ffe5e5,90%)
+	// --lambda darken(#ffe5e5,95%)
+
 	//GREYS
-	--beta darken(#fff, 10%)
-	--gamma darken(#fff,20%)
-	--delta darken(#fff,30%)
-	--epsilon darken(#fff,40%)
-	--eta darken(#fff,50%)
-	--zeta darken(#fff,60%)
-	--theta darken(#fff,70%)
-	--iota darken(#fff,80%)
-	--kappa darken(#fff,90%)
-	--lambda darken(#fff,95%)
+	// --beta darken(#fff, 10%)
+	// --gamma darken(#fff,20%)
+	// --delta darken(#fff,30%)
+	// --epsilon darken(#fff,40%)
+	// --eta darken(#fff,50%)
+	// --zeta darken(#fff,60%)
+	// --theta darken(#fff,70%)
+	// --iota darken(#fff,80%)
+	// --kappa darken(#fff,90%)
+	// --lambda darken(#fff,95%)
 	// Turquoise
 	// --beta darken(#EBFBFA, 10%)
 	// --gamma darken(#EBFBFA,20%)

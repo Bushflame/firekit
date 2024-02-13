@@ -198,18 +198,18 @@
 	width 390px
 .btns 
 	display grid
-	gap 1rem
+	gap .6rem
 	grid-template-columns 1fr 1fr 1fr
 	justify-content space-between
-	padding 0 .4rem
+	padding 0 .2rem
 	width 100%
 button 
 	background var(--gamma)
-	border 1px solid var(--epsilon)
+	// border 1px solid var(--epsilon)
 	border-radius 1.2rem
 	color var(--theta)
 	font-size 1rem
-	padding .5rem .8rem
+	padding .5rem //.6rem
 button.close 
 	display block
 	margin 2rem auto

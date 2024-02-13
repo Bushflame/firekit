@@ -7,6 +7,7 @@
 	import Pages from '$lib/book/Pages.svelte'
 	import Sticker from '$lib/book/Sticker.svelte'
 	import Glazed from '$lib/book/Glazed.svelte'
+	import Quote from '$lib/book/Blockquote.svelte'
 	import Bg_img from '$lib/book/BgImage.svelte'
 	import Corners from '$lib/grids/Corners.svelte';
 	import HalfCorners from '$lib/grids/ShortCorners.svelte';
@@ -28,7 +29,7 @@
 	 */
 	export let results = [];
 	$: counter = 0;
-	let isIndex = false;
+
 </script>
 
 <!-- <div class="card-wrap"> -->
@@ -52,120 +53,79 @@
 		>&#8250;
 	</button>
 {/if}
-<FrameWrap>
+<!-- <FrameWrap> -->
 	<!-- <Header></Header> -->
 
 	{#each results as res, index}
 		{#if index == counter}
-			<Pages showPaginator={false}>
-				<span slot="slot-1a">
-					<div class="img">
-						<Bg_img bg_img={res.img_1a}/>
-						<Glazed isTitle={true}>
-							<Title title={res.title_1a} />
+		<Pages showPaginator={false} tit_1={res.title_1a} tit_4={res.title_4a}>
+			<span slot="slot-1a" class="slot-1a">
+				<div class="img">
+					<Bg_img bg_img={res.img_1a}/>
+					<Glazed isTitle={true}>
+						<Title title={res.title_1a} />
+					</Glazed>
+					<a href={`/listing/${res.id}`} data-sveltekit-preload-data="">View Full Details</a>
+				</div>
+				<div class="flex-box-bg">
+					<img src={res.img_1a} alt="" class="slot-1a-img">
+					{#if res.para_1a.length > 4}
+						<div class="pad-lr">
+							<Quote lg_first={true}><Para txt={res.para_1a} --align="left" --margin="1rem auto .5rem" --weight="800"  /></Quote>
+							<Glazed>
+							<Ul>
+								<Li item={res.li_1a} />
+								<Li item={res.li_1b} />
+								<Li item={res.li_1c}  />
+							</Ul>
 						</Glazed>
 					</div>
-
-					
-					
-					<Para
-						txt={res.para_1a}
-						--align="center"
-						--color={'var(--beta'}
-						--margin="2rem auto .5rem"
-						--weight="400"
-						hr={false}
-					/>
-					<!-- li's need if != ' ' -->
-					<Ul>
-						<Li item={res.li_1a} --color={'var(--beta'} />
-						<Li item={res.li_1b} --color={'var(--beta'}/>
-						<Li item={res.li_1c} --color={'var(--beta'}/>
-						<!-- <Li item={res.li_1d} /> -->
-					</Ul>
-				</span>
+					{/if}
+			</div>
+			</span>
 				
-				<span slot="slot-1b">
-					
-						<Bg_img bg_img={'/imgs/lab.jpg'}/>
-					
-					
-					<div class="flex-box">
-						<Glazed>
-							<Para bold={'Contact Details'} --align="center" --margin=".2rem 1rem .3rem" />
-							<Para
-								bold={'Name:'}
-								txt={res.name}
-								--align="left"
-								--margin=".2rem 1rem 1rem  "
-								flex={true}
-							/>
-							<Para
-								bold={'Email:'}
-								txt={res.email}
-								--align="left"
-								--margin=".2rem 1rem 1rem "
-								flex={true}
-							/>
-							<Para
-								bold={'Tel::'}
-								txt={res.tel}
-								--align="left"
-								--margin=".2rem 1rem 1rem "
-								flex={true}
-							/>
-							<Para
-								bold={'FaceBook:'}
-								txt={res.fbook}
-								--align="left"
-								--margin=".2rem 1rem 1rem "
-								flex={true}
-							/>
-						
+			<span slot="slot-1b">
+				<Bg_img bg_img={'/imgs/lab.jpg'}/>
+				<div class="filter"></div>
+				<div class="flex-box">
+					<Glazed isTitle={false}>
+						<h3>Contact Details</h3>
+						<Para bold={'Contact Details'} --align="center" --margin=".2rem 1rem .3rem" hr={true} />
+						<Para bold={'Name:'} txt={res.name} --align="left" --margin=".2rem 1rem .4rem  " flex={true} />
+						<Para bold={'Email:'} txt={res.email} --align="left" --margin=".2rem 1rem .4rem " flex={true} />
+						<Para bold={'Tel::'} txt={res.tel} --align="left" --margin=".2rem 1rem .4rem " flex={true} />
+						<Para
+							bold={'FaceBook:'}
+							txt={res.fbook}
+							--align="left"
+							--margin=".2rem 1rem .4rem "
+						/>
 					</Glazed>
-					
 					<Glazed>
-						<Para bold={'Terms and Conditions'} --align="center" --margin=".2rem auto 1rem " />
+						<h3>Terms and Conditions</h3>
+						<Para bold={'Terms and Conditions'} --align="center" --margin=".2rem auto .4rem " hr={true} />
 						<Para txt={res.terms} --align="left" --margin=".2rem 1rem .3rem " />
 					</Glazed>
 				</div>
-				</span>
+			</span>
 				
 			</Pages>
-			<a href={`/listing/${res.id}`} data-sveltekit-preload-data="">View Full Details</a>
+
 			<p class="show-count">Showing {counter + 1} of {results.length} results</p>
 		{/if}
 	{/each}
 	<!-- <Footer/> -->
-</FrameWrap>
+<!-- </FrameWrap> -->
 
 <!-- </div> -->
 
 <style lang="stylus">
 
-@import '/src/lib/stylus/single-col'
-.flex-box
-	display flex
-	flex-direction column
-	gap 2rem
-	height 100% 
-	padding 4rem 1rem
-	position relative
-	z-index 2
-.center 
-	justify-content center
-.between 
-	justify-content space-between
-.img 
-	display flex
-	align-items end
-	height 300px
-	position relative
-.img-tall 
-	height 100%
-	position relative
+
+@import '/src/lib/stylus/pages'
 
 p.show-count 
+	//background green
 	border-radius 1rem
 	color var(--beta)
 	left 50% 
@@ -173,21 +133,33 @@ p.show-count
 	padding .3rem 1rem
 	transform translate(-50%,0)
 	position absolute
-	bottom 1rem
+	bottom 1.5rem
 	//top 1rem
 	text-align center
 	width fit-content //18rem
 	z-index 2
 
 a 
-	position absolute
-	bottom 5rem
-	left 50%
+	background var(--beta)
+	border-radius 1rem
+
 	transform translate(-50%)
 	z-index 3
+	box-shadow rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, 
+	rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, 
+	rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, 
+	rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, 
+	rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, 
+	rgba(0, 0, 0, 0.09) 0px 32px 16px
+	color var(--lambda)
+	padding .5rem 1rem
+	position absolute
+	bottom 1rem
+	left 50%
+    text-align center
 .prev, .next 
 	position absolute 
-	bottom .5rem
+	bottom 2rem
 .prev 
 	left 5rem 
 
@@ -195,8 +167,8 @@ a
 	right 5rem
 @media(min-width 860px)
 	a 
-		bottom 5rem
-		left 25%
+		//bottom 4rem
+		left 50%
 		transform translate(-50%)
 	.next 
 		right calc(var(--globalWidth) / 2 + 5rem)
@@ -211,17 +183,17 @@ button.counter-btn
 	display flex
 	align-items center
 	justify-content center
-	font-size 2.2rem
-	height 2.2rem
+	font-size 2rem
+	height 2rem
 	outline 0
 	padding-bottom .3rem
 	position absolute 
-	bottom 1rem
+	bottom 1.5rem
 	//top 10px //50% 
 	//transform translate(0, -50%)
 	transition all .5s
 	text-align center
-	width 2.2rem
+	width 2rem
 	z-index 10
 
 </style>

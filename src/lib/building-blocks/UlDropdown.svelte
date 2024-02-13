@@ -94,39 +94,46 @@
     position relative
     width 20rem
 .dropdown 
-    background transparent //red //var(--beta)
-    position absolute
-    bottom 0
-    top 4rem
-    transition all .3s
-    width 100%
-    z-index -1
-.dropdown.dd_1,.dropdown.dd_2,.dropdown.dd_3,.dropdown.dd_4,.dropdown.dd_5
-    opacity 1
-    z-index 1
+	background transparent //red //var(--beta)
+	height 0
+	overflow hidden
+	position absolute
+	bottom 0
+	top 4rem
+	transform scale(0)
+	transition all .3s
+	width 0 //100%
+	z-index -1
+.dropdown.dd_1,.dropdown.dd_2,.dropdown.dd_3,.dropdown.dd_4, .dropdown.dd_5
+	height 15rem
+	opacity 1
+	transform scale(1)
+	transform rotate(360deg)
+	z-index 1
+	width 100%
 .btns 
-    display flex
-    gap 1rem
-    justify-content center
-    margin 0 auto
-    position relative
-    width 100%
-    z-index 0
+	display flex
+	gap 1rem
+	justify-content center
+	margin 0 auto
+	position relative
+	width 100%
+	z-index 0
 button
-    background var(--beta)
-    border 1px solid var(--gamma)
-    border-radius 1rem
-    color var(--theta)
-    font-size .9rem
-    height 2rem
-    transition background .5s
-    width 2rem
+	background var(--beta)
+	border 1px solid var(--gamma)
+	border-radius 1rem
+	color var(--theta)
+	font-size .9rem
+	height 2rem
+	transition background .5s
+	width 2rem
 button.dd_1 ,button.dd_2, button.dd_3, button.dd_4, button.dd_5
-    background var(--gamma)
-    border none
-    color var(--iota)
+	background var(--gamma)
+	border none
+	color var(--iota)
 hr 
-    border 1px solid var(--gamma)
-    margin .5rem auto 1.5rem
-    width 50%
+	border 1px solid var(--gamma)
+	margin .5rem auto 1.5rem
+	width 50%
 </style>

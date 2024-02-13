@@ -1,46 +1,45 @@
 <script>
 	import { getByTitles } from '$lib/stores/store.js';
 	export let linkTo = '/results';
-	export let titles;
-	export let heading = 'heading';
+	/**
+	 * @type {any}
+	 */
+	 export let titles;
+
 </script>
 
-<div class="wrap">
 	<!-- <h3>{heading}</h3> -->
 	<ul class="card">
 		{#each titles as title}
-			<li>
+        <!-- {#if title.length >= 18}
+			<li class='span-2'>
 				<a
+                    
 					href={linkTo}
 					data-sveltekit-preload-data="off"
 					on:click={() => {
 						$getByTitles = title;
-					}}>{title}<span>&#8250;</span></a
+					}}>{title}</a
 				>
 			</li>
+            {:else} -->
+            <li>
+            <a
+            href={linkTo}
+            data-sveltekit-preload-data="off"
+            on:click={() => {
+                $getByTitles = title;
+            }}>{title}</a
+        >
+    </li>
+    <!-- {/if} -->
 		{/each}
 	</ul>
-</div>
 
 <!-- <SearchLink heading={'The Heading'} linkTo={'/results'} {titles}/> -->
 
 <style lang="stylus">
-.wrap 
-    //display grid
-    margin 1rem auto
-    position absolute
-    left .3rem
-    right .3rem
-    top 6rem
-    //padding-top 2rem
-    //width calc(var(--globalWith) / 2)
-h3 
-    //background var(--gamma)
-    border-radius 1rem
-    color var(--iota)
-    margin 1rem auto
-    text-align center
-    width fit-content
+
 .card 
     //border 1px solid red
     display grid 
@@ -49,32 +48,43 @@ h3
     align-items start
     //height 30rem
     list-style none
-    margin auto
-    //width 24rem //calc(var(--globalWith) - (var(--globalWith)* 0.5))
+    margin 2rem auto
+    width 22rem //calc(var(--globalWith) - (var(--globalWith)* 0.5))
 
 li 
     //border 1px solid red
+    max-width 10.8rem
     width 100%
+
+    //width fit-content
 a 
-    background var(--kappa)
-    //border-bottom 1px solid var(--delta)
-    border-radius 4px
-    color  var(--beta)
-    display flex 
-    justify-content space-between
-    font-size .9rem
-    padding .4rem .2rem
-    position relative
-    text-align left //center
-    //width calc(100% - (border-left / 2))
-    span 
-        color  var(--delta)
-        font-size 3rem
-        font-weight bold 
-        position absolute
-        right .4rem
-        top 30%
-        transform translate(0,-50%)
+    background var(--beta)
+    border-radius 1rem
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, 
+    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, 
+    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, 
+    rgba(0, 0, 0, 0.06) 0px 2px 1px, 
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, 
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, 
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, 
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    color var(--theta)
+    display block
+    font-size 1rem
+    font-weight 800
+    //margin 1rem 1rem //0 auto  
+    padding .5rem //1rem
+    text-align left
+    text-transform capitalize
+
+    width 100% //fit-content
+    overflow: hidden
+    white-space: nowrap
+    overflow: hidden
+    //padding-right 3rem
+    resize: horizontal
+    text-overflow: ellipsis
+
 
 
 </style>

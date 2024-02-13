@@ -3,7 +3,6 @@
 
     let one = true
     let two = false
-    export let toggleTxt = 'toggle'
     </script>
         <div class="magazine">
             <button
@@ -56,7 +55,7 @@
         padding: 1rem;
         //padding .4rem
     .page 
-        ///background  var(--kappa) //rgba(0,0,0,0.3)
+        //background  var(--beta) //rgba(0,0,0,0.3)
     
         //gap .2rem
         color: #000;

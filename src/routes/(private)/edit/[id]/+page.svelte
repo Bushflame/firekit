@@ -1,12 +1,8 @@
 <script>
 	// @ts-nocheck
 	import { enhance } from '$app/forms';
-	import FrameWrap from '$frames/FrameWrap.svelte';
 	import Frame from '$frames/Single.svelte';
-	import Header from '$lib/building-views/Header.svelte';
-	import Footer from '$lib/building-views/Footer.svelte';
 	import Pages from '$blocks/Pages.svelte';
-	import Corners from '$lib/grids/FullWidth.svelte';
 	import Dropdown from '$blocks/Dropdown.svelte';
 	import Img from '$blocks/ImgInput.svelte';
 	import Input from '$blocks/Input.svelte';
@@ -30,10 +26,6 @@
 	function submitForm(e) {
 		submitting = true;
 	}
-	// let page_1 = true
-	// let page_2 = false
-	// let page_3 = false
-	// let page_4 = false
 </script>
 
 <Frame>
@@ -47,7 +39,8 @@
 			form={{ ...data.listing, ...form }}
 		>
 			<Pages {pageNum}>
-				<span slot="page-1">
+				<span slot="page-1" class='page-1'>
+					
 					<Dropdown
 						txt_1={'Image'}
 						txt_2={'Title'}
@@ -56,7 +49,7 @@
 						txt_5={'Contact'}
 						txt_6={'Terms'}
 					>
-						<span slot="slot-1">
+						<span slot="slot-1" class='slot'>
 							<Img nam={li.img_1a} lab={'Image'} name={'img_1a'} />
 						</span>
 						<span slot="slot-2">
@@ -246,9 +239,19 @@
 
 <style lang="stylus">
 //@require '/src/lib/stylus/listingForm.styl'
-form 
+.main-wrap 
+	//background red
+	//display grid
 	margin auto
+	padding .5rem
 	position relative
+	width 90% //400px
+	z-index 2
+form 
+
+	margin auto
+	padding 1rem
+	//width 422px
 
 .btn-submit 
 	background var(--delta)
@@ -260,8 +263,12 @@ form
 	padding .5rem 0
 	position absolute
 	left 50%
-	bottom -2rem 
+	bottom -2.5rem 
 	transform translate(-50%)
 	width 12rem
 	z-index 20
+@media(min-width 860px)
+	.main-wrap 
+		width 422px
+
 </style>

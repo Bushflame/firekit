@@ -1,26 +1,18 @@
 <script>
-	export let txt = '';
+	export let txt = ''
 	export let bold = '';
-	export let flex = false;
-	export let hr = false;
+	export let dark_txt = false;
+
 </script>
 
-{#if flex}
-	<p class="flex">
-		<span>{bold}</span>
+{#if dark_txt}
+	<p class="dark">
 		{txt}
 	</p>
-	{#if hr}
-		<hr />
-	{/if}
 {:else}
-	<p>
-		<span>{bold}</span>
-		{txt}
-	</p>
-	{#if hr}
-		<hr />
-	{/if}
+<p>
+	{txt}
+</p>
 {/if}
 
 <style lang="stylus">
@@ -33,11 +25,8 @@ p
     //padding 0 1rem
     text-align var(--align)
 
-p.flex 
-    display flex
-    justify-content space-between
-    margin-left 0
-    width 16rem
+p.dark 
+	color var(--lambda)
 
 span 
     font-weight 800

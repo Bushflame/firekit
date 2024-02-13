@@ -8,18 +8,19 @@
 
 <style lang="stylus">
 .post-it 
-	background var(--gamma)// rgba(0,0,0,.03)
-	background rgba(255,255,255,.7) 
+	background var(--delta-alpha)// rgba(0,0,0,.6)
+	//background rgba(255,255,255,.7) 
 	box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+	color var(--beta)
 	position:relative
 	overflow:hidden
 	//margin:4rem auto 0
-	padding: 2rem 20px 
+	padding:  12px //20px 
 	border-radius:0 0 0 30px/45px
 	font-family: 'Permanent Marker', cursive
 	//line-height:1.7rem
-	font-size:19px
-	color var(--theta)
+	font-size:16px
+	//color red //var(--theta)
 
 .post-it:before 
 	content:""

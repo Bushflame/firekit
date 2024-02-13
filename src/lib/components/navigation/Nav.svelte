@@ -21,7 +21,7 @@
 	}
 </script>
 
-{#if $page.url.pathname != '/dashboard'}
+<!-- {#if $page.url.pathname != '/dashboard'} -->
 	<NavWrap>
 		<!-- <Corners/> -->
 		{#if isLoggedIn}
@@ -90,7 +90,7 @@
 			</li>
 		{/if}
 	</NavWrap>
-{/if}
+<!-- {/if} -->
 
 <style lang="stylus">
 // active link

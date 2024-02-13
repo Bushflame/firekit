@@ -3,10 +3,8 @@
 	import { userKey } from '$lib/stores/store';
 	import Guides from '$comps/guides/Guides.svelte';
 	import Frame from '$frames/Single.svelte';
-	import FrameWrap from '$frames/FrameWrap.svelte';
-	import Header from '$lib/building-views/Header.svelte';
-	import Footer from '$lib/building-views/Footer.svelte';
-	import Corners from '$lib/grids/FullWidth.svelte';
+	import Page from '$lib/book/Pages.svelte'
+	import Bg_img from '$lib/book/BgImage.svelte'
 	//import { copy } from 'svelte-copy';
 
 	export let data;
@@ -16,15 +14,14 @@
 	$userKey = data.userid;
 	console.log('dat');
 	let clickToGo = `http://localhost:5173/listing/7FZfOTLYaKVYdY81J0xi5J589Fl2`;
-	var today = new Date().toDateString();
-	// 	var today = new Date();
-	// var tomorrow = new Date();
-	// tomorrow.setDate(today.getDate()+1);
-	console.log('tom ', today);
+
+
 </script>
 
-<Frame>
-	<div class="liner">
+<Frame >
+	<!-- <div class="filter"></div> -->
+	<span  class="slot">
+
 		<h3>Dashboard</h3>
 		<Guides />
 		<hr />
@@ -47,21 +44,36 @@
 			<p>Created on: {created}</p>
 			<p>Expires on: {expires}</p>
 		</div>
-	</div>
+	</span>
+	<!-- <span slot='slot-1b'> <h1>slot 1b</h1></span> -->
 </Frame>
 
 <style lang="stylus">
-.liner 
-	margin-top 4rem
+.slot 
+	background var(--eta-alpha-d)
+	border-radius 1rem
+	margin auto
+	padding .5rem
+	//position relative
+	width 380px
+	z-index 2
+.filter 
+	background var(--kappa-alpha-d)
+	height 100%
+	position absolute 
+	left 1rem
+	top 0
+	width 100%
+	z-index 1
 h3 
-	color var(--alpha)
+	color var(--beta)
 	font-size 2rem
-	margin-bottom 1rem
+	margin 2rem 0 1rem
 	text-align center
 .link-bar
 	display flex
 	gap .4rem
-	margin 1rem auto
+	margin auto
 	width fit-content
 	a, button 
 		background var(--delta)
@@ -71,12 +83,13 @@ h3
 		font-size 1rem
 		//height 2.2rem
 		outline none
-		padding .4rem 1rem //.3rem
+		padding .4rem //1rem //.3rem
 		text-align center
 		transition all .5s
 		width 7rem 
 hr 
-	border 1px solid var(--delta)
+	border 1px solid var(--theta)
+	height 0px
 	margin 2rem auto
 	width 50%
 
@@ -85,11 +98,13 @@ h1
 	text-align center
 .acc-details 
 	color var(--beta)
+	font-weight 800
 	margin 2rem auto
 	text-align center
 	width fit-content
 	h4
 		color var(--beta)
+		font-size 1.4rem
 		margin-bottom .6rem
 
 p 

@@ -4,13 +4,15 @@
     let page_2 = false
     let page_3 = false
     let page_4 = false
-    	export let showPaginator = true;
+    export let showPaginator = true;
+    export let tit_1 = ''
+    export let tit_4 = ''
 
 </script>
 <div class="pages">
     <section class="page page-1" class:page_1>
         <Page toggleTxt={''}>
-            <span slot='side-1' class='side-1'>
+            <span slot='side-1' class='side-1 side-la'>
                 <slot name='slot-1a'/>
 
             </span>
@@ -45,6 +47,7 @@
             </span>
         </Page>
     </section>
+    {#if tit_4.length > 4}
     <section class="page page-4" class:page_4>
         <Page>
             <span slot='side-1'>
@@ -57,8 +60,10 @@
             </span>
         </Page>
     </section>
+    {/if}
 	{#if showPaginator}
 		<div class="paginator">
+            {#if tit_1}
 			<button
 				class:page_1
 				on:click|preventDefault={() => {
@@ -69,6 +74,7 @@
 					page_4 = false;
 				}}>1</button
 			>
+            {/if}
 			<button
 				class:page_2
 				on:click|preventDefault={() => {
@@ -87,6 +93,7 @@
 					page_4 = false;
 				}}>3</button
 			>
+            {#if tit_4.length > 4}
 			<button
 				class:page_4
 				on:click|preventDefault={() => {
@@ -96,6 +103,7 @@
 					page_4 = true;
 				}}>4</button
 			>
+            {/if}
 		</div>
 	{/if}
 
@@ -103,17 +111,19 @@
 
 
 <style lang="stylus">
+// div 
+//     background skyblue
 section, .pages
     height 100%
     overflow hidden
     width 100%
 .page 
     height 0
+    transition all .5s
     width 0
 .page.page_1,.page.page_2,.page.page_3,.page.page_4
     height 100%
     width 100%
-
 
 .paginator 
     //border 1px solid red
@@ -126,7 +136,7 @@ section, .pages
     left 0 //-26%
     right 0
     //transform translate(25%)
-    bottom 1.3rem
+    bottom 1.5rem
     width 100% //fit-content
     z-index 40
     button 
