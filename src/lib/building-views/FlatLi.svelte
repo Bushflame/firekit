@@ -10,7 +10,7 @@
 <style lang="stylus">
 li 
     //background rgba(1,1,1,.03)
-    background var(--kappa) //rgba(255,255,255,.4)
+    background var(--delta-alpha-d) //rgba(255,255,255,.4)
 
     //border-radius 6px
     //color var(--theta)

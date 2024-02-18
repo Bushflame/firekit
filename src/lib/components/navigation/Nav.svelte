@@ -1,7 +1,5 @@
 <script>
 	import { page } from '$app/stores';
-	import Corners from '$comps/Corners.svelte';
-	import GlobalFrame from '$comps/GlobalFrame.svelte';
 	import { logout } from '$lib/firebase/auth.client';
 	import messagesStore from '$lib/stores/messages.store';
 	import { goto } from '$app/navigation';
@@ -26,16 +24,7 @@
 		<!-- <Corners/> -->
 		{#if isLoggedIn}
 			<li>
-				<a href="/" class:active={$page.url.pathname == '/'}>Home</a>
-			</li>
-			<li>
-				<a href="/front" class:active={$page.url.pathname == '/front'}>front</a>
-			</li>
-			<li>
-				<a href="/book" class:active={$page.url.pathname == '/book'}>book</a>
-			</li>
-			<li>
-				<a href="/mag" class:active={$page.url.pathname == '/mag'}>Mag</a>
+				<a href="/" class:active={$page.url.pathname == '/'} data-sveltekit-preload-data="on">Home</a>
 			</li>
 			<li>
 				<a
@@ -62,16 +51,7 @@
 			</li>
 		{:else}
 			<li>
-				<a href="/" class:active={$page.url.pathname == '/'}>Home</a>
-			</li>
-			<li>
-				<a href="/front" class:active={$page.url.pathname == '/front'}>front</a>
-			</li>
-			<li>
-				<a href="/book" class:active={$page.url.pathname == '/book'}>book</a>
-			</li>
-			<li>
-				<a href="/mag" class:active={$page.url.pathname == '/mag'}>Mag</a>
+				<a href="/" class:active={$page.url.pathname == '/'} data-sveltekit-preload-data="on">Home</a>
 			</li>
 			<li>
 				<a href="/search" class:active={$page.url.pathname === '/search'}>Search</a>
@@ -95,7 +75,7 @@
 <style lang="stylus">
 // active link
 .active 
-	color var(--iota)
+	color var(--gamma)
 
 li 
 	//border-bottom  1px solid red //d var(--light-1)
@@ -114,7 +94,7 @@ a
 .logout-btn
 	background transparent
 	border-bottom 1px solid var(--delta)
-	color  var(--theta)
+	color  var(--beta)
 	display flex
 	align-items center
 	font-size 1rem

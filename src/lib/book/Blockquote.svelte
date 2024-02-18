@@ -16,10 +16,11 @@ export let lg_first = true
 <style lang="stylus">
 
 .wrap 
-    border-bottom 2px solid var(--beta)
-    border-top 2px solid var(--beta)
+    border 2px solid rgba(255,255,255,  .1)// 2px solid var(--beta)
+    //border-top 2px solid var(--beta)
+    background-color rgba(255, 255, 255, .09)
     // border-radius 1rem
-    padding 0 1rem .4rem
+    padding 1rem //.4rem
     position relative
 .wrap::before, .wrap::after
     color var(--beta)
@@ -37,8 +38,10 @@ export let lg_first = true
     border-top 1px solid
     left 0
     top -1px
-p.para 
+p 
     color var(--beta)
+    //margin-bottom -1rem// 0
+    padding 0
     //position relative
 
 p.lg-first::first-letter 

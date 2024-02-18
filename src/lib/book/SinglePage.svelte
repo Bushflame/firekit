@@ -1,39 +1,55 @@
 <script>
-    import Page from '$lib/book/Page.svelte'
-    let page_1 = true
-    let page_2 = false
-    let page_3 = false
-    let page_4 = false
-    export let showPaginator = true;
-    export let tit_1 = ''
-    export let tit_4 = ''
-
+	import Bg_img from '$lib/book/BgImage.svelte'
 </script>
-<div class="page">
 
-                <slot/>
+<div class="outer">
 
-        <!-- </Page> -->
-
+	<div class="liner">
+    
+            <!-- <Bg_img bg_img={'/imgs/generic/gen-1.jpg'}/> -->
+		<div class="page">
+            
+			<slot />
+		</div>
+        <div class="filter"></div>
+	</div>
 </div>
 
-
 <style lang="stylus">
-section, .pages 
-    display flex
+.outer
+    //background var(--kappa)
+    border 1rem solid var(--lambda)
+    display flex 
+    flex-direction column
+    justify-content space-between
+    align-items center
+    height 100% //calc(var(--globalHeight) - 2rem)
+    //margin 0 auto
+    //padding 1rem
+    position relative
+    width var(--globalWidth)
+.liner 
+    //background red
+    //var(--theta)
     height 100%
-    overflow hidden
+    position relative
     width 100%
+    z-index 1
+.filter 
+    background var(--iota-alpha-d)
+    height 100%
+    position absolute 
+    left 0
+    top 0
+    width 100%
+    z-index 1
 .page 
-    display flex
-    height 0
-    transition all .5s
-    width 0
-.page
-    height 100%
-    width 100%
-
-// .page-1 .side-1.side-1a 
-//     background red
+    //background orange //var(--beta-gamma)
+    display grid 
+    align-items center
+    //height calc(var(--globalHeight) - 10rem )
+    margin 2rem auto 0
+    //padding 1rem
+    //width 400px
 
 </style>

@@ -1,6 +1,5 @@
 
 <script>
-
     let one = true
     let two = false
     </script>
@@ -36,12 +35,6 @@
         </div>
     
     <style lang="stylus">
-    h1 
-        font-size 2rem
-        line-height 1
-    img 
-        height 100% //320px
-        width 100% //400px
     .magazine 
         position relative
     .magazine,.pages, .page, .side 
@@ -53,19 +46,12 @@
         gap 1rem
         grid-template-columns 1fr 
         padding: 1rem;
-        //padding .4rem
     .page 
-        //background  var(--beta) //rgba(0,0,0,0.3)
-    
-        //gap .2rem
         color: #000;
         height 0
         overflow hidden
         transition all .7s
         width 0
-    
-        //opacity 0
-    
         position relative
     .page-1
         grid-column 1 / 2 
@@ -77,10 +63,8 @@
         order 1
 
     .side 
-        //background var(--epsilon)// #fff
         position relative
     .side-2   
-        //padding-top 3rem
     .page.one, .page.two
         height 100%
         transform rotateX(360deg)
@@ -94,12 +78,10 @@
       top 0
       width 4rem
       z-index 2
-      //display none
     .shadow-2 
         left 0 
     button.toggle-btn 
         background var(--theta)
-        //border-radius 1rem 0 0 1rem
         color var(--beta)
         font-size 1.4rem
         padding .5rem //1rem .5rem 1rem .5rem

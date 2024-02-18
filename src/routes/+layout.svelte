@@ -90,7 +90,7 @@
 	align-items center
 	justify-content center
 	height var(--globalHeight)
-	//overflow hidden
+	overflow hidden
 	position relative
 	width var(--globalWidth)
 img.bg 
@@ -233,6 +233,7 @@ h3
     font-weight 800
 p
 	font-size 1.1rem
+	white-space: pre-wrap
 	
 a 
 	color var(--eta)

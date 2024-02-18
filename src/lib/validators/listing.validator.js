@@ -9,9 +9,20 @@ export default async function validate(formData, edit = false) {
 		title_4a: yup.string(),
 		//paras--------------------
 		para_1a: yup.string(),
+		para_1b: yup.string(),
+		para_1C: yup.string(),
+
 		para_2a: yup.string(),
+		para_2b: yup.string(),
+		para_2C: yup.string(),
+
 		para_3a: yup.string(),
+		para_3b: yup.string(),
+		para_3C: yup.string(),
+
 		para_4a: yup.string(),
+		para_4b: yup.string(),
+		para_4C: yup.string(),
 		//lists---------------------
 		li_1a: yup.string(),
 		li_1b: yup.string(),
@@ -38,7 +49,7 @@ export default async function validate(formData, edit = false) {
 		li_4e: yup.string(),
 
 		//contact----------------
-		lname: yup.string(),
+		name: yup.string(),
 		email: yup.string(),
 		tel: yup.string(),
 		fbook: yup.string(),
@@ -117,10 +128,20 @@ export default async function validate(formData, edit = false) {
 
 		//paras----------------------
 		para_1a: formData.get('para_1a'),
-		para_2a: formData.get('para_2a'),
-		para_3a: formData.get('para_3a'),
-		para_4a: formData.get('para_4a'),
+		para_1b: formData.get('para_1b'),
+		para_1c: formData.get('para_1c'),
 
+		para_2a: formData.get('para_2a'),
+		para_2b: formData.get('para_2b'),
+		para_2c: formData.get('para_2c'),
+
+		para_3a: formData.get('para_3a'),
+		para_3b: formData.get('para_3b'),
+		para_3c: formData.get('para_3c'),
+
+		para_4a: formData.get('para_4a'),
+		para_4b: formData.get('para_4b'),
+		para_4c: formData.get('para_4c'),
 		//lists-----------------------
 		li_1a: formData.get('li_1a'),
 		li_1b: formData.get('li_1b'),

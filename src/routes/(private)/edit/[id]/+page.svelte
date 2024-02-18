@@ -1,7 +1,7 @@
 <script>
 	// @ts-nocheck
 	import { enhance } from '$app/forms';
-	import Frame from '$frames/Single.svelte';
+	import Frame from '$lib/book/SinglePage.svelte';
 	import Pages from '$blocks/Pages.svelte';
 	import Dropdown from '$blocks/Dropdown.svelte';
 	import Img from '$blocks/ImgInput.svelte';
@@ -40,7 +40,6 @@
 		>
 			<Pages {pageNum}>
 				<span slot="page-1" class='page-1'>
-					
 					<Dropdown
 						txt_1={'Image'}
 						txt_2={'Title'}
@@ -56,7 +55,17 @@
 							<Input nam={li.title_1a} name={'title_1a'} lab={'Title'} />
 						</span>
 						<span slot="slot-3">
-							<Textarea lab={'Text'} nam={li.para_1a} rows={10} name={'para_1a'} />
+							<UlDropdown txt_1={1} txt_2={2} txt_3={3} paraTxt={true}>
+								<li slot='slot-1'>
+									<Textarea lab={'Text 1 (White bordered)'} nam={li.para_1a} rows={7} name={'para_1a'} />
+								</li>
+								<li slot='slot-2'>
+									<Textarea lab={'Text 2 (Sticker)'} nam={li.para_1b} rows={7} name={'para_1b'} />
+								</li>
+								<li slot='slot-3'>
+									<Textarea lab={'Text 3 (Glazed background)'} nam={li.para_1c} rows={7} name={'para_1c'} />
+								</li>
+							</UlDropdown>
 						</span>
 						<span slot="slot-4">
 							<UlDropdown txt_1={1} txt_2={2} txt_3={3} txt_4={4} txt_5={5}>
@@ -104,8 +113,20 @@
 							<Input nam={li.title_2a} name={'title_2a'} lab={'Title'} />
 						</span>
 						<span slot="slot-3">
-							<Textarea lab={'Text'} nam={li.para_2a} rows={10} name={'para_2a'} />
+							<UlDropdown txt_1={1} txt_2={2} txt_3={3} paraTxt={true}>
+								<li slot='slot-1'>
+									<Textarea lab={'Text 1 (White bordered)'} nam={li.para_2a} rows={7} name={'para_2a'} />
+								</li>
+								<li slot='slot-2'>
+									<Textarea lab={'Text 2 (Sticker)'} nam={li.para_2b} rows={7} name={'para_2b'} />
+								</li>
+								<li slot='slot-3'>
+									<Textarea lab={'Text 3 (Glazed background)'} nam={li.para_2c} rows={7} name={'para_2c'} />
+								</li>
+							</UlDropdown>
 						</span>
+
+
 						<span slot="slot-4">
 							<UlDropdown txt_1={1} txt_2={2} txt_3={3} txt_4={4} txt_5={5}>
 								<li slot="slot-1">
@@ -152,7 +173,17 @@
 							<Input nam={li.title_3a} name={'title_3a'} lab={'Title'} />
 						</span>
 						<span slot="slot-3">
-							<Textarea lab={'Text'} nam={li.para_3a} rows={10} name={'para_3a'} />
+							<UlDropdown txt_1={1} txt_2={2} txt_3={3} paraTxt={true}>
+								<li slot='slot-1'>
+									<Textarea lab={'Text 1 (White bordered)'} nam={li.para_3a} rows={7} name={'para_3a'} />
+								</li>
+								<li slot='slot-2'>
+									<Textarea lab={'Text 2 (Sticker)'} nam={li.para_3b} rows={7} name={'para_3b'} />
+								</li>
+								<li slot='slot-3'>
+									<Textarea lab={'Text 3 (Glazed background)'} nam={li.para_3c} rows={7} name={'para_3c'} />
+								</li>
+							</UlDropdown>
 						</span>
 						<span slot="slot-4">
 							<UlDropdown txt_1={1} txt_2={2} txt_3={3} txt_4={4} txt_5={5}>
@@ -200,7 +231,17 @@
 							<Input nam={li.title_4a} name={'title_4a'} lab={'Title'} />
 						</span>
 						<span slot="slot-3">
-							<Textarea lab={'Text'} nam={li.para_4a} rows={10} name={'para_4a'} />
+							<UlDropdown txt_1={1} txt_2={2} txt_3={3} paraTxt={true}>
+								<li slot='slot-1'>
+									<Textarea lab={'Text 1 (White bordered)'} nam={li.para_4a} rows={7} name={'para_4a'} />
+								</li>
+								<li slot='slot-2'>
+									<Textarea lab={'Text 2 (Sticker)'} nam={li.para_4b} rows={7} name={'para_4b'} />
+								</li>
+								<li slot='slot-3'>
+									<Textarea lab={'Text 3 (Glazed background)'} nam={li.para_4c} rows={7} name={'para_4c'} />
+								</li>
+							</UlDropdown>
 						</span>
 						<span slot="slot-4">
 							<UlDropdown txt_1={1} txt_2={2} txt_3={3} txt_4={4} txt_5={5}>

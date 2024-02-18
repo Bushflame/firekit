@@ -1,5 +1,5 @@
 <script>
-	import AuthForm from '$lib/auth/AuthForm.svelte';
+	import AuthForm from '$lib/authForm/AuthForm.svelte';
 	import { mailResetPasswordEmail } from '$lib/firebase/auth.client';
 	import messagesStore from '$lib/stores/messages.store';
 	let hideForm = false;
@@ -22,10 +22,17 @@
 		}
 	}
 </script>
-
+<section> 
 {#if !hideForm}
 	<AuthForm on:submit={onForgotPassword} forgotPassword={true} btnName="Reset Password" />
 {/if}
+</section>
 <svelte:head>
 	<title>Sveltefire - Forgot Password</title>
 </svelte:head>
+<style lang='stylus'>
+section
+	margin auto
+	max-width 25rem
+	width 100%
+</style>

@@ -1,7 +1,7 @@
 <script>
 	// @ts-ignore
-	import LoginWithGoogle from '$lib/auth/LoginWithGoogle.svelte';
-	import AuthForm from '$lib/auth/AuthForm.svelte';
+	import LoginWithGoogle from '$lib/authForm/LoginWithGoogle.svelte';
+	import AuthForm from '$lib/authForm/AuthForm.svelte';
 	import { loginWithEmailandPassword } from '$lib/firebase/auth.client';
 	import messagesStore from '$lib/stores/messages.store';
 	import { afterLogin } from '$lib/helpers/route.helper';

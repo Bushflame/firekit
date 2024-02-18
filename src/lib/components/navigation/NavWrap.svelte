@@ -1,8 +1,9 @@
 <script>
 	import { fade, fly } from 'svelte/transition';
+	import { page } from '$app/stores';
 	let open = false;
 </script>
-
+{#if $page.url.pathname != '/forgot-password'} 
 <button
 	tabindex="0"
 	aria-label="Navigation"
@@ -12,7 +13,7 @@
 		open = !open;
 	}}
 ></button>
-
+{/if}
 {#if open}
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div class="navwrap" transition:fly={{ y: -300, duration: 500 }}>
@@ -53,7 +54,7 @@
 
 //----------------------------------------
 .navwrap
-	background var(--theta)
+	background var(--iota)
 	//border 4px solid var(--beta)
 	//border-radius 2rem
 	display flex

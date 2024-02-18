@@ -8,6 +8,7 @@
 
 <style lang="stylus">
 li 
+    background red
     color var(--theta)
     margin-bottom .5rem
     max-width 20rem

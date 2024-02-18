@@ -18,9 +18,20 @@ export async function addListing(listing, userId) {
 		title_4a: listing.title_4a || '',
 		//paras------------------------
 		para_1a: listing.para_1a || '',
-		para_2a: listing.para_1a || '',
+		para_1b: listing.para_1b || '',
+		para_1c: listing.para_1c || '',
+
+		para_2a: listing.para_2a || '',
+		para_2b: listing.para_2b || '',
+		para_2c: listing.para_2c || '',
+
 		para_3a: listing.para_3a || '',
+		para_3b: listing.para_3b || '',
+		para_3c: listing.para_3c || '',
+
 		para_4a: listing.para_4a || '',
+		para_4b: listing.para_4b || '',
+		para_4c: listing.para_4c || '',
 		//lists--------------------------
 		list_1a: listing.li_1a || '',
 		list_1b: listing.li_1b || '',

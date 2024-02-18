@@ -2,9 +2,7 @@
 	import { page } from '$app/stores';
 	import { userKey } from '$lib/stores/store';
 	import Guides from '$comps/guides/Guides.svelte';
-	import Frame from '$frames/Single.svelte';
-	import Page from '$lib/book/Pages.svelte'
-	import Bg_img from '$lib/book/BgImage.svelte'
+	import SinglePage from '$lib/book/SinglePage.svelte';
 	//import { copy } from 'svelte-copy';
 
 	export let data;
@@ -18,7 +16,7 @@
 
 </script>
 
-<Frame >
+<SinglePage >
 	<!-- <div class="filter"></div> -->
 	<span  class="slot">
 
@@ -46,7 +44,7 @@
 		</div>
 	</span>
 	<!-- <span slot='slot-1b'> <h1>slot 1b</h1></span> -->
-</Frame>
+</SinglePage>
 
 <style lang="stylus">
 .slot 

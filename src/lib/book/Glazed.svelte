@@ -14,13 +14,13 @@ export let isTitle = false
 
 <style lang="stylus">
 .glazed
-	color var(--epsilon)
-	background-color var(--beta-alpha)// rgba(255, 255, 255, .09)
+	color #fff//var(--epsilon)
+	background-color rgba(255, 255, 255, .09)
 	border: 1px solid rgba(255, 255, 255, .25)
 	box-shadow: 0 0 10px 1px rgba(0, 0, 0, .25)
 	backdrop-filter blur(15px);
 	height fit-content
-	margin 1rem auto 0
+	margin 0 auto 
 	padding 0 6px
 	position relative
 	text-align center

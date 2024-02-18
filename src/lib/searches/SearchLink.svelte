@@ -8,35 +8,19 @@
 
 </script>
 
-	<!-- <h3>{heading}</h3> -->
 	<ul class="card">
 		{#each titles as title}
-        <!-- {#if title.length >= 18}
-			<li class='span-2'>
-				<a
-                    
-					href={linkTo}
-					data-sveltekit-preload-data="off"
-					on:click={() => {
-						$getByTitles = title;
-					}}>{title}</a
-				>
-			</li>
-            {:else} -->
-            <li>
-            <a
-            href={linkTo}
-            data-sveltekit-preload-data="off"
-            on:click={() => {
-                $getByTitles = title;
-            }}>{title}</a
-        >
-    </li>
-    <!-- {/if} -->
+                <li>
+                <a
+                href={linkTo}
+                data-sveltekit-preload-data="off"
+                on:click={() => {
+                    $getByTitles = title;
+                }}>{title}</a
+            >
+            </li>
 		{/each}
 	</ul>
-
-<!-- <SearchLink heading={'The Heading'} linkTo={'/results'} {titles}/> -->
 
 <style lang="stylus">
 
@@ -60,14 +44,14 @@ li
 a 
     background var(--beta)
     border-radius 1rem
-    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, 
-    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, 
-    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, 
-    rgba(0, 0, 0, 0.06) 0px 2px 1px, 
-    rgba(0, 0, 0, 0.09) 0px 4px 2px, 
-    rgba(0, 0, 0, 0.09) 0px 8px 4px, 
-    rgba(0, 0, 0, 0.09) 0px 16px 8px, 
-    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    box-shadow: rgba(62, 26, 0, 0.17) 0px -23px 25px 0px inset, 
+    rgba(62, 26, 0, 0.15) 0px -36px 30px 0px inset, 
+    rgba(62, 26, 0, 0.1) 0px -79px 40px 0px inset, 
+    rgba(62, 26, 0, 0.06) 0px 2px 1px, 
+    rgba(62, 26, 0, 0.09) 0px 4px 2px, 
+    rgba(62, 26, 0, 0.09) 0px 8px 4px, 
+    rgba(62, 26, 0, 0.09) 0px 16px 8px, 
+    rgba(62, 26, 0, 0.09) 0px 32px 16px;
     color var(--theta)
     display block
     font-size 1rem

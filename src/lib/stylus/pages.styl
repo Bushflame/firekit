@@ -1,5 +1,5 @@
 .filter //styl
-    background  rgba(0,0,0,.6)
+    background  rgba(0,0,0,.7)
     height 100%
     position absolute
     left 0
@@ -9,16 +9,22 @@
 .flex-box
     display flex
     flex-direction column
-    gap 2rem
-    height 100% 
-    padding 4rem 1rem
+    justify-content center
+    align-items center
+    gap 1rem
+    height 100% //fit-content //12rem //100% 
+    margin-bottom 2rem
+    padding 0rem 1rem 3rem
     position relative
     z-index 2
 .flex-box-bg //styl
     background var(--beta)
     background linear-gradient(var(--eta), var(--lambda))
-    height 100%
-    padding 1rem 0
+    display flex
+    flex-direction column
+    gap 1rem
+    height fit-content //100%
+    padding 1rem
     position relative
 .slot-1a-img //styl
     height 100%
@@ -31,7 +37,7 @@
 .img //styl
     display flex
     align-items end
-    height 300px
+    height 270px
     margin-bottom 1rem
     position relative
 .img-tall 

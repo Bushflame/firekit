@@ -1,7 +1,7 @@
 <script>
 	import { goto } from '$app/navigation';
-	import AuthForm from '$lib/auth/AuthForm.svelte';
-	import LoginWithGoogle from '$lib/auth/LoginWithGoogle.svelte';
+	import AuthForm from '$lib/authForm/AuthForm.svelte';
+	import LoginWithGoogle from '$lib/authForm/LoginWithGoogle.svelte';
 	import { registerWithEmailandPassword } from '$lib/firebase/auth.client';
 	import messagesStore from '$lib/stores/messages.store';
 	import { page } from '$app/stores';
@@ -43,15 +43,18 @@
 		}
 	}
 </script>
-
+<section>
 <AuthForm on:submit={register} btnName="Register with email and password">
 	<!-- <LoginWithGoogle btnName="Register with Google" /> -->
 </AuthForm>
-
+</section>
 <svelte:head>
 	<title>Sveltefire: Sign Up</title>
 </svelte:head>
 
 <style lang="stylus">
-
+section
+	margin auto
+	max-width 25rem
+	width 100%
 </style>

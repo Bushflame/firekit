@@ -1,9 +1,6 @@
 <script>
 	import { page } from '$app/stores';
-	import FrameWrap from '$frames/FrameWrap.svelte';
-	import Header from '$lib/building-views/Header.svelte';
-	import Footer from '$lib/building-views/Footer.svelte';
-	import Corners from '$lib/grids/Variable.svelte';
+	import Glazed from '$lib/book/Glazed.svelte'
 	/**
 	 * @type {any}
 	 */
@@ -21,8 +18,7 @@
 		currPage = 'Reset Password';
 	}
 </script>
-
-<Corners --hgt="400px">
+<Glazed>
 	<div class="authframe">
 		<form on:submit|preventDefault>
 			<h1>{currPage}</h1>
@@ -61,12 +57,13 @@
 			<slot />
 		</div>
 	</div>
-</Corners>
+</Glazed>
 
 <style lang="stylus">
 .authframe
 	//background rgba(255,255,255,.1)
 	height fit-content
+	margin auto
 	max-width 22rem
 	padding 1rem
 	position relative
@@ -75,16 +72,25 @@ form
 	display flex
 	flex-direction column
 	gap 1.4rem
-	width 100%
+	justify-content center
+	margin auto
+	width fit-content //100%
 h1 
 	color var(--beta)
 	text-align center
 .wrap 
 	display flex
+	flex-direction column
 	align-items center
 	justify-content space-between
-label 
+	margin auto
+	width 100%
+label.form-label 
+	display block
 	color var(--beta)
+	font-weight 800
+	text-align left
+	width 100%
 	//margin-bottom 1rem
 
 input[type="email"], input[type="password"]  
@@ -94,7 +100,7 @@ input[type="email"], input[type="password"]
 	margin-top .4rem
 	outline none
 	padding .5rem
-	width 14rem
+	width 100% //20rem
 button 
 	padding .7rem
 	background var(--eta)

@@ -7,11 +7,12 @@
 		dd_4 = false,
 		dd_5 = false;
 
-	export let txt_1 = '',
-		txt_2 = '',
-		txt_3 = '',
-		txt_4 = '',
-		txt_5 = '';
+	export let txt_1 = 1,
+		txt_2 = 2,
+		txt_3 = 3,
+		txt_4 = 0,
+		txt_5 = 0;
+	export let paraTxt = false
 </script>
 
 <div class="wrapper">
@@ -53,6 +54,7 @@
 		>
 			{txt_3}
 		</button>
+		{#if txt_4 >0}
 		<button
 			class:dd_4
 			on:click|preventDefault={() => {
@@ -77,13 +79,16 @@
 		>
 			{txt_5}
 		</button>
+		{/if}
 	</div>
 	<Ul>
 		<li class="dropdown" class:dd_1><slot name="slot-1" /></li>
 		<li class="dropdown" class:dd_2><slot name="slot-2" /></li>
 		<li class="dropdown" class:dd_3><slot name="slot-3" /></li>
-		<li class="dropdown" class:dd_4><slot name="slot-4" /></li>
-		<li class="dropdown" class:dd_5><slot name="slot-5" /></li>
+		<!-- {#if paraTxt} -->
+			<li class="dropdown" class:dd_4><slot name="slot-4" /></li>
+			<li class="dropdown" class:dd_5><slot name="slot-5" /></li>
+		<!-- {/if} -->
 	</Ul>
 </div>
 

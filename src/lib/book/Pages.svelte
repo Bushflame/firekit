@@ -11,7 +11,7 @@
 </script>
 <div class="pages">
     <section class="page page-1" class:page_1>
-        <Page toggleTxt={''}>
+        <Page >
             <span slot='side-1' class='side-1 side-la'>
                 <slot name='slot-1a'/>
 
@@ -23,7 +23,7 @@
         </Page>
     </section>
     <section class="page page-2" class:page_2>
-        <Page toggleTxt={'Details'}>
+        <Page>
             <span slot='side-1'>
                 <slot name='slot-2a'/>
 
@@ -63,7 +63,7 @@
     {/if}
 	{#if showPaginator}
 		<div class="paginator">
-            {#if tit_1}
+            <!-- {#if tit_1} -->
 			<button
 				class:page_1
 				on:click|preventDefault={() => {
@@ -74,7 +74,7 @@
 					page_4 = false;
 				}}>1</button
 			>
-            {/if}
+            <!-- {/if} -->
 			<button
 				class:page_2
 				on:click|preventDefault={() => {

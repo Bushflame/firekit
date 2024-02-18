@@ -1,19 +1,10 @@
 <script>
 	import { fade, scale, fly } from 'svelte/transition';
-	import { quintOut } from 'svelte/easing';
-	import ResultsFrame from '$frames/IndexFrame.svelte';
-	import Frame from '$frames/ViewFrame.svelte';
-	import FrameWrap from '$frames/FrameWrap.svelte';
 	import Pages from '$lib/book/Pages.svelte'
 	import Sticker from '$lib/book/Sticker.svelte'
 	import Glazed from '$lib/book/Glazed.svelte'
 	import Quote from '$lib/book/Blockquote.svelte'
-	import Bg_img from '$lib/book/BgImage.svelte'
-	import Corners from '$lib/grids/Corners.svelte';
-	import HalfCorners from '$lib/grids/ShortCorners.svelte';
-	import Header from '$lib/building-views/Header.svelte';
-	import Footer from '$lib/building-views/Footer.svelte';
-	import Img from '$lib/building-views/Img.svelte';
+	import Bg_img from '$lib/book/BgImage.svelte';
 	import Title from '$lib/building-views/Title.svelte';
 	import Para from '$lib/building-views/Para.svelte';
 	import Li from '$lib/building-views/FlatLi.svelte';
@@ -65,20 +56,22 @@
 					<Glazed isTitle={true}>
 						<Title title={res.title_1a} />
 					</Glazed>
-					<a href={`/listing/${res.id}`} data-sveltekit-preload-data="">View Full Details</a>
+					
+					<p class="show-count">Showing {counter + 1} of {results.length} results</p>
 				</div>
 				<div class="flex-box-bg">
 					<img src={res.img_1a} alt="" class="slot-1a-img">
 					{#if res.para_1a.length > 4}
-						<div class="pad-lr">
+						<div class="flex-box">
 							<Quote lg_first={true}><Para txt={res.para_1a} --align="left" --margin="1rem auto .5rem" --weight="800"  /></Quote>
 							<Glazed>
-							<Ul>
-								<Li item={res.li_1a} />
-								<Li item={res.li_1b} />
-								<Li item={res.li_1c}  />
-							</Ul>
+								<Ul>
+									<Li item={res.li_1a} />
+									<Li item={res.li_1b} />
+									<Li item={res.li_1c}  />
+								</Ul>
 						</Glazed>
+						
 					</div>
 					{/if}
 			</div>
@@ -87,7 +80,7 @@
 			<span slot="slot-1b">
 				<Bg_img bg_img={'/imgs/lab.jpg'}/>
 				<div class="filter"></div>
-				<div class="flex-box">
+				<div class="flex-box flex-box-1b">
 					<Glazed isTitle={false}>
 						<h3>Contact Details</h3>
 						<Para bold={'Contact Details'} --align="center" --margin=".2rem 1rem .3rem" hr={true} />
@@ -110,9 +103,11 @@
 			</span>
 				
 			</Pages>
-
-			<p class="show-count">Showing {counter + 1} of {results.length} results</p>
+			<a href={`/listing/${res.id}`} data-sveltekit-preload-data="">View Full Details</a>
+			
 		{/if}
+		
+
 	{/each}
 	<!-- <Footer/> -->
 <!-- </FrameWrap> -->
@@ -123,20 +118,35 @@
 
 
 @import '/src/lib/stylus/pages'
-
+// .slot-1a
+// 	position relative
+.flex-box 
+	//background red
+	display flex
+	flex-direction column
+	gap 1rem
+	height fit-content //12rem
+	padding-top 0
+.flex-box-1b
+	padding-top 4rem
+.img 
+	background red
+	height 270px
+	//padding 2rem
+	position relative
 p.show-count 
-	//background green
+	background var(--zeta-alpha-d) //green
 	border-radius 1rem
-	color var(--beta)
+	color var(--alpha)
 	left 50% 
 	margin auto
-	padding .3rem 1rem
+	padding .5rem 1rem
 	transform translate(-50%,0)
 	position absolute
-	bottom 1.5rem
+	bottom 14px
 	//top 1rem
 	text-align center
-	width fit-content //18rem
+	width 14rem
 	z-index 2
 
 a 
@@ -154,30 +164,30 @@ a
 	color var(--lambda)
 	padding .5rem 1rem
 	position absolute
-	bottom 1rem
+	bottom 2rem
 	left 50%
     text-align center
 .prev, .next 
 	position absolute 
-	bottom 2rem
+	bottom 2.8rem
 .prev 
-	left 5rem 
+	left 7rem 
 
 .next 
-	right 5rem
+	left 18.5rem
 @media(min-width 860px)
 	a 
-		//bottom 4rem
-		left 50%
+		bottom 2rem
+		left 25%
 		transform translate(-50%)
 	.next 
 		right calc(var(--globalWidth) / 2 + 5rem)
 	p.show-count 
-		left 25% 
+		left 50% 
 		transform translate(-50%,0)
 button.counter-btn 
-	background var(--iota) //rgba(0,0,0,.4)
-	border 1px solid var(--beta)
+	background transparent  //var(--iota) //rgba(0,0,0,.4)
+	//border 1px solid var(--beta)
 	border-radius 50%
 	color #fff
 	display flex
@@ -188,8 +198,8 @@ button.counter-btn
 	outline 0
 	padding-bottom .3rem
 	position absolute 
-	bottom 1.5rem
-	//top 10px //50% 
+	//bottom 1.5rem
+	top 240px //50% 
 	//transform translate(0, -50%)
 	transition all .5s
 	text-align center

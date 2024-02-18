@@ -7,9 +7,11 @@
 <style lang="stylus">
 h1 
     //background var(--gamma)
-    //border-radius 1.2rem
-    color var(--iota) // var(--color)
+    text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
+             1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+    color var(--theta) // var(--color)
     font-size 1.4rem
+    letter-spacing 1px
     margin .5rem auto  .4rem//.6rem
     padding .2rem 1rem
     position relative

@@ -1,21 +1,25 @@
 <script>
 	import { page } from '$app/stores';
-	import SinglePageFrame from '$frames/SinglePageFrame.svelte';
-
-	import Corners from '$lib/grids/Corners.svelte';
-	import Header from '$lib/building-views/Header.svelte';
-	import Footer from '$lib/building-views/Footer.svelte';
-	import Frame from '$frames/Index.svelte';
-	import FrameWrap from '$frames/FrameWrap.svelte';
 	import Ul from '$lib/building-views/Ul.svelte';
 	import FlatLi from '$lib/building-views/FlatLi.svelte';
 	import ALink from '$lib/building-views/ALink.svelte';
-
 	import Pages from '$lib/book/Pages.svelte'
 	import Quote from '$lib/book/Blockquote.svelte'
+	import MountPage from '$lib/book/MountPage.svelte'
 	import Sticker from '$lib/book/Sticker.svelte'
 	import Glazed from '$lib/book/Glazed.svelte'
+	import {onMount} from 'svelte'
+
+let loadPage = false
+onMount(()=>{
+	setTimeout(()=> {
+		loadPage = true
+	},10)
+
+})
+
 </script>
+<MountPage>
 <Pages showPaginator={false}>
     <span slot='slot-1a' class='slot-1a'> 
         <img src="/imgs/bulldog.jpg" alt="" class='bg'>
@@ -26,11 +30,6 @@
 					<h1><span>Dogs</span><br/> for sale</h1>
 					<p class='intro'>The place to buy and sell new best friends</p>
 				</div>
-				<!-- <div class="sub-heading">
-					<Quote>
-						<p>The place for buying and selling new best friends</p>
-					</Quote>
-				</div> -->
 	</div>
     </span>
     <span slot='slot-1b'>
@@ -53,8 +52,10 @@
 		</div>
 	</span>
 </Pages>
+</MountPage>
 
 <style lang="stylus">
+
 img.bg 
 	width 100%
 	position absolute
@@ -67,9 +68,9 @@ img.bg
 	display flex
 	flex-direction column
 	justify-content end
-	gap 2rem
+	gap .8rem
 	height 100% 
-	padding 4rem 1rem
+	padding 2.4rem 1rem 1.5rem
 	position relative
 	z-index 2
 .filter //styl
@@ -84,19 +85,12 @@ img.bg
 	transform rotateY(180deg)
 .center 
 	justify-content center
-.between 
-	justify-content space-between
 
-.large
-	color var(--theta)
-	font-size 2.2rem 
-	font-weight 800
-	line-height 1
-	text-transform: uppercase
-	z-index 1
+
 .title-box 
 	background var(--iota-alpha-d) //rgba(0,0,0,.5)
 	margin-left -1rem
+	margin-bottom 1.5rem
 	padding 1rem .8rem 1rem .5rem
 	width fit-content
 h1 
@@ -109,10 +103,11 @@ h1
 	text-transform: uppercase
 h1 span 
 	font-size 4rem
-.sub-heading 
-	width 300px
+p 
+	font-size 1.1rem
+	line-height 1.3
 p.intro 
-	color var(--beta)
+	color var(--alpha)
 	font-size 1.1rem
 	margin-left 1.1rem
 p.quote 

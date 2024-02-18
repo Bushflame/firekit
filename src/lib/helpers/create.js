@@ -30,9 +30,20 @@ export async function create(userId) {
 			title_4a: '',
 
 			para_1a: '',
+			para_1b: '',
+			para_1c: '',
+
 			para_2a: '',
+			para_2b: '',
+			para_2c: '',
+
 			para_3a: '',
+			para_3b: '',
+			para_3c: '',
+
 			para_4a: '',
+			para_4b: '',
+			para_4c: '',
 
 			li_1a: '',
 			li_1b: '',
