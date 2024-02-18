@@ -1,6 +1,5 @@
 <script>
-	// @ts-nocheck
-	import { enhance } from '$app/forms';
+	//import { enhance } from '$app/forms';
 	import MainFrame from '$comps/forms/EditForm.svelte';
 	export let data;
 	export let form;
@@ -33,7 +32,6 @@
 <form
 	on:submit={submitForm}
 	{submitting}
-	use:enhance
 	enctype="multipart/form-data"
 	method="POST"
 	form={{ ...data.listing, ...form }}
@@ -157,5 +155,5 @@
 </div>
 
 <style lang="stylus">
-	@require '/src/lib/stylus/listingForm.styl'
+	//@require '/src/lib/stylus/listingForm.styl'
 </style>

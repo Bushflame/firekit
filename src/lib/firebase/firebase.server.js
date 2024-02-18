@@ -1,6 +1,7 @@
+import serviceAccount from './firebase-secrets.server.json';
 import admin from 'firebase-admin';
 
-import serviceAccount from './firebase-secrets.server.json';
+
 if (admin.apps.length === 0) {
 	admin.initializeApp({
 		// @ts-ignore
@@ -9,6 +10,6 @@ if (admin.apps.length === 0) {
 }
 
 export const db = admin.firestore();
-//db.settings({ ignoreUndefinedProperties: true })
+
 export const auth = admin.auth();
 export const storage = admin.storage();
