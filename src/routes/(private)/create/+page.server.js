@@ -12,6 +12,6 @@ export const actions = {
 
 		const listingId = await addListing(data.listing, locals.user.id);
 
-		throw redirect(303, `/listing/${listingId}`);
+		redirect(303, `/listing/${listingId}`);
 	}
 };

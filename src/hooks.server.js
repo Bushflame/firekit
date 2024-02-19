@@ -22,10 +22,10 @@ export async function handle({ event, resolve }) {
 
 	if (url.pathname !== '/') {
 		if (!user && protectRoutes.find((u) => url.pathname.indexOf(u) > -1)) {
-			throw redirect(302, `/login?redirect=${url.pathname}`);
+			redirect(302, `/login?redirect=${url.pathname}`);
 		}
 		if (user && guestRoutes.find((u) => url.pathname.indexOf(u) > -1)) {
-			throw redirect(302, '/');
+			redirect(302, '/');
 		}
 	}
 

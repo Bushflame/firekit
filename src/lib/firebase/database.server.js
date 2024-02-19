@@ -131,9 +131,7 @@ export async function getListing(id) {
 
 //  -------------GET ALL LISTINGS----------------------------------------------
 export async function getListings() {
-	/**
-	 * @type {firestore.DocumentData[]}
-	 */
+
 	let all = [];
 	const listingsRef = db.collection('listings');
 	const snapshot = await listingsRef.get();

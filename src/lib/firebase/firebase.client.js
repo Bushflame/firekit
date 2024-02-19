@@ -23,6 +23,7 @@ const firebaseConfig = {
 	appId: PUBLIC_API_ID,
 	measurementId: PUBLIC_MEASUREMENT_ID
 };
+
 if (getApps().length === 0) {
 	const app = initializeApp(firebaseConfig);
 	if (is_client) {

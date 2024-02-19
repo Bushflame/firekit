@@ -1,16 +1,17 @@
-import serviceAccount from './firebase-secrets.server.json';
 import admin from 'firebase-admin';
+import serviceAccount from './firebase-secrets.server.json';
+
 import {GOOGLE_SERVICE_ACCOUNT} from '$env/static/private'
-
-
 if (admin.apps.length === 0) {
 	admin.initializeApp({
 		// @ts-ignore
-		credential: admin.credential.cert(JSON.parse(GOOGLE_SERVICE_ACCOUNT))
+		//credential: admin.credential.cert(JSON.parse(GOOGLE_SERVICE_ACCOUNT))
+		Credential: admin.credential.cert(serviceAccount)
 	});
+} else {
+	console.log('bollox',)
 }
 
 export const db = admin.firestore();
-
 export const auth = admin.auth();
 export const storage = admin.storage();

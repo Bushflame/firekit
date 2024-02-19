@@ -8,12 +8,12 @@ export async function load({ params, locals }) {
 	const listing = await getListing(params.id);
 	console.log('edit page server ', listing);
 	if (!listing) {
-		throw error(404, { message: 'Listing not found!' });
+		error(404, { message: 'Listing not found!' });
 	}
 
 	// @ts-ignore
 	if (listing.user_id !== locals.user.id) {
-		throw error(403, { message: 'Access Denied!' });
+		error(403, { message: 'Access Denied!' });
 	}
 	//console.log('listing in edit page.server', listing)
 
@@ -30,7 +30,7 @@ export const actions = {
 
 		// @ts-ignore
 		if (!listing || listing.user_id !== locals.user.id) {
-			throw error(403, { message: 'Access Denied!' });
+			error(403, { message: 'Access Denied!' });
 		}
 
 		const formData = await request.formData();
@@ -42,6 +42,6 @@ export const actions = {
 
 		await editListing(params.id, data.listing, locals.user.id);
 		console.log('in edit listing on page.server actions edit -redirect');
-		throw redirect(303, `/dashboard`);
+		redirect(303, `/dashboard`);
 	}
 };

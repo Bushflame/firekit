@@ -4,7 +4,7 @@ let uid = 'ljSNvobkTzgxk8xmuda5';
 export async function load({ params }) {
 	const listing = await getListing(params.id);
 	if (!listing) {
-		throw error(404, { message: 'Listing not found!' });
+		error(404, { message: 'Listing not found!' });
 	}
 	return {
 		listing
